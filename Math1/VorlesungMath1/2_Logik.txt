@@ -1,0 +1,4 @@
+Aussagen: wahr oder falsch
+Aussageformeln: Aussagen bilden mit def. Verknüpfungen
+	Vorrangsregeln: >="Hat stärkere Bindung als"
+	NOT -> AND -> OR -> IMPLIKATION -> ÄQUIVALENZ

@@ -1,0 +1,11 @@
+Algorithmus definiert Verfahren zur Lösung einer Aufgabe
+Beschreibung: endlich, präzise, elementar, effektiv
+
+Informelle Beschreibung ungenau, aber intuitiv leicht lesbar
+Formale Beschreibung meist komplex
+Grafische Notationen: Anschaulich, aber präzise
+	Flussdiagramm, Struktogramm
+Rekursion
+	Zurückführen eines Problems auf (einfachere) Version seiner selbst
+	Algorithmus stützt sich auf sich selbst ab
+Vor der Implementierung klären, was eigentlich zu tun ist!!

@@ -1,0 +1,32 @@
+================================================13.10.2023=============================================029-043
+
+Datentyp: legt erlaubte Operationen, mögl. Werte fest / Compiler: legt (Hardwareabh.) Repräsentation,Größe fest
+Repräsentation: legt Speicherbedarf, Wertebereich d. Variablen fest
+
+================================================================================================================
+
+arithmetische Typen: elementare (einfache) Datentypen
+	-Ganzzahltypen (Integertypen): unsigned/signed(nicht/vorzeichenbehaftet)
+		char: 1Byte: Zeichen aus Zeichensatz/Steuerzeichen/Zahlen m. kleinem Wertebereich
+			Größe ^= Zeichensatz d. Maschine
+		int, short(int), long(int) (Größere Werte)
+		Wahl zu kleinen Datentyps: Überlauf: nicht geprüft/abgefangen
+		8bit: 2^n: |2^7|2^6|2^5|2^4|2^3|2^2|2^1|2^0|
+	-Gleitpunkttypen: 
+		float, double, long double (höhere Genauigkeiten)
+		Exponentialzahlen: Mantisse * 2^Exponent: |1Bit: Vorzeichen| 8Bit: Exponent |23Bit: Mantisse|
+
+================================================================================================================
+Deklaration: legt Namen, Typ fest(macht Bezeichner für Compiler bekannt)
+Definition: anlegen d. Variable im Speicher(reservieren von Platz+Deklaration)    :   datentyp name;
+Initialisierung: datentyp name "= Konstante": lokale variablen: nicht automatisch initialisiert
+	Wert nach definition undefiniert(Wert d. Speicherstelle) | Compiler überprüft nicht nach initialisierung
+Namenskonvention: Buchstaben+Ziffern(_=Buchstabe), beginnt mit Buchstabe
+	mind. 31 Zeichen f. interne Namen, 6 f. externe Namen relevant
+
+================================================================================================================
+Literale Konst.: haben Keinen Namen, durch Wert dargestellt
+Symbolische Konst.: haben Namen, der Wert repräsentiert:
+	#define | const (höhere Typsicherheit)   <=>  (Konsistente Mehrfachverwendung/Austauschbarkeit)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

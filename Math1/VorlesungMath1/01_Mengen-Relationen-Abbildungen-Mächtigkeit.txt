@@ -1,0 +1,31 @@
+Menge: beliebige Zusammenfassung wohlunterschiedenen Objekten
+x ∈ M: 		x:ist Element von M.
+x ∉ M: 		x:kein Element von M.
+M = N: 		Mengen haben die gleichen Elemente.
+M ≠ N: 		Elemente in einer Menge, die in der anderen Menge nicht enthalten sind
+M ⊂ N: 		M ist Teilmenge von N (jedes Elem. von M auch Elem. von N)
+P(M) = 2^M:	Potenzmenge von M(Menge aller Teilmengen) 
+
+Beschreibung:
+	-{...,...,...} / Auflistung aller Elemente
+	-Z ∶={x|x ist ganze Zahl} / Beschreibung über charakteristische Eigenschaft
+		":=" 		= "ist definiert als"
+		"x| ..." 	= "x mit folgender Eigenschaft"
+
+Wichtige Mengen
+	Z ∶= {x | x ist eine ganze Zahl}
+	N ∶= {x | x ist eine natürliche Zahl}
+		N0 ∶= {0, 1, 2, 3, 4, . . .}
+	Q ∶= {x | x ist rational} = {x| x = p/q , p, q ∈/Zundq ≠ 0}
+	R ∶= {x S x ist reell}
+	∅ ∶= {}
+	P ∶= {x | x ist Primzahl oder x = 1} = {x∈N | Falls x=p⋅q mit p,q∈N, dann gilt p=1 oder q=1} 
+
+Mengenoperationen:	(Kommutativgesetz, Assoziativgesetz, Distributivgesetz)
+	Durchschnitt 		 M∩N 	∶= {x| x∈M und x∈N}
+	Vereinigung  		 M∪N 	∶= {x| x∈M oder x∈N}
+	relatives Komplement M\N 	∶= {x| x∈M und x∉N}		(rel.Komplement von N in M/M ohne N)
+		_ M 									
+		N 	 Falls N⊂M: M\N = Komplement
+
+-9

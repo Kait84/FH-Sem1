@@ -1,0 +1,20 @@
+=======================================11.10.23=================================
+
+analog:
+	+Anschaulichkeit +einfache Beschreib- u. Realisierbarkeit
+	-begrenzte Genauigkeit(techn.realisierung) -stör/verfälschbar -komplizierte Speicherung
+digital:
+	+beliebige Genauigkeit +eindeutig +keine Verluste: Übertr/Speicherung
+	-Beschr./Definition aufwändig
+
+Kennlinien:
+	analog: linear - mit Begr, nichtlinear - mit hysterese(verzögerung zum regeln=bessere Lebensdauer d. geräte)
+	digital: treppenförmig (Bit ^= "Stufenzahl")
+
+Darstellung: analog, zwei/drei/mehrpunktsignal(MP3) : dis-kontinuierlich
+Binäre Werte: zwei Zustände wahr=1 unwahr=0
+Spannungszustände: 0-12/0-(-12)/0-2/0-5/-5-5
+	niedrig L(low) / hoch H(high)
+
+no: Schalter
+nc: Ausschalter (Kabelbruchsicherheit)

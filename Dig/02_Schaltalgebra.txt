@@ -1,0 +1,85 @@
+Wertetabelle			|n Eingangsgrößen	  	|m Ausgangsgrößen 	|
+Wahrheitstabelle		|-----------------------|-------------------|	("-"=Wert beliebig/nicht definiert)
+Schaltbelegungstabelle	|alle Komb.d.Eingangsgr |für alle ausgangsgr|
+						|2^n 					|y{0,1,-}			|
+
+===========================================Logische Verknüpfungen=======================================
+
+------Name------  ------Boolsche Gleichung-----  --------Schaltzeichen-------	A|B|Y ---Wahrheitstabelle---
+
+	UND/AND 		Y=A∧B								A---|&  |				0 0|0		
+														B---|   |---Y			0 1|0
+																				1 0|0
+																				1 1|1
+---------------------------------------------------------------------------------------------------------------
+	ODER/OR			Y=A∨B								A---|>1 |				0 0|0
+														B---|-  |---Y			0 1|1
+																				1 0|1
+																				1 1|1
+---------------------------------------------------------------------------------------------------------------
+	Negation/NOT	  _	 									|1  |				0  |1
+					Y=A									A---|   |()-Y     		1  |0
+
+
+---------------------------------------------------------------------------------------------------------------
+	NAND			______								A---|&	|				0 0|1
+					Y=A∧B	 							B---| 	|()-Y			0 1|1
+																				1 0|1
+																				1 1|0
+---------------------------------------------------------------------------------------------------------------
+	NOR				______								A---|>1	|				0 0|1
+					Y=A∨B	 		 					B---|-	|()-Y			0 1|0
+																				1 0|0
+																				1 1|0
+---------------------------------------------------------------------------------------------------------------
+	Äquivalenz						   _ _				A---|=	|				0 0|1
+					Y=A↔B 	 Y=(A∧B)∨(A∧B)				B---|	|---Y			0 1|0
+																				1 0|0
+																				1 1|1
+---------------------------------------------------------------------------------------------------------------
+	Antivalenz		Y=A⊕B		_ 		 _				A---|=1	|				0 0|0
+	(XOR)			Y=A</>B  Y=(A∧B)∨(A∧B)				B---|	|---Y			0 1|1
+																				1 0|1
+																				1 1|0
+
+LOGISCHER RING: Menge boolscher Funktionen, mit denen alle mögl. log. Verknüpfungen hergestellt werden können
+	-UND, ODER, NICHT
+	-NAND
+	-NOR
+	-Äquivalenz,Antivalenz
+
+WERTETABELLE AUSLESEN:
+basierend auf "1-Zeilen"
+	-UND-Verknüpfung aller Eingangsvar pro Zeile
+	-ODER-Verknüpfung d. Zeile, in der Y=1
+basierend auf "0-Zeilen"
+	-ODER-Verknüpfung aller Eingangsvar. pro Zeile
+	-UND-Verknüpfung d.Zeile, in der Y=0
+	-Eingangsvar=0:aufschreiben d.unnegierten Var  / Eingangsvar=1:aufschreiben d.negierten Var
+
+RECHENREGELN:
+Wertemenge M{0,1}  | Operatoren {∧, ∨, -} | Variable{x1, x2,...,y1,y2,...,a,b,c}
+Axiome(Postulate):
+	-Neutralelement		a∨0=a 		a∧1=a
+	-Komplement			a∨!a=1 		a∧!a=0
+	-Kommutativ/Distributivgesetz
+Theoreme(aus Axiomen abgeleitete Regeln)
+	Idempozenz	/Eigenschaften 0,1 	/Absortionsgesetz	/Assoziativgesetz	/Identität	/Expansionsgesetz
+
+DE MORGANSCHE GESETZE:
+	1.	___	  _  _
+		A∧B = A∨B
+	2.	___	  _	 _
+		A∨B = A∧B
+
+SATZ VON SHANNON: negation boolscher Funktionen erhält man durch Ersetzung von:
+	negierte var <==> nich negierte var
+	1 			 <==> 0
+	UND 		 <==> ODER
+	Äquivalenz   <==> Antivalenz
+
+NORMALFORMEN:
+	Vollkonjunktion: UND-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
+	Volldisjunktion: ODER-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
+	Disjunkte Normalform/ODER-Normalform: aus einer/mehreren-ODER-verkn. Vollkonjunktionen
+	Konjunkte Normalform/UND-Normalform: aus einer/mehreren-UND-verkn. Volldisjunktionen

@@ -1,0 +1,48 @@
+===================================================06.10.23=============================================005-022
+
+Info: Wissenschaft masch. Informationsverarbeitung: Verarb.,Speich.,Übertrag.
+Information + Automatik / EDV / IT
+engl. Computer Science
+
+Aufgaben:
+	Daten: Formalisierte Darstellung Infos
+	Algorithmen: Vorschriften Verabrb. v. Infos
+	Computer/Steuerger.: Aufbau v. Masch. zur abarbeitung von Alg.
+
+Einsatz: Problemstellungen jegl. Art/Komplexität (Anwendungsgebiet)
+
+Info: Kontext m. anderer aufg / überall / Dienstleistung f. Lösung d. eigentl. Problems
+	Anforderung:	Kenntnisse alg Info / Spezialg. / Fachber. des Problems
+					Analytisch-logisch. Denkweise / Teamfähigk. + Kommunikationsstärke
+
+Theor. Informatik: Naturwissenschaft: abstakte math./logische Grundl. : automatentheorie
+Techn. Informatik: Ingenieurwissenschaft: Hardware: Rechnerarchitektur / Rechnernetze / Protokoll
+Prakt. Informatik: Software: Daten, Programme, Rechnersteuerung : Brücke zw. Hardw., Software
+Angew. Informatik: Aufgaben außerh. weiterentw. Info: Spezialprogr.
+
+{
+1524: Dezimalsystem in D. (Adam Ries)
+1700: Dual. Zahlensystem (Gottfried Wilhelm Leibnitz)
+1850: Boolsche Algebra (George Boole)
+Programmgest. Rechner:
+	1934-37: Z1: mech, 1941 Z3: el.mech.
+	1946 ENIAC vollel.
+1946: Von-Neumann-Architektur(John von Neumann): Ein/Ausgabe, Steuerwerk, Rechenwerk(ALU), Speicher
+}
+
+Moore´s Law: Transistoren / Rechenleistung verdoppelt alle 2 Jahre
+
+
+-------------------------Von Neumann Architektur: Rechner bildet Eingabe auf Ausgabe ab-----------------------
+	Eingabe/Ausgabe
+CPU [Steuerwerk		: Befehlssatz: best. Anzahl v. ausführbaren Befehlen
+	[Rechenwerk		: ALU: Arithmetic logical unit: ganzzahlige add/sub/mul/sub & logisches UND,ODER,NICHT
+					  FPU: Floating point unit: Gleitkommazaheln
+	Speicher/werk=RAM: Programmbefehle und Daten
+
+	Laden jedes Befehls von Speicher in Steuerwerk (sequenzielles Arbeiten): von-neuman´sche Flaschenhals
+	(Bottleneck) -> chache Speicher(innerhalb CPU) : Geschw. d. Steuerweks steigt durch zweiten Speicher(chache)
+	!!Je mehr chache Speicher, desto schneller
+	Steuerweke ^= Cores :Mehrkerntechnologie
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

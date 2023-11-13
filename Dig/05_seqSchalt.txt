@@ -1,0 +1,16 @@
+Beschreibung mittels Zuständen und Zustandsübergängen (Zustandsdiagramm)
+
+===============================================Schaltungstypen=============================================
+-Kombinatorische Schaltung(Schaltnetz)
+-Sequentielle Schaltung(Schaltwerk/Automat) = Komb.Schaltung(Schaltnetz) + Speicher
+	= digitale Schaltung: Verarbeitet Eingangssignalen: 
+	Ausgangssignale hängen von Eingangssignalen, vorherigen Zuständen(vorgeschichte) ab
+
+=========================Flip-Flops:Binäre Speicher(können Binärvar. speichern)============================
+								 _
+	RS-Flipflop 		Q(m+1)=S∨RQm					S---|S  |--Q _		
+														R---|R  |----Q
+	(Signalzeitplan, Pulsfolgediagramm)
+
+--10
+																				

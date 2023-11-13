@@ -1,0 +1,40 @@
+================================================FUNKTIONEN==============================================084-095
+
+--------------------------------------------Funktionsdefinition-------------------------------------------------
+-Syntax: Funktionskopf: legt Aufrufschinttstelle fest / Funktionsrumpf: enthält lok. Vereinbarungen, Anweisung
+	Prozedur: Funkt hat keinen Rückgabewert, Rückgabetyp void (default wert: int) 
+	rückgabewert anders als void: MUSS wert mit return zurückgeben (abarb. beendet, dahinter: dead code)
+	{...}: Funktion/Wiederholung: Rumpf  |  Verzweigung: Zweig
+-Deklaration: Jede Funkt.vor Verwendung dekl.(durch Definition/Deklarationsanweisung)
+	durch Definitionsanweisung: Signatur d.Funkt.bekanntgegeben: Name/Rückgabetyp d.Funkt/Zahl,Typen d.Parameter
+
+Funktionsdefinition: Syntax: Funktionskopf/Funktionsrumpf
+	Funktionskopf: left Aufrufschnittstelle d. Funkt. fest [rückgabetyp name(typ formaler_param)]
+		formale Parameter: behandlung innerhalb Funkt. wie Variablen: in Parameterleiste
+	Funktionsrumpf: enthält lok. Vereinbarungen, Anweisungen [{...}]
+
+	hat Funkt. keinen Rückgabewert: void: Bezeichnung d.Funkt als Prozedur (default Rückgabewert: int)
+	Funkt nicht void: Wert MUSS mit return zurückgegeben werden(Ausdruck mögl) alles nach Return: dead code
+
+	Deklaration: jede Funkt. muss vor Verwendung deklariert(bekanntgemacht) werden durch:
+		 Definition/Deklarationsanweisung:bekanntgabe d. Signatur(Name, Typ/Anzahl d.Param., Rückgabetyp)
+
+	hat Funkt. formale Parameter MUSS bei Aufruf für jeden solchen ein aktueller Parameter übergeben werden
+		Aktueller Parameter: beliebig koplexer Ausdruck(Übergabe an Funkt.: Wert[call-by-value])
+		1.Auswertung d.Ausdrucks	2.Übergabe d.Werts an Funkt 	3.Ausführung d.Funkt
+		!Ausertungsreihenfolge d.Param: in C nicht festgelegt : Ausdrücke: Seiteneffekte(Veränd.Var.werte)
+
+----------------------------------------------Funktionsaufruf--------------------------------------------------
+-Syntax: hat Funkt. formale Parameter: bei Aufruf an jeden form.Parameter: aktuellen Parameter übergeben
+	Aktueller Parameter: beliebig koplexer Ausdruck(Übergabe an Funkt.: Wert[call-by-value])
+	1.Auswertung d.Ausdrucks	2.Übergabe d.Werts an Funkt 	3.Ausführung d.Funkt
+	!Ausertungsreihenfolge in C nicht festgelegt : Seiteneffekte d.Ausdrücke(Werteberechnung+Veränd.d.Varwerte) 
+	anzahl/typ d.aktuellen Parameter muss mit anzahl/typ d.formalen Parameter übereinstimmen
+
+
+Rekursive Funktion(direkt/indirekt): Funkt. ruft sich im Rumpf selbst auf
+	verglichen mit iterativen Funkt: wesentlich langsamer
+	direkt: in eigener Funkt / indirekt: in fremder Funkt.
+	indirekt: "Schleife von Funktionen"- viele Funktionen rufen sich auf, bis wieder bei Funktion1 endet
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

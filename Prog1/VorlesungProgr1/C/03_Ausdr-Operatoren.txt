@@ -1,0 +1,40 @@
+================================================13.10.2023===========================================044-066
+
+AUSDRUCK: math. Therm(z.B Bezeichner), Berechnung(Ausführung) ergibt Wert: benötigt auf rechten Seite d Zuweisung
+	Var/Konst. + Operatoren + Funktionen = komplexer Ausdruck
+
+================================================================================================================
+
+OPERATOREN: einstellig(unär/monadisch), zweistellig(binär/dyadisch), dreistellig(ternär/tryadisch)
+einstellig:  Präfixoperator(Rück: in/dekrement)/Postfixoperator(Rück: eingebewert) |: (Nebeneffekt in/dekrement)
+	pos/neg Vorzeichenoperator: +A / -A
+	post/präfix Inkrementoperator: A++/++A (Rückgabewert:Postf:unverändert/Präf:Inkrem,Nebeneffekt:Inkr.Operand)
+	post/präfix Dekrementoperator: A--/--A
+
+	(Rel.Op)Zuweisungsoperator: | = | +=(vorteil f.Compiler) | -= | *= | /= | %= | (rechtsassoziativ) = Ausdruck
+	------------------------------------------------------------------------------------------------------------
+zweistellig: |1.Operand| zweistellig arithm. Operator(infix) |2. Operand| = 4+3
+	arithm.Operat. sind überladen: auf alle arithm. Datentypen anwendbar(außer %), doch untersch. Verhalten
+	Divisionsoperator: ganzzahlige Operanden : erg=ganze Zahl /mind. 1 Operand Fließkommazahl:erg=Fließkommazahl
+	Restwertoperator: nur auf ganzzahlige Operanden anwendbar
+	RELATIONALE OPERATOREN: Rückgabewert: int: falsch=0/wahr=1 : 
+		Vergleichsoperator: == , != , > , < , >= , <=
+	------------------------------------------------------------------------------------------------------------
+dreistellig: 
+	Bedingungsoperator A?B:C 	"Wenn A: B, sonst: C"
+
+LOGISCHE OPERATOREN: &&, ||, !
+================================================================================================================
+
+AUSWERTUNGSREIHENFOLGE: Punkt vor Strich, durch Tabelle Priorität d. Operatoren festgelegt
+	1. Klammern 
+	2. unäre Operatoren 
+		2.1 Postfix-Operator auf Operanden (A++)
+		2.2 Präfix-Operator auf Operanden  (++A)
+	3. mehrstellige Operatoren
+
+ASSOZIATIVITÄT: Reihenfolge Verknüpfung Operanden u. Operatoren gleicher Vorrangstufe(Priorität):
+	rechtsassoziativ: abarbeitung r->l (de/inkrementor|Zuweisung|Bed.Ausdruck)/ linksassoziativ: abarbeitung l->r
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
