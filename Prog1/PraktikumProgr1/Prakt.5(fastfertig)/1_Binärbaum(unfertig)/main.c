@@ -30,14 +30,13 @@ e) Implementieren Sie in bintree.c eine Funktion count, die die Anzahl der
 Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 */
 
-int main(void){
-    struct bintree tree;
-    tree.node = "a";
-    tree.left "b";
-    tree.right = "c";
-    tree.left.left = "d";
 
-    print_inorder(tree);
+
+int main(void){
+    bintree tree;
+    tree = mk_tree(tree);
+
+    //print_inorder(tree);
 	return 0;
 }
 

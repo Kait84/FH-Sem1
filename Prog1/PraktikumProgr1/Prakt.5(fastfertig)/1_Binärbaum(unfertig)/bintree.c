@@ -16,10 +16,24 @@ Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 */
 
 //Konstruktor
-bintree mk_bintree(int l, int r){
-
+bintree mk_tree(bintree t){
+    t.left = mk_tree.left;
+    t.right = mk_tree.right;
+    t.node = mk_tree.node;
+    return t;
 }
+
 //Selektoren
+sl(bintree t){
+    return t.left;
+}
+lr(bintree t){
+    return t.right;
+}
+ln(bintree t){
+    return t.node;
+}
+
 
 //Ausgabe in inorder-Technik
 int print_inorder(struct tree){
