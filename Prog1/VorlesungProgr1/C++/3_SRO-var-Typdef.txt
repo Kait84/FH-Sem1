@@ -1,0 +1,9 @@
+================Scope Resolution Operator/Variablendefinition/Vereinfachte Typedfinition==============277-279
+
+Scope Resolution Operator"::" : Unterscheidung zwischen globalen und lokalen Verwendung desselben Namens
+	Normalerweise: Beziehung des Namens auf innerste Vereinbarung(Verschattungsprinzip)
+	mit SRO: Ansprechen des globalen Objekts "::variable = globale Variable"
+
+Definition von Variablen:
+
+--278

@@ -1,0 +1,28 @@
+========================================================================================================267-270
+C++: ab 1979 von Bjarne Stroustrup bei AT&T entwickelt (Erweiterung von C wie ISO/IEC 9899: 1990 beschrieben)
+1998 genormt (ISO/IEC 14882:1998), 2003 verbessert (ISO/IEC 14882:2003)
+
+C++ ist Obermenge von C: hat alle Syntaxeigenschaften von C + einige andere
+	ermöglicht Vielzahl von Programmierstilen (prozedural bis string objektorientiert)
+
+Neue Konzepte in C++:
+	-Weitere Datentypen/neue Typumwandlungsmöglichkeiten, 
+	-Klassen mit Mehrfachvererbung/virtuellen Funktionen
+	-Ausnahmebehandlung (Exceptions)
+	-Schablonen (Templates)
+	-Namensräume (Namespaces)
+	-Überladen von Operatoren und Funktionsnamen
+	-Referenzen
+	-Inline-Funktionen
+	-Operatoren zur Freispeicherverwaltung
+	-erweiterte Bibliothek (C++ Standardbibliothek)
+
+
+#include <iostream>
+#include <string>
+using namespace std; (Auswahl Namensbereich)
+int main(){
+	cout << "Hello!"; << endl	(Ausgabe mit cout durch Infixoperator "<<", Zeilenumbruch "endl")
+	string name;				(Neuer Datentyp string, Variablendef nach Anweisung)
+	cin >> name;				(Ausgabe mit cin durch Infixoperator ">>")
+}

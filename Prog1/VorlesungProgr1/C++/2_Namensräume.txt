@@ -1,0 +1,37 @@
+========================================Namensräume(Name Spaces)=======================================271-276
+je größer Projekt, desto wahrscheinlicher Namenskollisionen(globale Variablen, Typen, Funktionen)
+Zuordnung jedes Namens an Namensbereich -> Namenskollisionen nur noch innerhalb d.Namensbereichs möglich
+Namensraum :: Name [std::cout - alle Namen der Stdlib, ANSI-C-Funktionen,-Typen im Namensbereich std deklariert]
+
+Angabe d. Namensraumes oft umständlich -> 
+	Definition ein/mehrere voreingestellten Nahmensbereiche zu jedem Zeitpunkt möglich 
+using namespace Namensbereich; (gilt bis Ende des umgebenden Blocks)
+direkte Verwendung darin verwendeter Namen möglich(solange kollisionsfrei)
+
+Gezielte Vordefinition der Namensräume einzelner Bezeichner:
+	using Namensbereich::Bezeichner; [using std::cout;]
+
+Definition eigener Namensräume:
+	namespace test{
+		int my_var1;
+		double my_var2;
+	}
+	Zugriff mit: test::my_var1
+
+-Hinzufügen weiterer Namen zu existierenden Namensbereichen durch wiederholte namespace-Blöcke
+	namespace MeinNamensraum(){
+		int i;
+	}
+	namespace MeinNamensraum(){
+		int j;
+	}
+	(nicht möglich: Entfernen bereits enthaltener Namen)
+
+-Vergeben eines Anderen Namens an bereits definierten Namensbereich: (durch Art Zuweisung)
+	namespace EinVielZuLangerUnnötigerNameFürEinNamespace{
+		int i;
+	}
+	namespace kurzerName = EinVielZuLangerUnnötigerNameFürEinNamespace;
+
+
+	EinVielZuLangerUnnötigerNameFürEinNamespace::i = 23; === kurzerName::i = 23;
