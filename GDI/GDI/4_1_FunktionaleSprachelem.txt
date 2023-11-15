@@ -1,0 +1,67 @@
+========================================================================================================205-251
+Funktion: Abbildung, die jedem Wert aus Definitionsbereich GENAU ein Elemeent aus Wertebereich zuordnet
+Mathematische Schreibweise: f: t1 x...x tn -> te
+	f: Funktionssymbol, t1...tn: Parametertypen(Datentypen d. Parameter von f), te: Ergebnistyp(Datent. d. Erg)
+
+Funktionalität d.Funktion f: f: t1 x...x tn -> te
+Parameter: Veränderliches Element eines Unterprogramms, bei Definition d. Unterprogramms formal angelegt
+	Beim Aufruf d. Unterprogramms: Zuweisung eines festen Werts
+Konstante: Funktion mit null Parametern
+Signatur: Funktionssymbol + Folge d.Parametertypen: Verwendet, um Unterprogramm bekannt zu machen
+
+---------------------FUNKTIONSDEFINITION: Zentrales Element funktionaler Programmierprachen------------------
+Programm besteht aus Menge von Funktionsdefinitionen, deren Anwendung in Ausdrücken
+Syntax: fun f(p1:t,...,pn:tn): te begin e end, wobei:
+	[fun Identifikator (formalerParameter:Parametertyp): Ergebnistyp begin Funktionsrumpf end
+	[f =Identifikator(Funktionsname), p =formale Parameter, t =Parametertypen, te =Ergebnistyp, e =Funktionsrumpf
+	[Paramterliste = formale Parameter und Parametertypen
+BNF-Notat.: <function declaration> ::= fun <function name> ([<param list>]): <type> begin <expression> end
+	<param list> ::= <param> {, <param> }*, <param> ::= <id> : <type>, <function name> ::= <id>, <type> ::= <id>
+
+----------Ausdruck/Term/Expression: beschreibt Funktionsrumpf: hintereinander Ausführung v.Funkt auf Param.
+in funkt.Sprachen, 3 Ausprägungen von Ausdrücken: Parameter/Funktionsanwendung/Bedingter Ausdruck:
+(Funktionsname: datentyp -> Ergebnistyp)
+
+-Parameter: hat Bedeutung seines Wertes, Semantik def. Abbildung Syntax->Werte: I(a)
+
+-Funktionsanwendung: Funktionsaufruf: f: t1 x...x tn->te (e1...e2:Ausdrücke, t1..tn:Typen)
+	f(e1...en): Ausdruck vom Typ te/Anwendung der Funktion f auf die Werte der Ausdrücke ei
+	getypte Sprache, wenn Funktionsanweisung nur erlaubt ist, wenn für alle 1<=i<=n, ei vom Typ ti ist
+	aktuelle Paramter/Argumente: Ausdrücke e1,...,en
+		Infix-Notation: Funktionssymbol zwischen d.Argumenten (Üblich bei zweistelligen Funktionen)
+		Postfix-Notation: Funktionssymbol nach dem Argument (gelegentlich bei einstelligen Funktionen)
+		Präfix-Notation: Funktionssymbol d.Argumenten vorangestellt
+	Fast alle gängigen Programmiersprachen: getypt, in manchen:nach typinkorrektem Funktionsaufruf nur Warnung
+	In objektorientierten Sprachen: Mögl. d.Definition d.Subtypen eines Typs: nat ⊂ int
+		Dann: Parameter darf auch von Subtyp d.erwarteten Typs sein
+	Semantik: 1. Berechne Parameterwerte, 	2.Zuweisung Werte->Param. 
+			  3.Werteberechnung:Rumpf e 	4.Zuweisung der Weret an Funktion
+
+-Bedingter Ausdruck: if b then e1 else e2 fi 	(b:Boolscher Ausdruck, e1/e2: Ausdrücke vom gleichen Typ)
+	e1/e2: Zweige des bed.Ausdrucks, e2: kann NICHT leer sein
+	Wenn Berechnung von b nicht terminiert oder Rechner abstürzt: Ausdruck undefiniert
+	Bedingung b: stets von den Zweigen ausgewertet, abh.von b:Ausführung von ENTWEDER e1 ODER e2
+	Verwendung, um unbestimmte Werte zu vermeiden
+
+
+BNF Notation: <expression> ::= <parameter> | <function application> | <conditional expression>
+	<parameter> ::= <id>, <function application> ::= <id>[(<exp_list>)]
+	<exp list> ::= <expression>{,<expression>}*
+	<conditional expression> ::= if <expression> then <expression> else <expression> fi
+
+-------------------------------------FUNKTIONEN MIT NICHT DEF.ERGEBNIS--------------------------------------
+Unendlich rekursive Funkt. fun infinite(n:int): int{ infinite(n)} : [verbraucht unendlich Speicher:terminiert]
+	Berechnung terminiert nicht:undefiniertes Ergebnis(Bottom)
+
+partiell: wenn Funktion nicht auf allen Eingabeelementen definiert: Undefiniertes Erg:ausgedrückt durch bottom
+strikt: Funktion liefert undefiniertes Erg, wenn ein Argument undefiniert ist
+	garantiert, dass jeder Fehler bei Applikation durchschlägt
+nicht strikt: Funkt. kann trotz undef. Arguments ein def. Erg liefern
+	Fehler können abgefangen werden(heiende Funktion)
+
+Call by value(eager evaluation):
+	Beim Funktionsaufruf: Auswertung aller Argumente(Funktionsaufruf d.Semantik:strikt)
+Call by need(lazy evaluation)
+
+--234
+

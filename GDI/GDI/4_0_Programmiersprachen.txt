@@ -1,0 +1,129 @@
+========================================================================================================164-204
+Programmiersprache: Formale Sprache zur Beschreibung von Algorithmen/Datenstrukturen (Brücke:Mensch/Maschine)
+Programm: gültiges Wort aus Programmiersprache
+
+Compiler: übersetzt abstrakte Hochsprache in Maschinensprache
+	Viele verschiedenen Rechnertypen/Sprachen: n Sprachen, m Plattformen: n*m Compiler
+Virtuelle Machine: Bindeglied zw. Hochsprache/Maschinensprache: auf jeder Maschine simuliert: plattformunabhängig
+	n Compiler + m Implementierungen d.virt.Maschine: n+m Compiler
+
+Klassifizierung von Programmiersprachen:
+	Kernkonzepte, Abstraktionsgrad(Hochsprache/maschinennah), Darstellungsart(grafisch/textuell)
+
+==============================================Kategorien===================================================
+Funktional, applikativ: 						-Lambda-Kalkül, ML, Haskell
+	Kernkonzepte: Funktion, deren Anwendung(Applikation) auf Parameter -keine Variablen/Zuweisugen
+	Eigenschaften: Programme: hochgradig rekursiv, Notation mathematisch orientiert
+Prozedural, imperativ, zuweisungsorientiert:	-Algol, Pascal, C
+	Kernkonzepte: Variable/Zuweisung, Wiederholungskonstrukte(Schleifen)
+	Eigenschaften: am Aufbau von Rechenanlagen orientiert
+Objektorientiert:								-Ada, C++, Java
+	Kernkonzepte: Klassen: kapselt Struktur,Verhalten/Objekte	
+	Eigenschaften: Unmittelbarer Bezug zu Strukturen d.realen Welt, (sehr)große Programme
+Logisch, prädikativ, deklarativ					-Prolog
+	Kernkonzepte: Prädikatenlogische Formel(Klausel)
+	Eigenschaften: Prinzip nach logischen Argumentationsketten, Expertensysteme/Theorembeweiser (KI)
+Maschinennah
+	Kernkonzepte: Maschinenbefehl
+	Eigenschaften: Orientierung am Befehlssatz/Aufbau d.konkreten Prozessors, kleine/spezielle Prozessoren
+Grafisch:										-Struktogramm,Programmablaufplan, endlicher Automat(Statecharts)
+	Kernkonzepte: Grafische Konstrukte, Elementare Schritte, wie prozedurale Sprachen
+
+=================================Definition d.Programmiersprache-Syntax====================================
+heutige Sprachen: Mischung:natürliche Sprache/mathematische Formeln
+Formale Definition: Definition d.Aufschreibung(Syntax), Definition d.Bedeutung d.Sprachkonstrukte(Semantik)
+
+Definition d.Syntax: grammtikalische Regeln / BNF-Notation(Backus-Naur-Form) -extended(EBNF)
+Definition d.Semantik: 
+Arten: 
+	Funktional: weist jedem Ausdruck einen Wert zu, (über mathematische Ausdrücke)
+	Operationell: Definiert für jeden Ausdruck einen Algorithmus zur Auswertung
+Notation: Textuell(wenig präzise), über mathematisch Formel(funkt.Semantik)
+
+=======================================Backus-Naur-Form(BNF-Notation)======================================
+Bedeutung: Metasprache zur Definition formaler Sprache mit kontextfreier Grammatik
+Verwendung: Präzise Def.d.Syntax von: höheren Programmiersprachen, Befehle(OS), Befehlssätze(NW-Protokolle)
+
+Bestandteile: 
+	Terminale: Zeichen d.Zielsprache
+	Produktionen: Ableitungsregeln, zulässige Zeichenkombinationen
+	Nichtterminale(Nonterminale): Hilfszeichen in Produktionen(links oder rechts)
+	Sonderzeichen: "::="(Regeldefinition"be becomes"), "< >"(Kennzeichnung:Nichtterminale), "|"(Alternative)
+
+Menge: T(Terminalzeichen), T*(Maximale Sprache von T)
+Verwendung der BNF: 
+	Def.d.formalen Sprache X über T, X ist Teilmenge von T* 
+	BNF-Ausdruck definiert Einschränkung:welche Zeichenkombination über T möglich
+Terminale/gültiges Wort: {t}: t element von T
+Vereinigung/Alternative: R | S: Ausdruck R mit Sprache X, S mit Y, X U Y
+Nonterminale/Hilfszeichen,Bezeichner: <n>: Menge von Nonterminalen n element von N
+Konkatenation/Aneinanderhängen: <R> <S>
+Option/Optionales Element: [R]: Ausdruck R mit Sprache X(X U {e} e=leeres Element)
+Iteration/Wiederholung: R*/R+ (R* kann kein Element enthalten, R+ muss ein Element haben)
+Klammerung/Gruppieren v.Ausdrücken: {R}
+
+============================SYNTAXDIAGRAMME-einfache grafische Syntaxdarstellung=========================
+Jedes Syntaxdiagramm: genau einen Eingang/Ausgang
+Rechtecke: Nonterminale (Begriffe, die anderswo durch eigene Syntaxdiagramme erklärt sind)
+Ovale: Terminale (lexikalische Elemente: Symbole/Namen: wörtlich in Programmtext zu übernehmen)
+Pfeile: führen von Sprachelement zu anschließend erlaubten Sprachelement
+
+Beispiele: Anweisung/Anweisungsblock/Zuweisung
+
+===============================KERNBESTANDTEILE höherer Programmierprachen================================
+ähnlich für: funktionale,prozedurale,objektorientierte | verschiedener Aufbau logischer Programme
+
+-Datentypen: (vordefiniert) Festlegen d.Definitions-/Wertemenge
+-Operationen/Befehle: (elementare Grundaktionen): 
+	Ein-/Ausgabe, Mathematische/Logische Operationen, Kontrollstrukturen (steuern Programmablauf)
+-Klammern: Begrenzung ovn Blöcken
+
+==============================================Datentyp=====================================================
+Programm arbeitet auf bestimmeter Art von Daten: Parameter müssen mit richtiger Art von Daten belegt werden
+Definition: Datentyp(Sorte, Art): 
+	nichtleere Menge von Datenelementen, kapselt Repräsentationen gleichartiger Datenelem.
+	(gleichartig: Gleicher Speicherplatzbedarf, meist gleiche Semantik)
+Bedeutung:
+	Ermöglichen Festlegung d.Definitions-/Wertebereichs (Funktionalität)
+	in vielen Programmiersprachen vordefiniert (Basistyp, einfacher Typ)
+		Natürliche Zahlen(natural,nat), Ganze Zahlen(integer, int), Relle Zahlen(real, float,double)
+		Zeichen(character, char), Wahrheitswerte(boolean, bool)
+	Erweiterung möglich: benutzerdefinierte Datentypen
+
+--------Datenstruktur: Kombinationen von Datentypen, charakteristischen Operationen
+	Datentypen: Elementare Datenstrukturen / Datenstruktur: Benutzerdefinierte Datenstrukturen
+
+--------Funktionalität: F=Funktionssymbole, T=Datentypen
+	Funktionalität: f: t1 x ... x tn -> te mit f Elem.von F, t1, ..., tn, te Elem.von T
+	Funktion: n-stellig, braucht n Parameter, falls n=0: Funktion ist eine Konstante
+Signatur: Paar(F, T) mit Funktionalitäten
+
+--------Boolean: einfachster Datentyp, Mögl.Werte: true/false, Operationen(festzulegen: Wirkungsweise)
+Operationen: zweistellig(or/and 	boolean x boolean -> boolean)
+			 einstellig(not 		boolean -> boolean)
+			 nullstellig(Konstanten true, false -> boolean)
+Gesetze: Involutionsgesetz: notnotx = x, 
+		 Kommutativgesetz, Assoziativgesetz, Distributivgesetz
+		 Idempotenzgesetz: x and x = x 		x or x = x
+		 Absorbtionsgesetz: x and (x or y) = x
+		 Gesetze von de Morgan: not(x and y) = (not x) or (not y)
+		 Neutralitätsgesetz: x or (y and not y) = x
+		 Konstante: false=x and (not x)		true=x or (not x)
+
+--------Natürliche Zahlen: Operationen:
+	+, -, *, /, mod: nat x nat -> nat
+	succ			: nat -> nat
+	0 				: -> nat
+ExtNat:	Mehrsortige Datenstruktur T={boolean, nat}: Operationen:
+wie bisher bei boolean, nat, Zusätzlich:
+	isZero: nat -> boolean			isZero(0)=true, isZero(succ(x))=false
+	equals: nat x nat -> boolean	equals(x,x)=true, equals(s, succ(x))=false
+
+==================================Kernbestandteile eines Programms========================================
+Für funktionale, prozedurale, objektorientierte Programme ähnlich, Aufbau log.Progr. grundlegend verschieden
+
+Kopf (head): Name, benötigte Parameter
+Rumpf(body)/Block: ggf Variablendeklarationen, Anweisungen(die Algorithmus realisieren)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
