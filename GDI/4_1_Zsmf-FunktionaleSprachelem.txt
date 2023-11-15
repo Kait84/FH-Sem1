@@ -1,0 +1,13 @@
+Funktion ist zentrales Element der funktionalen Sprachen
+
+Elemente einer Funktionsdefinition:
+	Schlüsselwort, Ergebnistyp, Funktionsidentifikator,
+	Parameterliste, Funktionsrumpf
+Funktionsrumpf ist ein Ausdruck:
+	Parameter, Funktionsaufruf oder bedingter Ausdruck
+Semantik weist jedem Ausdruck eine Bedeutung zu
+Partielle Funktion nicht auf allen Eingaben definiert
+Strikte Funktion liefert _|_, falls ein Eingabewert _|_ ist
+Freie Bezeichner in Funktion austauschbar
+Unterscheidung verschiedener Rekursionsarten, je nach
+	Struktur und Häufigkeit der rekursiven Aufrufe

@@ -9,7 +9,7 @@ Parameter: Veränderliches Element eines Unterprogramms, bei Definition d. Unter
 Konstante: Funktion mit null Parametern
 Signatur: Funktionssymbol + Folge d.Parametertypen: Verwendet, um Unterprogramm bekannt zu machen
 
----------------------FUNKTIONSDEFINITION: Zentrales Element funktionaler Programmierprachen------------------
+----------------------FUNKTIONSDEFINITION: Zentrales Element funktionaler Programmierprachen------------------
 Programm besteht aus Menge von Funktionsdefinitionen, deren Anwendung in Ausdrücken
 Syntax: fun f(p1:t,...,pn:tn): te begin e end, wobei:
 	[fun Identifikator (formalerParameter:Parametertyp): Ergebnistyp begin Funktionsrumpf end
@@ -41,27 +41,54 @@ in funkt.Sprachen, 3 Ausprägungen von Ausdrücken: Parameter/Funktionsanwendung
 	e1/e2: Zweige des bed.Ausdrucks, e2: kann NICHT leer sein
 	Wenn Berechnung von b nicht terminiert oder Rechner abstürzt: Ausdruck undefiniert
 	Bedingung b: stets von den Zweigen ausgewertet, abh.von b:Ausführung von ENTWEDER e1 ODER e2
-	Verwendung, um unbestimmte Werte zu vermeiden
+	Verwendung, um undefinierte Werte zu vermeiden(falsche Paramter...)
 
 
-BNF Notation: <expression> ::= <parameter> | <function application> | <conditional expression>
+Ausdruck:BNF Notation: <expression> ::= <parameter> | <function application> | <conditional expression>
 	<parameter> ::= <id>, <function application> ::= <id>[(<exp_list>)]
 	<exp list> ::= <expression>{,<expression>}*
 	<conditional expression> ::= if <expression> then <expression> else <expression> fi
 
--------------------------------------FUNKTIONEN MIT NICHT DEF.ERGEBNIS--------------------------------------
+--------------------------------------FUNKTIONEN MIT NICHT DEF.ERGEBNIS----------------------------------------
 Unendlich rekursive Funkt. fun infinite(n:int): int{ infinite(n)} : [verbraucht unendlich Speicher:terminiert]
-	Berechnung terminiert nicht:undefiniertes Ergebnis(Bottom)
+	Berechnung terminiert nicht:undefiniertes Ergebnis _|_(Bottom)
 
 partiell: wenn Funktion nicht auf allen Eingabeelementen definiert: Undefiniertes Erg:ausgedrückt durch bottom
 strikt: Funktion liefert undefiniertes Erg, wenn ein Argument undefiniert ist
 	garantiert, dass jeder Fehler bei Applikation durchschlägt
-nicht strikt: Funkt. kann trotz undef. Arguments ein def. Erg liefern
-	Fehler können abgefangen werden(heiende Funktion)
+nicht strikt: Funkt. kann trotz undef. Arguments ein def. Ergebnis liefern
+	Fehler können abgefangen werden(heilende Funktion)
 
-Call by value(eager evaluation):
-	Beim Funktionsaufruf: Auswertung aller Argumente(Funktionsaufruf d.Semantik:strikt)
-Call by need(lazy evaluation)
+Call by value(eager evaluation): meiste gängigen Programmiersprachen
+	Beim Funktionsaufruf: Auswertung ALLER Argumente(
+	Semantik d.Funktionsaufrufs: strikt
+Call by need(lazy evaluation):
+	Beim Funktionsaufruf: NUR BENÖTIGTE Argumente werden ausgewertet
+	Semantik d.Funktionsaufrufs: i.A. nicht strikt
 
---234
+------------------------------------------BINDUNG VON BEZEICHNERN---------------------------------------------
+Freie Bezeichner: Bezeichner ist Identifikator(in Ausdruck: Platzhalterfunktion)
+	Kann durch anderen noch nicht verwendeten Bezeichner ersetzt werden(Bez.kommt im Audr.frei vor)
+Gebundener Bezeichner: Funktionsdef macht aus Bezeichner einen Parameter, wenn in Parameterlist deklariert
+	Bezeichner durch Parameterdefinition in Rumpf gebunden
+	Kann konsistent durch anderen Bezeichner ersetzt werden, wenn 
+		Bezeichner auch in Funkt.dekl. ersetzt, Neuer Bezeichner kommt im Rumpf vor Ersetzung noch nicht vor
 
+---------FUNKTION HÖHERER ORDNUNG: Übergabe von Funktionen als Parameter ist mögl.(bei funkt.Sprachen)
+
+-------------------------------------------ARTEN VON REKURSION------------------------------------------------
+Grad der Rekursion: je nachdem wie oft sich Funktion im Rumpf selbst aufruft
+
+-Lineare Rekursion: Funkt. in jedem Zweig einer Fallunterscheidung MAXIMAL EINMAL aufgerufen(lin. rekursiv)
+	Jeder rekursive Aufruf führt zu höchstens einem weiteren Aufruf von f [Fakultät, GGt, Ganzzahl.div]
+-Repetitive Rekursion[Speziallfall d.lin.Rekurs]: =Endrekursion / tail recursion
+	alle rekursiven Aufrufe im Rumpf: LETZTE AKTION d.RUMPFES
+	Bevor Auswertung eines neuen rekurs.Aufrufs beginnt, alle Berechnungen d.aktuellen abgeschlossen
+	Aktuelle Parameter müssen nicht aufgehoben werden(Speichereffizienz)
+-Kakadenartige Rekursion: =Baumartige Rekursion / nichtlineare Rekursion
+	Funktion wird in mind. einem Zweig d.Rumpfes MIND EINMAL AUFGERUFEN
+	Exponentielles Anwachen d.rekursiven Aufrufe, aufwendig zu berechnen
+-Wechselseitige Rekursion: =Verschränkte Rekursion
+	mind zwei Funktionsdefinitionen gegeben f1,f2 in Rumpf r1: Aufruf f2, in Rumpf r2: Aufruf f1
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
