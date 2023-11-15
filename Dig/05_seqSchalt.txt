@@ -1,63 +1,16 @@
-Beschreibung mittels Zuständen und Zustandsübergängen			O 		(oberer Zustand)
-(Zustandsdiagramm)											   / \\
-															  O   O 	(zwischen Zustand)
-															  \\  /
-															  	O 		(Unter unterstem Zustand)
+Beschreibung mittels Zuständen und Zustandsübergängen (Zustandsdiagramm)
 
 ===============================================Schaltungstypen=============================================
 -Kombinatorische Schaltung(Schaltnetz)
 -Sequentielle Schaltung(Schaltwerk/Automat) = Komb.Schaltung(Schaltnetz) + Speicher
-	= digitale Schaltung zum Verarbeiten d.Eingangssignale: 
+	= digitale Schaltung: Verarbeitet Eingangssignalen: 
 	Ausgangssignale hängen von Eingangssignalen, vorherigen Zuständen(vorgeschichte) ab
 
-=======================Flip-Flops(FF):Binäre Speicher(können Binärvar. speichern)==========================
-Verschiedene Typen/Verhalten von Flipflops: (Gängiste: D-/T-Flipflops)
-	= taktgesteuerte FF: Eingangsdaten: in Abh von Takt übernommen
+=========================Flip-Flops:Binäre Speicher(können Binärvar. speichern)============================
+								 _
+	RS-Flipflop 		Q(m+1)=S∨RQm					S---|S  |--Q _		
+														R---|R  |----Q
+	(Signalzeitplan, Pulsfolgediagramm)
 
-D-Flipflop[Delay]: Zeitpunkt d.Taktflanke: Datenwert d.Dateneingangs D wird in Zustand Z übernommen
-	Eingangswert um Takt verzögert
-T-Flipflop[Toggle]: wenn bei Taktflanke am Dateneingang:"1": Zustand wird geändert / "0": nicht geändert
-	Umschalten zwischen zwei mögl.Werten
-------------------------------------------------------------------------------------------------------------
-								    _
-	RS-Flipflop 		Q^(m+1) = S∨RQ^(m)					S---|S  |--Q _		
-	(Signalzeitplan, Pulsfolgediagramm)						R---|R  |----Q
-
-
-	D-Flipflop 			Q^(m+1) =[M]^(m)					D---|D  |--Q _		
-	(Signalzeitplan, Pulsfolgediagramm)					 Takt---|>C |o---Q
-
-								  _	     _
-	T-Flipflop 			Q^(m+1) =[TQ ∧ TQ]^(m)					|   |--Q _		
-	(Signalzeitplan, Pulsfolgediagramm)					 	T---|>C |o---Q
-
-
-==============================================Übersicht-FF-Arten=============================================
-
-----------------Taktgesteuerte FFs:-------------|-------Nicht-taktgesteuerte Flipflops------|
-|+TaktZUSTANDsgesteuerte FFs 					|	--Speicher-Flipflops					|	
-|	--Auffang-Flipflops							|											|
-|+TaktFLANKENgesteuerte FFs 					|											|
-|	+EINflankengesteuerte FFs 					|											|
-|		--Einspeicher-Flipflops 				|											|
-|		--Zweispeicher-FF mit dyn.Zw.-Speicher 	|											|
-|	+ZWEIflankengesteuerte FFs 					|											|
-|		--Zweispeicher-Flipflops(Master-Slave)	|											|
----------------------------------------------------------------------------------------------
-
-==========================================Taktsteuerungsvarianten-FF=======================================
-Zustandssteuerung: 		|		Flankensteuerung:					[K=Wirkintervall]
-positiv:				|		positiv:							[K=Kippintervall]
-_____	_____			|		_____	_____				
-WWWW|___| W |___		|		W	|___W 	|___
- KKKK					|		 K
-						|
-negativ:				|		negativ:
-_____	_____			|		_____	_____
-| 	|WWW|	|_W_		|		| 	W___|	W___
-	  KKKK				|			 K
-					
-
-
---23
+--10
 																				
