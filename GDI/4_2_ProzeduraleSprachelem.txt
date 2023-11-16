@@ -1,1 +1,26 @@
 ========================================================================================================252-309
+Von-Neumann-Architektur: heute gebräuchlich		--------Speicher---------
+	linear geordnter Speicher					|			|			|
+	auf Speicher: Daten und Programme			|	|------CPU------|	|
+											Eingabe-|Rechenwerk(ALU)|-Ausgabe
+													|Steuerwerk		|
+Programmabarbeitung:
+	1. Lesen d.nächsten Programmanweisung und 2. Benötigter Daten aus d.Speicher
+	3. Ausführung d.Anweisungen und 4. Schreiben d.Ergebnisse i.d.Speicher
+-->Programmierkonzept:Sequenzielle Folge von Anweisungen/Zuweisungen(Anweisung kann Variablenzustand ändern)
+
+-------------ANWEISUNG(EXPRESSION):zentrales Element[statt Ausdruck(funkt.Sprachen)
+<anweisung> ::= <variablendeklaration> | <zuweisung> | <anweisung> <anweisung> | <bedingte anweisung> | 
+				<wiederholungsanweisung> | <prozeduraufruf> | <block>
+
+------------PROGRAMMVARIABLE/ZUWEISUNG:
+Auswertung nach operationeller Semantik: 1.Werte d.Parameter, 2.Funktionsrumpf auf Parameterwerten
+Besser: Ergebnis d.Funktionen in (gekennzeichnete)Variable zwischenspeichern, dann bei Bedarf nutzen
+	Deklaration(Var): definiert Existenz, Name, Typ
+	Definition(Var): Festlegen, Name und Typ einer Var, Anlegen im Speicher [var Name:Datentyp;]
+	Zuweisung(Var): Festlegung/Änderung Wert einer Var [Variablenbezeichner = Ausdruck; (selber Typ)]
+	Initialisierung(Var): Definition + Wertezuweisung [Datentyp Name = Wert;]
+Variable muss textuell vor Verwendung definiert werden, kann immer wieder verwendet werden
+
+
+---260

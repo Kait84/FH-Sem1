@@ -24,9 +24,9 @@ Angew. Informatik: Aufgaben außerh. weiterentw. Info: Spezialprogr.
 1524: Dezimalsystem in D. (Adam Ries)
 1700: Dual. Zahlensystem (Gottfried Wilhelm Leibnitz)
 1850: Boolsche Algebra (George Boole)
-Programmgest. Rechner:
-	1934-37: Z1: mech, 1941 Z3: el.mech.
-	1946 ENIAC vollel.
+Programmgesteuerter Rechner:
+	1934-37: Z1: mech / 1941 Z3: elektro-mechanisch
+	1946 ENIAC vollelektrisch
 1946: Von-Neumann-Architektur(John von Neumann): Ein/Ausgabe, Steuerwerk, Rechenwerk(ALU), Speicher
 }
 

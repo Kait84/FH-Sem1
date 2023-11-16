@@ -1,4 +1,4 @@
-=======================================Karnaugh-Veitch-Diagramm================================
+==========================================Karnaugh-Veitch-Diagramm=========================================
 "1" auf einem Platz im KV-Diagramm steht für Vollkonjunktion			äquivalent zu WT - anordung ist anders
 	  _	
 ∧	  A 	A
@@ -8,8 +8,8 @@ B |...|...|
   _________				
 
 "don´t care"-Felder: Felder, die mit "-"" gekennzeichnet sind: Ausgangswert ist beliebig
-	Wert der Stelle/Ausgangswert ist beliebig/nicht definiert
-	-mindestens einmal Erfassen einer Eins oder Null
+	Wert der Stelle/Ausgangswert ist beliebig/nicht definiert(Verwendung, um Blöcke größer wählen zu können)
+	-mindestens einmal Erfassen aller Einsen oder Nullen
 	-nur so viele "don´t care"-Felder hinzufügen wie unbedingt notwendig
 
 Blockbildungsregeln:
