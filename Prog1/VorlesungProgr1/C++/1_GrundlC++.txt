@@ -26,3 +26,5 @@ int main(){
 	string name;				(Neuer Datentyp string, Variablendef nach Anweisung)
 	cin >> name;				(Ausgabe mit cin durch Infixoperator ">>")
 }
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

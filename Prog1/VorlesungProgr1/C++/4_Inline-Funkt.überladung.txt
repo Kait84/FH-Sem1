@@ -1,1 +1,16 @@
 =================================Inline Funktionen/Funktionsüberladung=================================280-283
+Inline Funktion: Compiler muss keine Funktion erzeugen, sondern kann Code an Aufrufstelle ausführen
+	--> schnelleres Programm(kein Funktionsaufruf), u.U. größeres Programm
+	Compiler kompilliert nur kurze Funktionen inline(Compiler bestimmt, ob Funktion inline ausgeführt wird)
+	[inline int Funktionsname(...){...}] ähnlich wie Makro, zusätzlich Typsicherheit bei Inline-Funkt
+
+Funktionsüberladung: mehrere Funktionen haben den selben Namen(sind überladen)
+	Funktionsaufruf: analysieren d.Parameterliste(Parametertyp/-anzahl)
+	Compiler wählt welche Parameterlist d.überladenen Funkt "am besten" zu Aufrufparametern passt
+	(Rückgabetyp wird vernachlässigt)
+
+	Mehrere verschiedene Funktionen: selber Funktionsname -> Polymorphie
+	Ad-hoc-Polimorphie: Herstellung einer Bindung zw.Aufrufstelle u.aufgerufener Funkt.(Übersetzungszeit)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

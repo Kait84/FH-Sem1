@@ -35,3 +35,6 @@ Definition eigener Namensräume:
 
 
 	EinVielZuLangerUnnötigerNameFürEinNamespace::i = 23; === kurzerName::i = 23;
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,1 +1,66 @@
 =============================================Objektorientierung1=======================================290-324
+---------Objektorientierung: Paradigma, leisten einer Abbildung: 
+	vom Problemraum(Dinge d.realen Welt) in Lösungsraum(Einheiten d.laufenden Programms)
+	(nach ISO: Technik oder Programmiersprache betreffend, die Objekte, Klassen, Vererbung unterstützt)
+
+
+---------Objekt (Abbildung d.Dinge d.realen Welt auf Objekte)
+	OBJEKT hat ATTRIBUTE/Daten als Eigenschaften: Verhalten d.Eigenschaften durch METHODEN modelliert
+
+z.B Objekt aus echtem Leben wird modelliert durch...Auto->Klasse Auto...
+	|------Auto-----|						|-RadHintLinks--|		|-RadHintRechts-| : Objektname	}
+	|Geschwindigkeit|-enthält(Aggregation)->|Durchmesser	|		|Durchmesser	| } Attribute	} Objekt
+	|Beschleunigung |						|...			|		|Luftdruck		| } mit 		}
+	|...			|<----Instanz von-------------------------------|...			| }	Werten 		}
+
+Objekt hat Zustand(durch Menge seiner aktuellen Attributwerte beschrieben)
+Objekt hat Verhalten(durch Menge seiner Operationen/Methoden/Funktionen beschrieben)
+-->Attribute definieren aktuellen Zustand / Methoden definieren Verhalten
+
+
+--------Klasse: wenn Objekte dieselben Attribute u. Eigenschaften haben: gruppierung zu Klassen
+Objekt ist Instanz einer Klasse (Exemplar)
+Mehrode spezifiziert gemeinsame Attribute u. Methoden (^=Bauplan/Schablone)
+
+Möglichkeiten einer Klasse: Klasse ist Datentyp(Erweiterung von "struct")
+	-unterbringen von Funktionen (Methoden, member functions)
+	-Ableitung von bestehenden Klasse (Vererbung)
+	-Vergeben von Zugriffsrechten (-private: kein Zugriff von außen, -public:Zugriff von außen mögl.)
+
+Definition: 
+class Rad{
+	float umdrehungszahl;	---
+	float durchmesser;		---Addribute
+	...						---
+	float berechne_geschwindigkeit(){return durchmesser * 3.14 * umdrehungszahl; }	---Methode
+};	---------Semikolon notwendig!!
+
+
+--------Zugriffsrechte: standard(ohne Zuweisung), alle Elemente: private	(struct: public)
+class Rad{
+	private: 
+		float solldruck;
+		...
+	public: 
+		float durchmesser
+}
+
+
+--------Erzeugung von Objekten:
+Klasse: wie Datentyp verwendbar(erzeugung v."Variablen": Objekte der Klasse, Zugriff mit Punkt-Operator)
+Erzeugen des Objekts: Rad rvl;
+Zugriff auf Objekt: rvl.berechne_geschwindigkeit()
+
+
+-------Kapselung d.Attribute: DIREKTER ZUGRIFF auf Attribute sollte NICHT MÖGLICH sein
+-->Zugriff über Setter-/Getter-Methoden
+void set_umdrehung(float u){umdrehung = u;}
+float get_umdrehung(void){return umdrehung;}
+
+------Dynamische Objekte:
+	
+
+
+
+
+---301

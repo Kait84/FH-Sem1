@@ -1,1 +1,20 @@
 ===================Default-Wert v.Aufrufparametern/Referenzvariable/Parameterübergabe==================284-289
+
+Default-Wert bei Aufrufparametern:
+	Setzen eines Default-Werts, wenn C++ Funktion für einzelne Parameter, oft gleichen Wert erhält
+	Paramter mit Default-Werten müssen die Letzten sein, dürfen keine Lücke aufweisen
+	int f(string s, int i, int j = 12){...}
+
+Referenzvariable (vorangestelltes"&"): Referenz auf Speicher [typ& zweitname = erstname;]
+	mit Referenzvariable: Variable kann mehrere Namen haben(Alias-Namen) :: Zeigeroperationen werden erspart 
+	können nicht ungültig werden (Zeigervariablen können ungültig werden)
+	Dereferenzierung erfolgt automatisch, i.d.R: nur als Paramter in Funktionen verwendet
+
+	Initialisierung muss immer in Definition erfolgen, kann später nicht mehr geändert werden
+
+Parameterübergabe: als Wert(call-by-value) ODER Referenz(call-by-reference) : Aktuelle Parameter
+	Referenzübergabe auch ohne(sichtbare) Zeiger (und über Zeiger wie C) möglich:
+	[typ function(typ &paramter){...}]
+	Referenzvariablen müssen nicht explizit de-/referenziert werden
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

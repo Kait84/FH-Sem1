@@ -4,6 +4,13 @@ Scope Resolution Operator"::" : Unterscheidung zwischen globalen und lokalen Ver
 	Normalerweise: Beziehung des Namens auf innerste Vereinbarung(Verschattungsprinzip)
 	mit SRO: Ansprechen des globalen Objekts "::variable = globale Variable"
 
-Definition von Variablen:
+Definition von Variablen: müssen vor erster Verwendung stehen/statt C:Anfang d.Datei
+	-->Übersichtlicher, wenn lokal verwendete Var direkt bei Verwendung definiert(Schleifenzähler...)
 
---278
+Vereinfachte Typendefinition:
+	Alle Typnamen(incl. struct-,union-,enum-Bezeichner): vom Compiler in Namensraum untergebracht
+	-->Typennamen müssen untereinander eindeutig sein
+	bei weiteren Vereinbarungen: nach erster Def möglich:struct, union, enum wegzulassen
+
+	
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
