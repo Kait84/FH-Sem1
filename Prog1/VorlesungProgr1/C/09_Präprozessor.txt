@@ -26,7 +26,27 @@ nicht in Frage kommender Source-Code(Programmteile in false-interpretiertem Zwei
 Direktiven: 	#if konst_Ausdr 	#elif konst_Ausdr 	#else	}#endif	
 				#ifdef Symbol 		#ifndef Symbol				}	(ifdef(Makro_definiert))
 
-------Einfügen von Dateien
-#incluce "filename" / #include <filename>
+------Einfügen von Dateien (in temp. Kompilerdatei)	| #incluce "filename", #include <filename>
+Zeile der Präprozessordirektive wird entfernt,		| <>: Systemdatei in Include-Verzeichnissen (/usr/include)
+Quelltext wird in Datei eingefügt, 					| "": Suche zuerst in aktuellem Arbeitsverzeichnis
+include-Anweisung innerhalb eingefügter Datei wird auch ausgeführt
+Verwendung für Definition von : -Typnamen. , -Konstanten, -Funktionen , -Makros
 
---198
+--------------------------------------------Bit-Operationen--------------------------------------------
+-----Logische Bit-Operatoren: Bitweises... "&"=AND, "|"=OR, "^"=XOR(Circumflex), "~"=NOT(Tilde)
+dürfen nur für ganzzahlige Datentypen benutzt werden(vorzeichenbehaftet:implementierungsabh.Aspekte)
+Anwendung auf allen Bits d.Operanden / Verknüpfung der Bits der jeweiligen Position
+infix: &,|,^ / präfix: ~
+
+Flags: binäre Zahl, Verwendung zur Kennzeichnung best.Zustände (setzen, löschen, lesen)[unsigned x]
+Verwendung logischer Bit-Operatoren mit Masken zum Zugriff auf einzelne Flags:
+	[a operator= zuveränderndeStelle]
+	setzen: mit bitw.ODER-Operator (Bits, in Bitmaske=1: setzen auf "1" / in Maske=0: unverändert)
+	löschen: mit bitw.UND-Operator (Bits, in Bitmaske=0: löschen / in Maske=1: unverändert)
+	lesen: mit bitw.UND-Operator (Bitmaske: an zu prüfenden Stellen=1, sonst:0(maskierung/ausblendung))
+	invertieren/toggeln: mit bitw.XOR-Operator (Bits, in Bitmaske=1: invertieren / sonst: unverändert)
+
+-----Shift-Operatoren
+
+
+--211
