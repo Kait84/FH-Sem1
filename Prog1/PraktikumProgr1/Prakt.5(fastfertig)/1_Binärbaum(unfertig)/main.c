@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "./bintree.h"
-#include "./bintree.c"
+#include <stdlib.h>
+//#include "./bintree.c"
 
 /*
 Binärbaum: rekursiv definierte
@@ -30,11 +31,47 @@ e) Implementieren Sie in bintree.c eine Funktion count, die die Anzahl der
 Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 */
 
+//Konstruktor
+bintree mk_tree(char c){
+    bintree* tree = (bintree*)malloc(sizeof(tree));
+
+    tree->node = c;
+    tree->left = NULL;
+    tree->right = NULL;
+
+    return *tree;
+}
+
+//Selektoren
+sl(bintree t){
+    return t.left;
+}
+sr(bintree t){
+    return t.right;
+}
+sn(bintree t){
+    return t.node;
+}
+
+
+//Ausgabe in inorder-Technik
+int print_inorder(bintree* tree){
+    print_inorder(tree->left);
+    printf("%c", tree->node);
+    print_inorder(tree->right);
+    return 0;
+}
+
 
 
 int main(void){
-    bintree tree;
-    tree = mk_tree(tree);
+    bintree* rootnode;
+
+    rootnode = mk_tree('a');
+    rootnode->left = mk_tree('b');
+    rootnode->right = mk_tree('c');
+
+    print_inorder(tree);
 
     //print_inorder(tree);
 	return 0;

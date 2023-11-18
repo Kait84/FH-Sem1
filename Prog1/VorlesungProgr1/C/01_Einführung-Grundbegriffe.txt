@@ -47,11 +47,13 @@ Zuweisung: gibt Variable einen Wert: "=", von rechts nach links: rechts Term/Aus
 
 ================================================================================================================
 Kompillieren: (Präprozessor) -> Compiler -> Linker -> Loader
-	Quelltext mit editor geschrieben auf Festplatte mit .c gespeichert : aus einer oder mehreren Quelldateien
+	Quelltext mit Editor geschrieben, auf Festplatte mit .c gespeichert : aus einer oder mehreren Quelldateien
 	(0. Präprozessor: definiert/ersetzt Makros, Einschleuesen von Dateiinhalten, entfernen d. Kommentare....)
 	1. Compiler(Übersetzer): umwandeln Text(Quellcode) in Maschinencode(Objektcode)
 	2. Linker: zusammenfügen Maschinencode zu ablauffähigem Programm(Objektdatien+Bibliotheksfunkt.+Laufzeitsys)
 	3. Loader(Lader): laden d. Programms in RAM, wenn gestartet
 -> mit integrierter Entwicklungsumgebung(IDE): Compiler+Linker+Loader+Debugger+Editor
+
+Quellcode.c --Präprozessor-> Quellcode.c --Compiler-> Objektcode.o --Linker-> ausführbaresProgramm.exe --Loader-> Ausführung
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

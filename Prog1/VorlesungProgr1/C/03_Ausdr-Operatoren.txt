@@ -33,8 +33,9 @@ AUSWERTUNGSREIHENFOLGE: Punkt vor Strich, durch Tabelle Priorität d. Operatoren
 		2.2 Präfix-Operator auf Operanden  (++A)
 	3. mehrstellige Operatoren
 
-ASSOZIATIVITÄT: Reihenfolge Verknüpfung Operanden u. Operatoren gleicher Vorrangstufe(Priorität):
-	rechtsassoziativ: abarbeitung r->l (de/inkrementor|Zuweisung|Bed.Ausdruck)/ linksassoziativ: abarbeitung l->r
+ASSOZIATIVITÄT: Reihenfolge d.Verknüpfung von Operanden u.Operatoren bei gleicher Vorrangstufe(Priorität):
+rechtsassoziativ: abarbeitung r->l (in/dekrementor|Zuweisung|Bed.Ausdruck|...)
+linksassoziativ: abarbeitung l->r
 
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,29 @@
+==========================================DYNAMISCHE SPEICHERZUWEISUNG===============================214-
+
+----Statische und dynamische Variablen:
+statische Variable: 
+	in Programm vereinbart durch Angabe von Name, Typ d. Variablen (int x;)
+	erhält bei Vereinbarung: Bezeichner und Variablennamen -> Zugriff über Name mögl.
+	-Gültigkeitsbereich und Lebensdauer durch statische Programmstruktur festgelegt
+dynamische Variable: anonyme Var. 
+	erscheinen nicht explizit in Variablenvereinbarung, haben keinen Namen
+	Anlegen bei Bedarf zur Laufzeit d.Programms -> kein Zugriff über Bezeichner
+	werden im Heap abgelegt: Gült./Lebensd. nicht durch Blockgrenzen(stat. Programmstruktur) bestimmt
+
+----Adressraum(ablauffähigesProgramm.exe im RAM): 4 Segmente(Bereiche): 
+| Code | Daten | Stack | Heap |
+	Codesegment: Programm in Maschinencode
+	Datensegment: globale(statische) Variablen - während gesamter Laufzeit vorhanden
+	Stack: lokale(statische) Variablen, Rücksprungadresse, Funktionsparameter 'pulsierend'
+		-erreichen einer "{": Variablen werden auf Stack gelegt
+		-erreichen einer "}": alle bisherigen Variablen vom Stack entfernt
+		je weiter in innenliegende Blöcke: desto größer, je weiter raus ins main-Proramm, desto kleiner
+	Heap: dynamische Variablen
+		"daraufschmeißen" der Variablen (ungeordnet)
+
+---Speicherreservierung: im Heap: malloc()[memory allocation] 
+	void *malloc(size_t size) in <stdlib.h>: Parameter=wie viele Bytes reserviert(mit sizeof())
+	Rückgabe: bei erfolg: Pointer auf reservierten Speicherbereich, sonst NULL
+
+
+--218

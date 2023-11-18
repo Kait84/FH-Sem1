@@ -8,10 +8,10 @@
 	OBJEKT hat ATTRIBUTE/Daten als Eigenschaften: Verhalten d.Eigenschaften durch METHODEN modelliert
 
 z.B Objekt aus echtem Leben wird modelliert durch...Auto->Klasse Auto...
-	|------Auto-----|						|-RadHintLinks--|		|-RadHintRechts-| : Objektname	}
-	|Geschwindigkeit|-enthält(Aggregation)->|Durchmesser	|		|Durchmesser	| } Attribute	} Objekt
-	|Beschleunigung |						|...			|		|Luftdruck		| } mit 		}
-	|...			|<----Instanz von-------------------------------|...			| }	Werten 		}
+	|------Auto-----|						|-RadHintLinks--|	|-RadHintRechts-| 	: Objektname}
+	|Geschwindigkeit|-enthält(Aggregation)->|Durchmesser	|	|Durchmesser	| 	} Attribute	} Objekt
+	|Beschleunigung |						|...			|	|Luftdruck		| 	} mit 		}
+	|...			|<----Instanz von---------------------------|...			| 	} Werten 	}
 
 Objekt hat Zustand(durch Menge seiner aktuellen Attributwerte beschrieben)
 Objekt hat Verhalten(durch Menge seiner Operationen/Methoden/Funktionen beschrieben)
@@ -57,10 +57,41 @@ Zugriff auf Objekt: rvl.berechne_geschwindigkeit()
 void set_umdrehung(float u){umdrehung = u;}
 float get_umdrehung(void){return umdrehung;}
 
-------Dynamische Objekte:
+------Dynamische Objekte: entsprechen dynamischen Variablen in C:
+Anlegen bei Bedarf mit new-Operator zur Laufzeit auf d.Heap (gibt Zeiger auf Objekt zurück)
+Gültigkeit/Lebensdauer NICHT durch statische Programmstruktur bestimmt, Objekte: nicht automatisch gelöscht
+Löschen mit delete-Operator(von Heap entfernt) -> manuell:Zeigervariable=NULL, sonst wird Speicher erschöpft
+Objekte werden automatisch nach Programmende gelöscht
+
+-----Trennung Deklaration/Definition:
+Empfehlung: Jede Klasse in eigene Header-/Quellcode-Datei mit Namen der Klasse (klassenname.c/.cpp)
+Gründe für die Aufteilung auf mehrere Dateien:
+	-bessere Übersicht/Auffinden von Klassen/Methoden, 
+	-schnelleres Kompillieren: nur übersetzt, wenn selbst oder durch inkl.Header-Dateien geändert
+	-bei Team: vermeidbar, dass Zwei Programmierer an selber Datei arbeiten
+Methoden: außerhalb d.Klassendeklaration (in seperaten Quellcode-Datei) definieren
+Trennen von Klassen-Definition u.-Deklaration(Implementierung)
+Klassen-Deklaration immer in Header-Datei(in jeder Datei, i.d.Klasse verwendet inkludieren)
+Bezug zu Klasse mit Scope-Resolution-Operator "::"
+Eigentliche Definiton d.Klasse getrennt übersetzt, mit Linker dazu gebunden
+
+----Konstruktor: Versetzen eines Objekts in Anfangszustand: 
+Bereitstellung d.Speicherplatzes für Attribute, Initialisierung von Attributen mit sinnvollen Anfangswerten
+	-Aufrufe: automatisch in Programm eingefügt(wenn Objekt erzeugt, Klasse verfügt über Konstruktor)
+	-tragen denselben Namen wie Klasse, haben keine Rückgabewerte
+
+-Standardkonstruktor/Defaultkonstruktor: 
+	Verwendung bei jeder Erzeugung eines Objekts d.Klasse wenn kein Konstruktor explizit definiert ist
+	hat keine Parameter, reserviert Speicher, macht KEINE Initialisierung
+	i.d.R durch selbst geschriebenen Konstruktor ersetzt
+-Allgemeiner Konstruktor(vom Programmierer geschr.): 
+	beliebige Argumente, überladen ist mögl.: mehrere Konstruktoren mit verschiedenen Argumentlisten
+-Kopierkonstruktor(copy const.): 
+	Initialisierung eines Objekts d.Klasse mit anderen derselben Klasse
+-Typumwandlungskonstruktor: 
+	nur ein Argument: Umwandlung anderer Datentyp in Klasse(als Typ gesehen)
+	
 	
 
 
-
-
----301
+---312

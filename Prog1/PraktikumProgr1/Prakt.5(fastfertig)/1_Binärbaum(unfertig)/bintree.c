@@ -18,7 +18,7 @@ Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 //Konstruktor
 bintree mk_tree(bintree t){
     t.left = mk_tree.left;
-    t.right = mk_tree.right;
+    t.right = mk_tree right;
     t.node = mk_tree.node;
     return t;
 }
@@ -27,10 +27,10 @@ bintree mk_tree(bintree t){
 sl(bintree t){
     return t.left;
 }
-lr(bintree t){
+sr(bintree t){
     return t.right;
 }
-ln(bintree t){
+sn(bintree t){
     return t.node;
 }
 
@@ -40,9 +40,9 @@ int print_inorder(struct tree){
     if(tree == NULL){
         return;
     }else{
-        print_inorder(tree.left);
-        printf("%c -->", tree.node);
-        print_inorder(tree.right);
+        print_inorder(sl(tree)));
+        printf("%c", sn(tree));
+        print_inorder(sr(tree));
     }
     return 0;
 }
