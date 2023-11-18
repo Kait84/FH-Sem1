@@ -3,7 +3,6 @@
 	vom Problemraum(Dinge d.realen Welt) in Lösungsraum(Einheiten d.laufenden Programms)
 	(nach ISO: Technik oder Programmiersprache betreffend, die Objekte, Klassen, Vererbung unterstützt)
 
-
 ---------Objekt (Abbildung d.Dinge d.realen Welt auf Objekte)
 	OBJEKT hat ATTRIBUTE/Daten als Eigenschaften: Verhalten d.Eigenschaften durch METHODEN modelliert
 
@@ -29,11 +28,11 @@ Möglichkeiten einer Klasse: Klasse ist Datentyp(Erweiterung von "struct")
 
 Definition: 
 class Rad{
-	float umdrehungszahl;	---
-	float durchmesser;		---Addribute
-	...						---
-	float berechne_geschwindigkeit(){return durchmesser * 3.14 * umdrehungszahl; }	---Methode
-};	---------Semikolon notwendig!!
+	float umdrehungszahl;	}
+	float durchmesser;		}Attribute
+	...						}
+	float berechne_geschwindigkeit(){return durchmesser * 3.14 * umdrehungszahl; }	}Methode
+};	<---Semikolon notwendig!!
 
 
 --------Zugriffsrechte: standard(ohne Zuweisung), alle Elemente: private	(struct: public)
@@ -85,13 +84,37 @@ Bereitstellung d.Speicherplatzes für Attribute, Initialisierung von Attributen 
 	hat keine Parameter, reserviert Speicher, macht KEINE Initialisierung
 	i.d.R durch selbst geschriebenen Konstruktor ersetzt
 -Allgemeiner Konstruktor(vom Programmierer geschr.): 
-	beliebige Argumente, überladen ist mögl.: mehrere Konstruktoren mit verschiedenen Argumentlisten
+	für eine Klasse mehrere Konstruktoren mit verschiedenen Argumentlisten(untersch. Parameteranzahl/Typ)
+	->überladen ist möglich, beliebige Argumente: dann kein Standardkonstruktor
+	Parametr können beim Anlegen d.Objekts nach Objektnamen angegeben werden
+	Initialisierungsliste: zur Initialisierung d.Klassenattribute direkt bei Erzeugung
+		Komma-separierte Liste von Initialisierern, zwischen Kopf(durch ":"" abgesetzt) und Rumpf
+		[ attributname(initialwert) ]
 -Kopierkonstruktor(copy const.): 
 	Initialisierung eines Objekts d.Klasse mit anderen derselben Klasse
 -Typumwandlungskonstruktor: 
 	nur ein Argument: Umwandlung anderer Datentyp in Klasse(als Typ gesehen)
-	
-	
 
+----Destruktor: 
+automatisch beim Löschen eines Objekts aufgerufen(Ende d.Gültigkeitsbereichs/delete-Operator)
+keine Argumente/Rückgabewert, ermöglicht "Aufräumoperationen" bevor Objekt gelöscht wird
+Identischer Name mit Klassennamen, vorangestellte Tilde"~" [~meineKlasse(){delete höhe, delete breite}]
 
----312
+----Kopierkonstruktor: erzeugt Kopie eines bereits existierenden Objektes
+Umkopieren der Attributwerte: kein expliziter Kopierkonstruktor def.:
+-Standard Kopierkonstruktor(implizit): kopiert Attributwerte: erzeugt FLACHE KOPIE(reicht bei Zeigern nicht)
+	[Rad(const Rad& r):umdrehung(r.umdrehun), druck(r.druck), durchmesser(r.durchmesser){}]
+
+-expliziter Kopierkonstrukter: erzeugt TIEFE KOPIE (wenn Strings verwendet)
+	bei Funktionsaufruf mit Werteübergabe(call-by-value) und Funktionsrückgabe(return) automatisch aufgerufen
+	REGEL: Dekonstruktor benötigt -> Kopierkonstruktor, überladener Zuweisungsoperator benötigt
+	[	Rad(const Rad& r):umdrehung(r.umdrehun), druck(r.druck), durchmesser(r.durchmesser){} 
+	 	Auto(const Auto& a){lvr = new Rad(*a.lvr)); rvr(*a.rvr);...}	]
+
+----this-Zeiger: Jede Methode eines Objektes kann auf alle Teile d.Obj.(Attribute/Methoden) zugreifen
+Objekt selbst ist implizites Argument jeder Methode / Parameter obwohl nicht ausdrücklich in Parameterliste
+this-Zeiger(vordefiniert): Erhalten d.Adresse d.aktuellen Objekts
+benötigt, wenn man ganzes Objekt an Methode oder Objet als return-Wert weitergeben möchte
+z.B: float Rad::geschwindigkeit(){ return this->durchmesser * 3.14f * this->umdrehung; }
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

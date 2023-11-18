@@ -1,1 +1,8 @@
 =============================================Objektorientierung2=======================================325-356
+-----Statische Attribute und Methoden:
+Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Objekt)
+	existieren pro Klasse exakt einmal, haben für alle Objekte d.selben Wert, 
+	werden vor erstem Objekt d.Klasse angelegt ->Konstruktor kann nicht zur Initialisierung verwendet werden
+	statische Attribute in Klasse durch vorangestelltes static gekennzeichnet [static int anzahl;]
+
+--326
