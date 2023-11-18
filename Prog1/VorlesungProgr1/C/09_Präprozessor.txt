@@ -1,4 +1,4 @@
-==========================PRÄPROZESSOR/preprocessor(=Textersetzungsmaschine)=============================189-
+==========================PRÄPROZESSOR/preprocessor(=Textersetzungsmaschine)=============================189-201
 Aufgaben: bedingte Kompilierung, Ersetzen von Text, Einfügen von Dateien	|
 Syntax einer Präprozessor-Direktive/Präprozessor-Befehl: 					| #Direktive Text
 Präprozessor-Befehle enden mit Zeilenende Zeichen/Zeilenumbruch
@@ -14,7 +14,7 @@ Aufhebung der eingeführten Makrodefinition				| #undef Bezeichner
 
 Makro: alles in define definierte: Parameter werden übergeben
 -Makro ohne Parameter: symbolische Konstante(CAPS-Schreibweise)
--Makros mit Parametern: durch Parameterliste			| #define Bezeichner(Param1,...,ParamN) Ersatztext
+-Makros mit Parametern: durch Parameterliste def		| #define Bezeichner(Param1,...,ParamN) Ersatztext
 	Verwendung wie Funktion: y = Bezeichner(Param);	
 	+Laufzeit: höhere Geschwindigkeit als bei Funktionsaufruf: keine Parameterübergabe
 	-Speicherbedarf: Rumpf wird expandiert/Code wird Länger
@@ -32,21 +32,4 @@ Quelltext wird in Datei eingefügt, 					| "": Suche zuerst in aktuellem Arbeits
 include-Anweisung innerhalb eingefügter Datei wird auch ausgeführt
 Verwendung für Definition von : -Typnamen. , -Konstanten, -Funktionen , -Makros
 
---------------------------------------------Bit-Operationen--------------------------------------------
------Logische Bit-Operatoren: Bitweises... "&"=AND, "|"=OR, "^"=XOR(Circumflex), "~"=NOT(Tilde)
-dürfen nur für ganzzahlige Datentypen benutzt werden(vorzeichenbehaftet:implementierungsabh.Aspekte)
-Anwendung auf allen Bits d.Operanden / Verknüpfung der Bits der jeweiligen Position
-infix: &,|,^ / präfix: ~
-
-Flags: binäre Zahl, Verwendung zur Kennzeichnung best.Zustände (setzen, löschen, lesen)[unsigned x]
-Verwendung logischer Bit-Operatoren mit Masken zum Zugriff auf einzelne Flags:
-	[a operator= zuveränderndeStelle]
-	setzen: mit bitw.ODER-Operator (Bits, in Bitmaske=1: setzen auf "1" / in Maske=0: unverändert)
-	löschen: mit bitw.UND-Operator (Bits, in Bitmaske=0: löschen / in Maske=1: unverändert)
-	lesen: mit bitw.UND-Operator (Bitmaske: an zu prüfenden Stellen=1, sonst:0(maskierung/ausblendung))
-	invertieren/toggeln: mit bitw.XOR-Operator (Bits, in Bitmaske=1: invertieren / sonst: unverändert)
-
------Shift-Operatoren
-
-
---211
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
