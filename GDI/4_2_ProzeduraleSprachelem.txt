@@ -20,7 +20,57 @@ Besser: Ergebnis d.Funktionen in (gekennzeichnete)Variable zwischenspeichern, da
 	Definition(Var): Festlegen, Name und Typ einer Var, Anlegen im Speicher [var Name:Datentyp;]
 	Zuweisung(Var): Festlegung/Änderung Wert einer Var [Variablenbezeichner = Ausdruck; (selber Typ)]
 	Initialisierung(Var): Definition + Wertezuweisung [Datentyp Name = Wert;]
-Variable muss textuell vor Verwendung definiert werden, kann immer wieder verwendet werden
+Variable muss textuell vor Verwendung definiert werden, kann dann immer wieder verwendet werden
+Semantik:
+	Anweisung(vgl zu Ausdruck): hat keinen Wert, bewirkt Werteänderung einer Var: Zustand d.Var ändert sich
+	Zustandsraum d.Programmdaten: durch alle def.Var eines Programms definiert: 
+		Datenzustand d.Programms: Menge d.Werte aller Programmvariablen zu bestimmtem Zeitpunkt
+		Variablendeklaration vergrößert Zustandsraum, Zuweisung ändert Variablenwert
+	Auswerten einer Anweisung bedingt Zustandsänerung: vor Auswertung:Anfangszustand, danach:Endzustand
+
+Variablendefinition: var id:t; Erweiterung d.betrachteten Zustandsraums d.Programmdaten um neue Var von typ t
+Zuweisung: id=3; 1. Auswerten d.Ausdrucks e bei geg.Zustandsraum(Anfangszustand), 
+	2. Ausführen d. Zuweisung: Ändern des Var.wertes der Var id im Zustandsraum auf Wert von e
+	(falls e undefiniert: ges.Zustandsraum ist undefiniert -> symbolisiert nicht terminierendes Programm)
+
+--------Sequenzielle Komposition: Hintereinanderausführen mehrerer Anweisungen [int x=0; x++; x*=x;]
+Semantik: Anweisungen s1,s2, 
+	1. Auswertung s1 mit geg. Zustandsraum(Anfangszustand)
+	2. Auswertung s2 mit Zustandsraum nach Auswertung von s1(Endzustand von s1)
+
+-------Bedingte Anweisung: Zuweisung in abh. des Werts einer Bedingung [if b then s1 else s2 fi]
+Semantik(informell):
+	falls Ausdruck b Wahrheitwert "true" hat: s1 / wenn "false": s2 / wenn "bottom": Zustandsraum undef.
+Bedingte Anweisung: if x<0 then y=-x; else y=x; fi 	}
+Bedingter Ausdruck: y= if x<0 then -x else x fi 	}gleichbedeutend
+
+-------Wiederholungsanweisung: 
+WHILE [while b do s od] 
+	Quelltext wird mehrfach durchlaufen / gleiche ausgef. Struktur, ggf. andere Param-, Variablenwerte
+		b=boolscher Ausdr/Bedingung der Wiederh.anweis./Eintrittsbedingung, s=Anweisung/Rumpf d.Wiederh.anweis.
+	Semantik: Wenn Ausdruck b im Anfangszustandsraum:
+		1. false: keine Veränderung d.Zustandsraums/ 2. _|_: Zustandsraum undef. /
+		3. true: Ausführen s mit Anfangszust.raum, 4. Zust.r. nach Ausf. von s=Anfangszustandsraum (5. repeat) 
+DO WHILE/REPEAT UNTIL [s while(b); = s; while(b)s / repeat Anweidung until(Bedinung)]
+	Abbruchbedingung statt Eintrittsbedingung (Rumpf wird mind. einmal durchlaufen)
+GEZÄHLTE WIEDERHOLUNG: Wiederholungsanzahl über Zählvariable gesteuert 
+	[for (s1; b; s2) s3] :: Äquivalent zu [s1; while(b){s3; s2;}]
+	b=boolscher Ausdruck, s1/s2/s3=Anweisungen(s1:Dekl./Init. d.Zählervar, s2: Änderung d.Zählervar)
+
+-------Prozedurdefinition: [proc p([var] x1:t1, ..., [var] xn:tn) begin e end]
+Kapselt Quelltextabschnitt zu unabh.Einheit, ermöglicht mehrfaches, redundanzloses Ausführen im Code 
+Analog zu Funktion bei funkt.Programmiersprache, aber: Rumpf ist Anweisung(statt Ausdr.), kein Erg.typ
+	-Schlüsselwort als Kennzeichen, -Identifikator(Name), -Prozedurrumpf(gekennzeichneter Anf.,Ende)
+	-Param.liste: durch "()" begrenzt: aus Paaren(Parametername,-typ) opt.Schlüsselwort[var](Param.übergabe)
+
+var ist optional, Prozedurergebnis indirekt über Parameter zurückgeben!!
+Param. ohne var ^=form.Param., Übergabe eines Werts an Prozedur/zur Zuweisung veränderbar(manchmal erlaubt)
+Param. mit var = Bezeichner: Variablenparam., Belegung(Aufruf) nur mit Variable(nicht mit Konkr.Wert/Ausdruck)
+
+Verwendung von Variablenparamtern(starke Unterschiede in Sprachen):
+	Eingabeparameter: Parameter NICHT auf LINKER Zuweisungsseite: durch Prozedur nicht verändert!
+	Ergebnisparameter: Param. NUR auf LINKER Zuweisungsseite: Wert vor Prozedurausführung: bedeutungslos
+	Transienter param.: Param. auf LINKER und RECHTER Zuweisungss., in AUSDRÜCKEN: Wert verändert/ausgewertet
 
 
----260
+---280
