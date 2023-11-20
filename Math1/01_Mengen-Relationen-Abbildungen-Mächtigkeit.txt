@@ -28,4 +28,13 @@ Mengenoperationen:	(Kommutativgesetz, Assoziativgesetz, Distributivgesetz)
 		_ M 									
 		N 	 Falls N⊂M: M\N = Komplement
 
--9
+Unendliche Mengen:
+	 ∩ An := {x| x∈An für alle n∈M}
+	n∈M
+	 ∩ An := {x| x∈An für mindestens ein n∈M}
+	n∈M
+
+Kartesisches Produkt:
+
+
+--13

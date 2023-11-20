@@ -7,13 +7,20 @@ B |...|...|
 B |...|...|
   _________				
 
-"don´t care"-Felder: Felder, die mit "-"" gekennzeichnet sind: Ausgangswert ist beliebig
+"don´t care"-Felder: Felder, die mit "-" gekennzeichnet sind: Ausgangswert ist beliebig
 	Wert der Stelle/Ausgangswert ist beliebig/nicht definiert(Verwendung, um Blöcke größer wählen zu können)
 	-mindestens einmal Erfassen aller Einsen oder Nullen
 	-nur so viele "don´t care"-Felder hinzufügen wie unbedingt notwendig
 
-Blockbildungsregeln:
-	jede 1 d.Gleicung muss in mindestens einem Block erfasst werden
-	in einem Block: 2^n Einsen (mit möglichst großen,wenigen Blöcken alle Einsen erfassen)
+Blockbildung:
+	jede 1 der Gleicung muss in mindestens einem Block erfasst werden
+	in einem Block: 2^n Einsen 
+	Blöcke dürfen sich überlappen
+	mit möglichst GROßEN, WENIGEN Blöcken alle Einsen erfassen
 	Block: Rechteckförmig : ODER-verknüpft
 	Term: durch Variablen bestimmt, die die sich über Block ändern entfallen: UND-Verknüpft
+
+
+Normalformen vereinfachen: logische Nachbarn finden(Gleiche Formel,eine Var: 1x negiert, 1xunnegiert)
+Blöcke: finden logischer Nachbarn
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

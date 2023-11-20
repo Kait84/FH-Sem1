@@ -79,7 +79,14 @@ SATZ VON SHANNON: negation boolscher Funktionen erhält man durch Ersetzung von:
 	Äquivalenz   <==> Antivalenz
 
 NORMALFORMEN:
-	Vollkonjunktion: UND-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
-	Volldisjunktion: ODER-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
-	Disjunkte Normalform/ODER-Normalform: aus einer/mehreren-ODER-verkn. Vollkonjunktionen
-	Konjunkte Normalform/UND-Normalform: aus einer/mehreren-UND-verkn. Volldisjunktionen
+	-Vollkonjunktion: UND-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
+		(A∧B∧-C∧D)
+	-Volldisjunktion: ODER-Verkn. i.d. alle vorh. Var. einmal(negiert || unnegiert) vorkommen
+		(-A∨B∨C∨-D)
+
+	-Disjunkte Normalform/ODER-Normalform: aus einer/mehreren-ODER-verknüpften Vollkonjunktionen
+		(A∧B∧-C)∨(-A∧B∧C)∨(-A∧-B∧-C)
+	-Konjunkte Normalform/UND-Normalform: aus einer/mehreren-UND-verknüpften Volldisjunktionen
+		(A∨B∨-C)∧(-A∨B∨C)∧(-A∨-B∨-C)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

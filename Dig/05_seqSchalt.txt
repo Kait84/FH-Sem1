@@ -10,7 +10,64 @@ Beschreibung mittels Zuständen und Zustandsübergängen (Zustandsdiagramm)
 								 _
 	RS-Flipflop 		Q(m+1)=S∨RQm					S---|S  |--Q _		
 														R---|R  |----Q
-	(Signalzeitplan, Pulsfolgediagramm)
 
---10
-																				
+mittles NOR:_____	__	 ___		mittles NAND:		  __
+			Q^m-1 = S∨R∨Q^m 					 Q^m-1 = S∧RQ^m 		(Signalzeitplan/Pulsfolgediagramm)
+
+---------Taktgesteuerte FF
+D-Flipflop: D=Delay: Eingangswert um einen Takt verzögert						D---|D  |---Q
+	-Zeitpunkt d.Taktflanke: 								Q^(m+1)=[D]^m 	Takt----|>C |	_
+	 Übernahme d.Dateieingang anl.Werts D in Zustand Z 								|	|o--Q
+
+T-Flipflop: T=toggle: Umschalten zw.zwei mögl. Werten								|   |---Q
+	-Dateneingang: 									Q^(m+1)=[-TQ∨T-Q]^m 	Takt----|>C |	_
+	 1=Änderung Taktfl.zustand/0=keine Änd.											|	|o--Q
+
+====================================Flipflop-Typen====================================
+
+++Taktgesteuerte FF							|	++Nicht-taktgesteuerte FF
+	+Taktzustandsgest.Zweispeicher-FF		|		-Speicher-FF
+		-Auffang-FF							|
+	+Taktflankengest.FF 					|
+		*Einflankengest.FF 					|
+			-Einspeicher-FF					|
+			-Zweisp.-FF(dyn.Zw.Speicher)	|
+		*Zweiflankengest.FF 				|
+			Zweispeicher-FF(Master-Slave)	|
+
+
+=====================Taktsteuerungsvarianten bei FF| W=Wirkintervall/K=Kippintervall=====================
+Zustanssteuerung: 						
+positiv:____	____	----|1S	|----			negativ:	____		----|1S	|----
+		WWW	|___|	|_	----|C1	|						WWW|	|___	---o|C1	|
+		 KKK			----|1R	|o---					 KKK			----|1R	|o---
+
+Flankensteuerung:					
+positiv:____	____	----|1S	|----			negativ:____	____	----|1S	|----
+		W	|___|	|_	----|>C1|						|	W___|	|	---o|>C1|
+		 K 				----|1R	|o---					  	 K			----|1R	|o---
+
+
+==============================================Schaltzeichen für FF==============================================
+
+Taktzustandsgest.Flip-Flop 		D---| D |---Q		Taktzustandsgest.Flip-Flop 		D---| D |---Q
+mit pos.Zustandssteuerung	Takt----| C |	_ 		mit neg.Zustandssteuerung	Takt---o| C |	_
+									|	|o--Q											|	|o--Q
+
+
+Taktflankengest.Flip-Flop 		D---| D |---Q		Taktflankengest.Flip-Flop 		D---| D |---Q
+mit pos.Flankensteuerung	Takt----|>C |	_ 		mit pos.Flankensteuerung	Takt---o|>C |	_
+									|	|o--Q											|	|o--Q
+
+
+-------------Ziffern im Schaltzeichen
+
+Ziffer NACH dem Buchstaben(1) 				S---|S1 |--Q _	[setzdominantes RS-FF]
+kennzeichnet DOMINANTEREN Eingang 			R---|R  |----Q
+
+Abhängigkeitsnotation:
+"1" im Schaltzeichen VOR Eingängen			----|1S |--Q 	
+kennzeichnet: Eingänge über UND-Gatter		----|C1 |	_
+mit Steuereingang verknüpft					----|1R |---Q
+
+--06-30
