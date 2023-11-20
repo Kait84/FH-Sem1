@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "./bintree.h"
 #include <stdlib.h>
-//#include "./bintree.c"
 
 /*
 Binärbaum: rekursiv definierte
@@ -32,48 +31,65 @@ Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 */
 
 //Konstruktor
-bintree mk_tree(char c){
-    bintree* tree = (bintree*)malloc(sizeof(tree));
+bintree mk_node(char nodeName){
+    bintree* treeNode = (bintree*)malloc(sizeof(bintree));
 
-    tree->node = c;
-    tree->left = NULL;
-    tree->right = NULL;
+    treeNode->node = nodeName;
+    treeNode->left = NULL;
+    treeNode->right = NULL;
 
-    return *tree;
+    return *treeNode;
 }
 
 //Selektoren
-sl(bintree t){
-    return t.left;
+sl(bintree* tN){
+    return (tN->left);
 }
-sr(bintree t){
-    return t.right;
+sn(bintree* tN){
+    return (tN->node);
 }
-sn(bintree t){
-    return t.node;
+sr(bintree* tN){
+    return tN->right;
 }
 
 
 //Ausgabe in inorder-Technik
-int print_inorder(bintree* tree){
-    print_inorder(tree->left);
-    printf("%c", tree->node);
-    print_inorder(tree->right);
-    return 0;
+int print_inorder(bintree* treeNode){
+    if(treeNode != NULL){
+        print_inorder(treeNode->left);
+        printf("%c --> ", treeNode->node);
+        print_inorder(treeNode->right);
+    }
+}
+
+//Alle Nodes Zählen
+int count(bintree* treeNode){
+    if(treeNode==NULL){
+        return 0;
+    }
+
+    int leftNodes, rightNodes;
+
+    leftNodes = count(treeNode->left);
+    rightNodes = count(treeNode->right);
+
+    return leftNodes+rightNodes+1;
 }
 
 
+int main() {
+    bintree rootNode = mk_node('A');
+    rootNode->left = mk_node('B');
+    rootNode->right = mk_node('C');
+    rootNode->left->left = mk_node('D');
+    rootNode->left->right = mk_node('E');
+    rootNode->right->left = mk_node('F');
+    rootNode->right->right = mk_node('G');
 
-int main(void){
-    bintree* rootnode;
 
-    rootnode = mk_tree('a');
-    rootnode->left = mk_tree('b');
-    rootnode->right = mk_tree('c');
+    printf("Inorder Ausgabe: \n");
+    print_inorder(rootNode);
 
-    print_inorder(tree);
-
-    //print_inorder(tree);
-	return 0;
+    return 0;
 }
 

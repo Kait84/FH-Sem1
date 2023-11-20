@@ -16,33 +16,40 @@ Knoten in einem Binärbaums berechnet. Testen Sie die Funktion in main
 */
 
 //Konstruktor
-bintree mk_tree(bintree t){
-    t.left = mk_tree.left;
-    t.right = mk_tree right;
-    t.node = mk_tree.node;
+bintree mk_node(char data){
+    bintree node = malloc(sizeof(bintree));
+    if(t == NULL){
+        return 0;
+    }
+    t.left = NULL;
+    t.right = NULL;
+    t.node = data;
     return t;
 }
 
 //Selektoren
-sl(bintree t){
-    return t.left;
+sl(bintree node){
+    return node->left;
 }
-sr(bintree t){
-    return t.right;
-}
-sn(bintree t){
-    return t.node;
+sr(bintree node){
+    return node->right;
 }
 
+//Speicher freigeben
+void delNode(bintree node) {
+    if (node != NULL) {
+        delNode(node->left);
+        delNode(node->right);
+        free(node);
+    }
+}
 
 //Ausgabe in inorder-Technik
-int print_inorder(struct tree){
-    if(tree == NULL){
-        return;
-    }else{
-        print_inorder(sl(tree)));
-        printf("%c", sn(tree));
-        print_inorder(sr(tree));
+int print_inorder(bintree rootNode){
+    if(rootNode != NULL){
+        print_inorder(rootNode->left);
+        printf("%c --> ", rootNode->node);
+        print_inorder(rootNode->right);
     }
     return 0;
 }
@@ -52,4 +59,5 @@ int count(struct tree){
 
 }
 */
+
 
