@@ -1,7 +1,11 @@
 
 typedef struct bintree{
-    struct bintree *left;
+    struct bintree* left;
     char node;
-    struct bintree *right;
+    struct bintree* right;
 }bintree;
+
+
+void print_inorder(bintree* treeNode);
+
 
