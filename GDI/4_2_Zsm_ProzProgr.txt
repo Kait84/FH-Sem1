@@ -1,0 +1,11 @@
+
+Zu-/Anweisung: Kernkonzept prozeduraler Sprachen
+Sinnvoll durch direkten Zugriff auf Speicherzellen
+Verschiedene Arten von Anweisungen verfügbar
+Iterative Wiederholung als neuartiges Konstrukt
+Definition von Prozeduren ermöglicht Modularisierung von Programmen
+Konzept des Blocks erlaubt Einschränkung des Gültigkeitsbereiches von Programmelementen und Bezeichnern
+Rekursive und iterative Wiederholung ineinander wandelbar
+Funktionen und Prozeduren in C, C++/Java ähnlich
+Unterschiede hinsichtlich Aufrufsemantik
+Call by value vs. call by reference

@@ -125,6 +125,18 @@ Unwandlung: linear rekursiv -> repetitiv rekursive Funktion
 	Berechnung schrittweise vor rekurs.Aufruf abarbeiten, Hilfsparam. einführen
 
 ==========================================FUNKTIONEN============================================
+Modularisierung mittels Funkt./Prozeduren von vielen Sprachen erlaubt ->häufig: Mischformen d.Konzepte
+Def form.Param. im Funktionsrumpf, Normale/variable Param.realisierbar
+Verwendung:Param.auf linker Zuweisungsseite entspricht Parameterkonzept v.Prozeduren 
+"void": Realisierung von Prozeduren(funkt.ohne Rückgabewert)
 
+---Aufrufsemantik:
+Call by value: Def:void test(int x){} / Aufruf:test(3*5)
+	Auswertung:Argument, dann Funktionsaufruf, Übergabe:Ergebnis
+Call by reference: Def:void test(int *x){} / Aufruf: int a; test(&a);
+	Umsetzung:Variablenparam, Realisierung:Zeiger/Adresskonzept:Übergabe: Referenz(^=Var.Adresse/Zeiger)
+
+C++/Java: Konzepte ähnlich, Syntax leicht verschieden, Funkt/Prozeduren sind Methoden
+C++: wahlweise CBV/CBR/Java: keine Zeigerarithm. mögl., Variablen:CBV,Objekte:Übergabe Referenz auf Obj.
 
 ---302
