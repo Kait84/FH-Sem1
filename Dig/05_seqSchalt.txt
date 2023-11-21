@@ -48,7 +48,7 @@ positiv:____	____	----|1S	|----			negativ:____	____	----|1S	|----
 		 K 				----|1R	|o---					  	 K			----|1R	|o---
 
 
-==============================================Schaltzeichen für FF==============================================
+========================================Schaltzeichen für FF==============================================
 
 Taktzustandsgest.Flip-Flop 		D---| D |---Q		Taktzustandsgest.Flip-Flop 		D---| D |---Q
 mit pos.Zustandssteuerung	Takt----| C |	_ 		mit neg.Zustandssteuerung	Takt---o| C |	_
@@ -60,8 +60,7 @@ mit pos.Flankensteuerung	Takt----|>C |	_ 		mit pos.Flankensteuerung	Takt---o|>C 
 									|	|o--Q											|	|o--Q
 
 
--------------Ziffern im Schaltzeichen
-
+------------------------------------------Ziffern im Schaltzeichen--------------------------------------
 Ziffer NACH dem Buchstaben(1) 				S---|S1 |--Q _	[setzdominantes RS-FF]
 kennzeichnet DOMINANTEREN Eingang 			R---|R  |----Q
 
@@ -70,4 +69,10 @@ Abhängigkeitsnotation:
 kennzeichnet: Eingänge über UND-Gatter		----|C1 |	_
 mit Steuereingang verknüpft					----|1R |---Q
 
---06-30
+=======================================Master-Slave-FF(JK-Flipflop)=====================================
+			_ _   
+[ Q^(m+1) = [JQ∨KQ]^m ]		
+						   _				 _ _ 		 _   
+JK-FF wird zu D-FF, wenn J=K=D : Q^(m+1) = [JQ∨KQ]^m = [DQ∨DQ]^m = [D]^m
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

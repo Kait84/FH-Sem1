@@ -23,4 +23,6 @@ Blockbildung:
 
 Normalformen vereinfachen: logische Nachbarn finden(Gleiche Formel,eine Var: 1x negiert, 1xunnegiert)
 Blöcke: finden logischer Nachbarn
+
+
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
