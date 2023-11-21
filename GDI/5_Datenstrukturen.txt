@@ -1,1 +1,4 @@
-========================================================================================================310-389
+============================================DATENSTRUKTUREN============================================310-389
+reale Welt-Ausschnit->Programmierer-Abstraktion->Modell-Repräsentation->Programm-Verfeinerung->kl.Progr.
+Algorithmen arbeitne auf Daten(elementen): Information(eigentl.Wert), Darstellung(Repräsentation)
+Informationssystem(A,R,I), Paar(r,a) mit r Elem.von R / a Elem.von A

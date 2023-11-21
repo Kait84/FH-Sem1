@@ -16,11 +16,13 @@ Programmabarbeitung:
 ======================================PROGRAMMVARIABLE/ZUWEISUNG============================================
 Auswertung nach operationeller Semantik: 1.Werte d.Parameter, 2.Funktionsrumpf auf Parameterwerten
 Besser: Ergebnis d.Funktionen in (gekennzeichnete)Variable zwischenspeichern, dann bei Bedarf nutzen
-	Deklaration(Var): definiert Existenz, Name, Typ
-	Definition(Var): Festlegen, Name und Typ einer Var, Anlegen im Speicher [var Name:Datentyp;]
-	Zuweisung(Var): Festlegung/Änderung Wert einer Var [Variablenbezeichner = Ausdruck; (selber Typ)]
-	Initialisierung(Var): Definition + Wertezuweisung [Datentyp Name = Wert;]
-Variable muss textuell vor Verwendung definiert werden, kann dann immer wieder verwendet werden
+
+-Deklaration(Var): definiert Existenz, Name, Typ
+-Definition(Var): Festlegen, Name und Typ einer Var, Anlegen im Speicher [var Name:Datentyp;]
+-Zuweisung(Var): Festlegung/Änderung Wert einer Var [Variablenbezeichner = Ausdruck; (selber Typ)]
+-Initialisierung(Var): Definition + Wertezuweisung [Datentyp Name = Wert;]
+ Variable: textuell vor Verwendung definieren, dann Wiederverndung mögl
+
 Semantik:
 	Anweisung(vgl zu Ausdruck): hat keinen Wert, bewirkt Werteänderung einer Var: Zustand d.Var ändert sich
 	Zustandsraum d.Programmdaten: durch alle def.Var eines Programms definiert: 
@@ -47,42 +49,46 @@ Bedingter Ausdruck: y= if x<0 then -x else x fi 	}gleichbedeutend
 ==========================================Wiederholungsanweisung==========================================
 WHILE [while b do s od] 
 	Quelltext wird mehrfach durchlaufen / gleiche ausgef. Struktur, ggf. andere Param-, Variablenwerte
-		b=boolscher Ausdr/Bedingung der Wiederh.anweis./Eintrittsbedingung, s=Anweisung/Rumpf d.Wiederh.anweis.
-	Semantik: Wenn Ausdruck b im Anfangszustandsraum:
-		1. false: keine Veränderung d.Zustandsraums/ 2. _|_: Zustandsraum undef. /
-		3. true: Ausführen s mit Anfangszust.raum, 4. Zust.r. nach Ausf. von s=Anfangszustandsraum (5. repeat) 
+	b=boolscher Ausdr/Bedingung der Wiederh.anweis./Eintrittsbedingung, s=Anweisung/Rumpf d.Wiederh.anweis.
+Semantik: Wenn Ausdruck b im Anfangszustandsraum:
+	1. false: keine Veränderung d.Zustandsraums/ 2. _|_: Zustandsraum undef. /
+	3. true: Ausführen s mit Anfangszust.raum, 4. Zust.r. nach Ausf. von s=Anfangszustandsraum (5. repeat)
+
 DO WHILE/REPEAT UNTIL [s while(b); = s; while(b)s / repeat Anweidung until(Bedinung)]
 	Abbruchbedingung statt Eintrittsbedingung (Rumpf wird mind. einmal durchlaufen)
-GEZÄHLTE WIEDERHOLUNG: Wiederholungsanzahl über Zählvariable gesteuert 
-	[for (s1; b; s2) s3] :: Äquivalent zu [s1; while(b){s3; s2;}]
+
+GEZÄHLTE WIEDERHOLUNG: [for (s1; b; s2) s3] :: Äquivalent zu [s1; while(b){s3; s2;}] (s=statement)
+	Wiederholungsanzahl über Zählvariable gesteuert 
 	b=boolscher Ausdruck, s1/s2/s3=Anweisungen(s1:Dekl./Init. d.Zählervar, s2: Änderung d.Zählervar)
 
-================Prozedurdefinition: [proc p([var] x1:t1, ..., [var] xn:tn) begin e end]======================
+=============================================Prozedurdefinition============================================
 Kapselt Quelltextabschnitt zu unabh.Einheit, ermöglicht mehrfaches, redundanzloses Ausführen im Code 
-Analog zu Funktion bei funkt.Programmiersprache, aber: Rumpf ist Anweisung(statt Ausdr.), kein Erg.typ
-	-Schlüsselwort als Kennzeichen, -Identifikator(Name), -Prozedurrumpf(gekennzeichneter Anf.,Ende)
-	-Param.liste: durch "()" begrenzt: aus Paaren(Parametername,-typ) opt.Schlüsselwort[var](Param.übergabe)
+Analog zu Funktion(funkt.Progr.spr.), aber: Rumpf=Anweisung(statt Ausdr.), kein Rückgabetyp("void")
 
+proc p([var] x1:t1, ..., [var] xn:tn) begin e end
+	-Schlüsselwort=Kennzeichen, -Identifikator(Name), -Prozedurrumpf(gekennzeichneter Anf.,Ende)
+	-Param.liste("()"begrenzt): aus Paaren(Parametername,-typ), -opt.Schlüsselwort[var](Param.übergabe)
 var ist optional, Prozedurergebnis indirekt über Parameter zurückgeben!!
-Param. ohne var ^=form.Param., Übergabe eines Werts an Prozedur/zur Zuweisung veränderbar(manchmal erlaubt)
-Param. mit var = Bezeichner: Variablenparam., Belegung(Aufruf) nur mit Variable(nicht mit Konkr.Wert/Ausdruck)
+Param. OHNE var^=form.Param: Übergabe eines Werts an Prozedur/durch Zuweisung veränderbar(manchmal erlaubt)
+Param. MIT var = Bezeichner:Variablenparam., Belegung(Aufruf) nur mit Variable(nicht mit Konkr.Wert/Ausdruck)
 
 Verwendung von Variablenparamtern(starke Unterschiede in Sprachen):
-	Eingabeparameter: Parameter NICHT auf LINKER Zuweisungsseite: durch Prozedur nicht verändert!
-	Ergebnisparameter: Param. NUR auf LINKER Zuweisungsseite: Wert vor Prozedurausführung: bedeutungslos
-	Transienter param.: Param. auf LINKER und RECHTER Zuweisungss., in AUSDRÜCKEN: Wert verändert/ausgewertet
+-Eingabeparameter(in): Parameter NICHT auf LINKER Zuweisungsseite: durch Prozedur nicht verändert!
+-Ergebnisparameter(out): Param. NUR auf LINKER Zuweisungsseite: Wert vor Prozedurausführung: bedeutungslos
+-Transienter param.(inout): Param. auf LINKER und RECHTER Zuweisungss., in AUSDRÜCKEN: Wert andern/auswert.
 
------Prozeduraufruf: 
-proc p([var]x1:t1,...,[var]xn:tn) begin s end [en:beliebige Ausdrücke/Var d.Typen tn]
+-------------------------------------------Prozeduraufruf-------------------------------------------------
+proc p([var]x1:t1,...,[var]xn:tn) begin s end 	-	[en:beliebige Ausdrücke/xn:Var d.Typen tn]
 wenn xi: var: e ist eine Variable  [Anwenden nur erlaubt, wenn Typkonform: alle 1<=i<=n: ei vom Typ ti]
 	p(e1,...,en) ist Anweisung: Ausführung symbolisiert s von p auf Werten d.Ausdücke
+
 Bedeutung: Prozeduraufruf: Abkürzungsmechanismus, hilft Redundanz zu vermeiden
-Semantik(Ersatzdarstellung): p(x, e) ^= var b:t2 = e; s[x/a] 
-	Notation s[x/a]: Ersetzung von a in s durch Var x(Teile durch a, mult. mit x)
+Semantik(Ersatzdarstellung): p(x,e) ^= var b:t2 = e; s[x/a] 
+	Notation s[x/a]: Ersetzung von a in ges.Rumpf s durch Var x(Teile durch a, mult. mit x)
 Semantik(normale Param.übergabe): Call by value: 
 	1.ausw.d.aktuellen Param.(Ausdücke auf Param.position), 2.auswerten: Prozedurrumpf
 Semantik(Variablenparameter): Call by reference:
-	Verwendung d.Argumentvariablen d.Aufrufs bei Rumpfauswertung, Ergebnisrückgabe indir. über Ausgabeparam. 
+	Verwendung d.Argumentv. d.Aufrufs bei Rumpfauswertung, Ergebnisrückgabe indir.über Ausgabeparam. 
 	=>Ändern:Variablenwert -> ändert Parameterwert in Aufrufumgebung
 
 ==============================================BLOCK=======================================================
@@ -139,4 +145,4 @@ Call by reference: Def:void test(int *x){} / Aufruf: int a; test(&a);
 C++/Java: Konzepte ähnlich, Syntax leicht verschieden, Funkt/Prozeduren sind Methoden
 C++: wahlweise CBV/CBR/Java: keine Zeigerarithm. mögl., Variablen:CBV,Objekte:Übergabe Referenz auf Obj.
 
----302
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
