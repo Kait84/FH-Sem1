@@ -1,4 +1,48 @@
 ============================================DATENSTRUKTUREN============================================310-389
 reale Welt-Ausschnit->Programmierer-Abstraktion->Modell-Repräsentation->Programm-Verfeinerung->kl.Progr.
-Algorithmen arbeitne auf Daten(elementen): Information(eigentl.Wert), Darstellung(Repräsentation)
-Informationssystem(A,R,I), Paar(r,a) mit r Elem.von R / a Elem.von A
+Algorithmen arbeiten auf Daten(elementen): Information(eigentl.Wert), Darstellung(Repräsentation)
+
+Informationssystem(A,R,I), Paar(r,a) mit r∈R / a∈A:	
+	Objekt/Datum/Datenelement: I(r) = a
+	Typ: Menge gleichartiger Datenelemente (Basistypen von Programmiersprachen: int,...) 
+Datenstruktur/Rechenstruktur: Menge v.Datentyp/en, mit char.Funkt. über den Typen 
+	[Menge d.Typen: T={boolean}, Menge d.Funktionen auf Daten d.Typen: F={true, false, ¬, ∧, ∨}]
+
+------Arten von Datentypen
+Satische Datentypen: Aubau/Größe über Lebensdauer konstant, nur Werte:variabel, Konstanter Speicherbedarf
+	-einfache Typen(char), -zusammengesetzte Typen(Tupel)
+	[Bsp: nat, char, int, real...]
+Dynamische Datentypen: Komponenten-Aufbau/Anzahl:variabel, Werte/Struktur änderbar, Var.Speicherbedarf
+	[Bsp: Zeichenreihen(String), Listen, Mengen...]
+
+Aufzählungstyp(Enumeration): endliche Datenmenge def.durch Aufzählen d.Elemente
+	type t={x1,...,xn};   :		neuer typ t, Bezeichner x vom Typ t(Konstante)
+	Gleichheitsfunktion"==" auf Typ steht zur Verfügung: [== : txt --> bool] (manchmal <= auch def.)
+	enum <enumtype> {<en-elem1>, ..., <en-elemn}; :in C 	<enumtype>=Typ, <en-elem.>=Datenwert
+
+Produkttyp(kartesisches Prod.d.Einzeltypen): aus verschiedenen Einzelelementen: Werte voneinander unabh.
+	type t=cons(sel1:t1,...,seln:tn);	
+	Konstruktor: cons:t1 x...x tn -> t
+	Selektoren: seli:t -> ti (für 1<=i<=n)	:	seli(cons(a1,...,an))=ai
+
+Feld(Array): Semantisch:Speziallfall d.Produkttyps, alle Einzelkomponenten: vom selben Typ
+	type feld = array[n] of t; 	:	Feldtyp,d.Länge n, Elemente vom Typ t: Anzahl=Feldlänge
+	Konstruktor"{}": var f: feld = {w1,...,wn};
+	Selektion(Zugriff auf d.Elem.des Feldes über Indizes)"[]": f[i]
+	Eigenschaften: Index bereich: 0<=i<=n-1, Bereichsüberschreitung nich in allen Sprachen geprüft,
+		Bearbeitung d.Felder über Wiederholung fester Länge, manchmal:statischer Datentyp
+		Sprachunterschiede d.Zuweisung Feld->Var: Ganzes Feld/Anlegen neues Feld,umkopieren d.Felder
+Mehrdimensionales Feld: mehrere Dimensionen(schachteln mögl.)
+	type feld = array[n1,...,nm] of t;	: m-dimensionales Feld mit Elem. aus t
+	Konstruktor: geschachtelte geschweifte Klammern
+	Selektion: f[i1,...,im]
+
+Summentyp(Direkte Summe/Vereinigung(union)): Datenelem.:Ergebnis d.Vereinigung zweier Typen
+	type t = cons1(sel1:t1)|...|consn(seln:tn);	[t:neu dekl.Summentyp, ti:bel.Typen, consi/seli: bel.Bez]
+	Konstruktoren: consi [consi: ti -> t]
+	Selektoren: seli [seli: t -> ti]	: seli(consj(aj)) = ai / falls i!=j:seli(consj(aj)) = _|_
+	Eigenschaften: entspricht disjunktiver Vereinigung d.Typen t1...tn, 
+		Variantentest: in consi:t -> bool = implizit:strikte Testfunktion in infix-Notation
+			consi(ai) in consj = true / consi(ai) in consj  false, wenn i!=j
+
+--331
