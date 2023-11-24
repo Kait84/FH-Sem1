@@ -8,7 +8,7 @@ Informationssystem(A,R,I), Paar(r,a) mit r∈R / a∈A:
 Datenstruktur/Rechenstruktur: Menge v.Datentyp/en, mit char.Funkt. über den Typen 
 	[Menge d.Typen: T={boolean}, Menge d.Funktionen auf Daten d.Typen: F={true, false, ¬, ∧, ∨}]
 
-------Arten von Datentypen
+======================================Statische/Dynamische Datentypen======================================
 Satische Datentypen: Aubau/Größe über Lebensdauer konstant, nur Werte:variabel, Konstanter Speicherbedarf
 	-einfache Typen(char), -zusammengesetzte Typen(Tupel)
 	[Bsp: nat, char, int, real...]
@@ -37,12 +37,63 @@ Mehrdimensionales Feld: mehrere Dimensionen(schachteln mögl.)
 	Konstruktor: geschachtelte geschweifte Klammern
 	Selektion: f[i1,...,im]
 
-Summentyp(Direkte Summe/Vereinigung(union)): Datenelem.:Ergebnis d.Vereinigung zweier Typen
+Summentyp(Direkte Summe/Vereinigung(union)): Datenelement:Ergebnis d.Vereinigung zweier Typen
+entspricht disjunk.Vereinigung d.Typen t1...tn:
 	type t = cons1(sel1:t1)|...|consn(seln:tn);	[t:neu dekl.Summentyp, ti:bel.Typen, consi/seli: bel.Bez]
 	Konstruktoren: consi [consi: ti -> t]
-	Selektoren: seli [seli: t -> ti]	: seli(consj(aj)) = ai / falls i!=j:seli(consj(aj)) = _|_
-	Eigenschaften: entspricht disjunktiver Vereinigung d.Typen t1...tn, 
-		Variantentest: in consi:t -> bool = implizit:strikte Testfunktion in infix-Notation
-			consi(ai) in consj = true / consi(ai) in consj  false, wenn i!=j
+	Selektoren: seli [seli: t -> ti]	: seli(consj(aj)) = ai / falls i!=j:seli(consj(aj)) = _|_ 
+	kann durch Produkttyp dargestellt werden(mehr Speicher)
+		Speicherbedarf: Summentyp:längster Variantentyp , Produkttyp: Summe Speicherbedarf aller Komponenten
+Variantentest(prüfen, welche Variante): in consi:t -> bool (Vor Selektion: Variante prüfen mit Variantentest)
+	implizit def.:strikte Testfunktion in infix-Notation
+	consi(ai) in consj = true / consi(ai) in consj  false, wenn i!=j
+Variantenbildung: oft mit Produkttypen -> abgekürzte Schreibweise:
+	type polar=mk_polar(I:real, phi:real); type kar = mk_kart(x:real, y:real); 
+	type koord=polar_koord(get_pol:polar)|kart_koord(get_kart:kart);
+								==Abkürzung==>
+	type koord=mk_polar(I:real, phi:real)|mk_kart(x:real, y:real);
 
---331
+=========================================Rekursive Datentypen===================================================
+Bisher: Anzahl d.enthaltenen Elem.beschränkt, statisch(zur Deklarationszeit bekannt, danach unveränderbar)
+=max.Speicherbedarf steht bei Programmierung fest  		
+Probleme: max.Anzahl zu schätzen:Ressourcenverschwendung/Umfasst nicht alle benötigten Daten
+Lösung: rekursive Def.von Typen, erlaubt Darstellung von Daten var.Länge
+
+-------------------------------------Liste/Sequenz/lineare Liste---------------------------------------------
+Lin.geordnete Sammlung v.Elementen: Lineare Ordnung, Listengröße dynamisch änderbar
+Jedes Listenelement hat Vorgänger und Nachfolger und den selben Typen
+Operationen: Element einfügen/anhängen/entfernen
+
+Aufbau: T Elemente von Typ t: (1.Elem,(1.Elem,(1.Elem,(1.Elem, leere-Liste))))
+	Liste ist leer ODER Paar aus El.aus T(1.Elem.),Liste von Elem.aus T(Rest d.Liste)
+	-Paar aus 1.Elem. und Rest d.Liste(Produkttyp): type ne_sequ_t = append(fist:t, rest:seq_t);
+	-leere Liste(nullstelliger Produkttyp): type e_sequ_t=empty;
+	-ODER-Verkn.(Summentyp): type sequ_t = mk_esequ(empty:e_seq_t)|mk_nesequ(ne_s:ne_seq_t)
+		Über geschachtelte Typdekl.: type sequ_t=empty|append(first:t, rest:seq_t)
+		Über Konstruktoren:Aufbau d.Liste: var I:sequ_int; I:=append(9,append(31,append(1,empty)))
+		Mit Selektoren:Entnehmen von Elem.: var i:int; if I in append then i := first(I) fi
+
+Zur Verfügung gestellte Funkt. durch Struktur:
+	last: sequ_t -> t / lrest: sequ_t -> sequ_t / make:t -> sequ_t / stock: sequ_t x t -> sequ_t / 
+	conc: sequ_t x sequ_t -> sequ_t / length:sequ_t -> nat / is_in: t x sequ_t -> bool
+	--Deklarationen: S.342--
+
+Sortieren: sortierte Liste sl aus unsortierter Liste ul mit gleichen Elementen erzeugen(ohne Duplikate)
+-insertion sort(Sortieren durch Einfügen): einzelnes Einfügen d.Elem. i aus ul "an richtiger Stelle" in sl
+	Falls sl= leer:Erzeuge einelem.Liste aus i / nicht leer: Finde "richtige Stelle" für i, einfügen von i
+	Benötigt: Verfahren: Abbau/Einfügen d.Elem./Vergleichsoperator "<"
+		Best Case: i:1.Listenelem. : 1 Vergleich
+		Worst Case:letztes Elem : 3 Vergleiche pro Elem: 3*n Vergleiche
+		Average Case: mittleres Elem. : (3*n)/2 Vergleiche
+
+------------------------------------------Stack/Stapel/Keller-----------------------------------------------
+LIFO-Prinzip(last in first out), systematisches Ablegen von Elem., Zugriff in umgekehrter Ablagereihenfolge
+	type stack_t = empty | push(top:t, rest: stack_t);
+	height: stack_t -> int (Höhenberechnung d.Stacks, sonst keine Zugriffsfunktionen)
+
+-------------------------------------------------Baum-----------------------------------------------------
+potenziell unendlich groß, in sich strukturiert, hirachische Struktur, Alle Datenelemente vom selben Typ,
+wachsen von oben nach unten, Jeder Knoten speichert:Datenwert,Strukturinformation 
+geeignet für effizientes Suchen in sortierten Datenbeständen
+
+Aufbau:
