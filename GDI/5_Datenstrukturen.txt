@@ -96,4 +96,84 @@ potenziell unendlich groß, in sich strukturiert, hirachische Struktur, Alle Dat
 wachsen von oben nach unten, Jeder Knoten speichert:Datenwert,Strukturinformation 
 geeignet für effizientes Suchen in sortierten Datenbeständen
 
-Aufbau:
+Aufbau: T:Elemente eines beliebigen Typs, !Alle Elemente: gleicher Typ!
+Baum ist: leer ODER Knoten aus 1 nem Element aus T, Menge von Kinderbäumen(möglicherweise leer)
+i.d.Praxis: Kinderbäume sind geordnet, Binärbaum:bis zu zwei Kindbäume mögl.
+
+Darstellungen: Graphisch, Euler-Venn Diagr., Geschachtelte Klammerung
+Graphisch:													Euler-Venn Diagramm(geschachtelte Mengen):
+		Wurzel(root)										---------------------------------------
+		  /  |  \			 <--Kanten(arc)					|-----							----- |
+Knoten(node) k2 Elternknoten <--Geschwister					||e11| 	|------e12----------|	|e1n| |
+				/	|	\	 Zweig(branch)=Kante+Knoten 	|-----	|e122, e121,...,e12m|	----- |
+		Kindknoten 	kk 	kk   <--Blätter(leafs)				|	 	|-------------------|		  |
+															---------------------------------------
+Geschachtelte Klammerung:
+e1{e11,e12{e121, e122,...,e12m},...,e1n}	
+
+Verwendung:
+Strukturbaum:											Operatorbaum:
+			 	   Auto										  -		(3+4)*5-2
+		  		/   |     \							  	 	 / \	Innere Knoten==Operatoren 
+		Karosserie Fahrwerk	Antrieb							*  2 	Blätter==Operanden
+		/	\				/	|	\					   / \
+Rohkarosse Interieur Getriebe Motor	Antriebsstrang	  	  +	  5
+														 / \
+														3 	4
+
+----Binärbäume: type bintree_t= eptytree | mktree(left:bintree_t, node:t, right:bintree_t)
+Viele Operationen auf Bäumen, Operation muss meist alle Knotenelem. erreichen, 
+Baum muss vollst. durchlaufen werden(unterschiedliche Durchlauftechniken mögl.): bearbeitung von:
+		Vorordnung(preorder): 1.Knoten, 2.linker Teilbaum, 3.rechter Teilbaum
+		Inordnung(inorder): 1.linker Teilbaum, 2.Knoten, 3.rechter Teilbaum
+		Nachordnung(postorder): 1.linker Teilbaum, 2.rechter Teilbaum, 3.Knoten
+
+Eigenschaften:
+Baum: gerichteter azyklischer Graf, zu jedem Knoten existiert von Wurzel aus EIN Weg(Pfad)
+	Niveau von Knoten k: N(k) =Knotenanzahl d.Pfads von Wurzel->k(Wurzel=1)
+	Höhe des Baums: H(b):=max{N(k)| k Knoten von b}
+	Baum geordnet, wenn feste Reihenfolge für jeden Nachfolger eines Knotens
+	(Verzweigungs-)Grad: definiert durch Anzahl d.direkten Nachfolger eines Knotens
+	Grad des Baumes: bestimmt durch höchsten Grad aller Knoten: Grad(b)=max{Grad(k)|k Knoten von b}
+Binärbaum:
+Maximaleigenschaften(Höhe h): Max (2^h)-1 Knoten, 2^(h-1) Blätter -> max (2^h)-1 zu Speichern
+Minimaleigenschaften(Höhe h): Mind h Elem.,1 Blatt -> Entartet dann zur Liste
+Höhe h mit n Knoten: log2(n)<h<=n
+Baum:vollständig ausgeglichen: für jeden Knoten unterscheiden sich die Zahlen d.l/r Unterbaums max um 1
+	Höhe(n Knoten): ⌈h(b)=log2(n+1)⌉
+
+Sortierter Baum(Suchbaum): ermöglicht schnelle Suche über großen Datenbeständen
+	wenn für jeden Knoten k aus b gilt:(Rekursive Prüfung)
+		Alle Knotenelem.d.linken Teilbaums:kleiner als k / rechten Teilbaums:größer als k
+	Pro abgeprüfter Baumebene: max 3 Vergleiche, Maximal für Baum mit Hohe H(b)
+		wenn Elem.enthalten: 3*H(b)-1 Vergleiche, sonst: 3*H(b)+1
+		(Bei zur Liste entartetem Baum gleicher Aufwand wie Liste!)
+
+=============================================Referenzen=============================================
+Dynamischer Datentyp: variierender Speicherbedarf über Programmlaufzeit
+Rekursiver Datentyp: Elem.beliebiger Größe, keine selektive Elementveränderung
+
+Sortieren von Listen: zweite Liste wird erzeugt, unsortierte Liste ist uninteressant
+keine Konstrukte zum selektivem Verändern von Listen: Erzeugen mit Konstruktoren empty/append
+	-> anonymes Anlegen aller Variablen in Feld, selektives Ansprechen über Index(=referenzieren)
+	var eingabe:nat, ergebnis:nat;				var speicher: array[100] of nat;
+	eingabe := 5; 						===>	speicher[0]:= 5;
+	eingabe:=fak(eingabe);						speicher[1]:=fak(speicher[0]);
+
+Referenztyp: helfen Duplizierung von Daten zu vermeiden:Infos einmal gespeichert, mehrfach referenziert
+	ref t = Typ aller Referenzen auf Elem.vom Typ t
+	statischer Datentyp -> new(t) erzeugt neues Elem.(Var) vom Typ t, liefert Referenz darauf
+	Elem. ist anonym und wird über Referenztyp angesprochen: var name: ref t; name:=ner(t);
+	Element dereferenzieren,um Wert anzusprechen: deref(r)(liefert Elem.auf das r verweist)
+		deref: ref t -> t (Referenzen können zugewiesen, verglichen werden )
+	[var eingabe:ref nat, ergebnis:ref nat; 
+ 	 eingabe:=new(nat), ergebnis:=new(nat); 
+ 	 deref(eingabe):=5, fak(deref(eingabe));]
+	Bezeichner "nil": bezeichnet vorgegebenes Refernzelement, Bezugselem. undef: deref(nil)==_|_
+	a==b => deref(a)==deref(b), neu def.Referenzvar: var == nil
+Referenzen werden als Zeiger bezeichnet/dargestellt: a->derenf(a)<-b
+
+Einfach verkettete Listen:
+
+
+--381
