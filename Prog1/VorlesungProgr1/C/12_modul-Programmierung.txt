@@ -19,5 +19,6 @@ list.h<--#include-- list.c --compiler-->list.o----\
 
 ----globale Variablen: zwei Dateien, eine Funktion als EXTERN DEKL. zum benutzen in anderer Datei
 	extern int zahl; (Bekanntmachen d.globalen Var in dieser Datei)
-
+	Kapseln globaler Daten/Funktionen, dass nur in eigner Datei verwendbar(Schutz vor unerwünschter Verw.)
+	
 --237
