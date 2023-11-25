@@ -1,1 +1,10 @@
-========================================================================================================417-455
+===========================================BERECHENBARKEIT=============================================417-455
+Gibt es Aufgaben, die für einen rechner nicht durchführbar sind/für die keine Algorithmen bestehen -> JA
+	Aufgabenstellungen, für die es keinen Algorithmus gibt: nicht berechenbar/entscheidbar
+
+Church-Turing-These: Alle vernünftigen Def. von Alg., soweit bekannt, sind gleichwertig/-mächtig
+	gleichwertig/gleichmächtig: zu jedem Algorithmus in bestimmter Notation kann man Alg. 
+	in allen anderen Notationen angeben, der dieselbe Aufgabenstellung löst.(Alan Turing/Alonzo Church)
+
+
+--420

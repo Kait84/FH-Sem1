@@ -1,1 +1,60 @@
-========================================================================================================391-415
+================================================KOMPLEXITÄT===============================================391-415
+Komplexität eines Problems: mit welchem Minimum an Rechnerressourcen kann Aufgabe gelöst werden
+	Komplexität eines Problems: größte untere Schanke der Komplexitäten aller Algorithmen, die Problem lösen
+Ressourcen: Ausführungszeit/Speicherbedarf -> Komplexitätsarten: Zeitkomplexität/Speicherkomplexität
+
+----------------------------------------------ZEITKOMPLEXITÄT----------------------------------------------
+LAUFZEIT(Algorithmus) abhängig von: 
+	Programmqualität(Programmierer/Compiler), Zeitkomplexität d.Algorithmus
+	Eingabedaten(Menge/Art), Rechnerart/-geschwindigkeit
+Angabe d.Zeitaufwands durch Angabe d.elementaren Operationen (unabhängig einer konkreten Zeiteinheit)
+
+ZEITKOMPLEXITÄT: A=Algorithmus, E=mögl.Eingabedaten, n=Größe d.Problemausprägung
+t(A,n,e)=Anzahl d.durchzuführenden Elementaroperationen bei Eingabe e∈E				[Speicherkomplexität
+	Tmin(A,n):=min{t(A,n,e)|e∈E} "beste Komplexität"/best case						[ist analog:
+	Tmax(A,n):=max{t(A,n,e)|e∈E} "schlechteste Komplexität"/best case				[S(A,n)
+	Tavg(A,n):=avg{t(A,n,e)|e∈E} "mittlere Komplexität"/average case
+		i.A. schwierig zu bestimmen:Häufigkeit d.Eingaben berücksichtigen
+Falls alle 3 Fälle gleich => T(A,n) / Falls klar ist welcher Alg.verwendet wird => T(n)
+
+BESTIMMUNG DER KOMPLEXITÄT(präzise):Für große Alg.schwierig => Vergleichen von Alg.bez der Komplexität:
+Angabe d. oberen Schranke der Komplexität, Asymptotische Laufzeit, Einteilung in Komplexitätsklassen
+	->Angabe des Zeitaufwands in Abhängigkeit von n(bis auf konst.Faktoren)
+
+LANDAU-SYMBOLE: P=Menge aller Funktionen f:IN->IN, g∈P
+O(g(n)) := {f(n)∈P | es existiert n0∈IN,c>0, sodass für alle n>n0 gilt: |f(n)| <= c*|g(n)|}
+	für f(n)∈O(g(n)):"f: wächst max so schnell wie g/hat höchstens Ordnung g/ist aus Groß-O von g"
+O(g(n)) := {f(n)∈P | für alle c>0, existiert n0∈IN, so dass für alle n>n0 gilt: |f(n)|<=c*|g(n)|}
+	für f(n)∈o(g(n)):"f: wächst langsamer als g/hat kleinere Ordnung als g/ist aus klein-o von g"
+
+O: Ursprünlich Omikron, O(...), o(...) sind Mengen, trotzdem schreibt man f(n)=O(g(n)) statt f(n)∈O(g(n))
+f(n)∈o(g(n)) ==> f(n)∈O(g(n)) [NICHT UMGEKEHRT]
+Bei der Komplexität von Algorithmen: an Abschätzung nach oben interessiert[O(g(n))]
+O(g(n))/o(g(n)): Mengen von Funktionen, die für große n höchstens so stark(O)/weniger stark(o) wachsen wie g
+
+
+---------------------------------------------KOMPLEXITÄTSKLASSEN---------------------------------------------
+Konstante Komplexität: [ O(1) ] : Laufzeit hängt nicht von n ab
+	--Indexzugriff auf einn Feld der Länge n
+Logarithmische Komplexität: [ O(log2n) ] : Verdopplung von n->Komplexität ändert sich um konstanten Faktor
+	--Binäre Suche im sortierten Feld mit n Einträgen
+Lineare Komplexität: [ O(n) ] : Verdopplung von n->Verdopplung der Laufzeit
+	--Suche im unsortierten Feld der Länge n
+Leicht überlineare Komplexität: [ O(n*log2n) ]
+	--Fortgeschrittene Alg. zum Sortieren von n Zahlen: Mergesort...
+Quadratische Komplexität: [ O(n^2)->(2n)^2=4(n^2) ] : Verdopplung d.Daten->Vervierfachung d.Laufzeit
+	--Einfache Sortieralgorithmen: Insertionsort...
+Polynomiale Komplexität: [ O(n^c1 + n^c2 + ... + n^cm) ]
+Exponentielle Komplexität: [ O(c^n) ] : (O(2^n)=Verdopplung von n:2^2n=(2^n)^2 -> quadrierte Laufzeit)
+	--Türme von Hanoi
+
+-------------------------------------------KOMPLEXITÄTSBERECHNUNG--------------------------------------------
+T1(n)=O(f(n)),T2(n)=O(g(n)): Laufzeiten d.Programmteile P1,P2
+
+Summenregel: T(n) = T1(n)+T2(n) = Laufzeit der Hintereinanderschaltung	[O(max(f(n),g(n)))]
+	Hintereinanderausführung von Programmen: die höhere der beiden Komplexitäten ist ausschlaggebend
+Produktregel: T(n) = T1(n)*T2(n) = Laufzeit der ineinander geschachtelten Programmteile [O(f(n)*g(n))]
+	Wenn Programmteile innerhalb des anderen immer wieder ablaufen müssen Komplexitäten multipliziert werden
+
+!!! Bsp:--406					
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

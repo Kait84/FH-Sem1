@@ -1,0 +1,9 @@
+
+Datenstruktur kapselt Menge von Datentypen sowie zugehörige charakteristische Funktionen.
+	Statischer Datentyp: Daten fester, konstanter Länge.
+	Dynamischer Datentyp: Daten variabler Länge.
+	Aufzählungstyp definiert Typ mit endlich vielen Werten.
+	Produkttyp definiert Typ als Tupel aus unabhängigen Einzelelementen.
+		Feld als Spezialfall des Produkttyps über festen Typ.
+			Feldgröße meist statisch (feste Länge).
+	Summentyp definiert die Vereinigung von Typen.

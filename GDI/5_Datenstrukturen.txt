@@ -8,6 +8,7 @@ Informationssystem(A,R,I), Paar(r,a) mit r∈R / a∈A:
 Datenstruktur/Rechenstruktur: Menge v.Datentyp/en, mit char.Funkt. über den Typen 
 	[Menge d.Typen: T={boolean}, Menge d.Funktionen auf Daten d.Typen: F={true, false, ¬, ∧, ∨}]
 
+
 ======================================Statische/Dynamische Datentypen======================================
 Satische Datentypen: Aubau/Größe über Lebensdauer konstant, nur Werte:variabel, Konstanter Speicherbedarf
 	-einfache Typen(char), -zusammengesetzte Typen(Tupel)
@@ -53,6 +54,7 @@ Variantenbildung: oft mit Produkttypen -> abgekürzte Schreibweise:
 								==Abkürzung==>
 	type koord=mk_polar(I:real, phi:real)|mk_kart(x:real, y:real);
 
+
 =========================================Rekursive Datentypen===================================================
 Bisher: Anzahl d.enthaltenen Elem.beschränkt, statisch(zur Deklarationszeit bekannt, danach unveränderbar)
 =max.Speicherbedarf steht bei Programmierung fest  		
@@ -91,7 +93,7 @@ LIFO-Prinzip(last in first out), systematisches Ablegen von Elem., Zugriff in um
 	type stack_t = empty | push(top:t, rest: stack_t);
 	height: stack_t -> int (Höhenberechnung d.Stacks, sonst keine Zugriffsfunktionen)
 
--------------------------------------------------Baum-----------------------------------------------------
+-------------------------------------------------Baum-------------------------------------------------------
 potenziell unendlich groß, in sich strukturiert, hirachische Struktur, Alle Datenelemente vom selben Typ,
 wachsen von oben nach unten, Jeder Knoten speichert:Datenwert,Strukturinformation 
 geeignet für effizientes Suchen in sortierten Datenbeständen
@@ -100,7 +102,7 @@ Aufbau: T:Elemente eines beliebigen Typs, !Alle Elemente: gleicher Typ!
 Baum ist: leer ODER Knoten aus 1 nem Element aus T, Menge von Kinderbäumen(möglicherweise leer)
 i.d.Praxis: Kinderbäume sind geordnet, Binärbaum:bis zu zwei Kindbäume mögl.
 
-Darstellungen: Graphisch, Euler-Venn Diagr., Geschachtelte Klammerung
+---------------------Darstellungen:Graphisch/Euler-Venn Diagr./Geschachtelte Klammerung---------------------
 Graphisch:													Euler-Venn Diagramm(geschachtelte Mengen):
 		Wurzel(root)										---------------------------------------
 		  /  |  \			 <--Kanten(arc)					|-----							----- |
@@ -111,15 +113,14 @@ Knoten(node) k2 Elternknoten <--Geschwister					||e11| 	|------e12----------|	|e
 Geschachtelte Klammerung:
 e1{e11,e12{e121, e122,...,e12m},...,e1n}	
 
-Verwendung:
-Strukturbaum:											Operatorbaum:
-			 	   Auto										  -		(3+4)*5-2
-		  		/   |     \							  	 	 / \	Innere Knoten==Operatoren 
-		Karosserie Fahrwerk	Antrieb							*  2 	Blätter==Operanden
-		/	\				/	|	\					   / \
-Rohkarosse Interieur Getriebe Motor	Antriebsstrang	  	  +	  5
-														 / \
-														3 	4
+Verwendung:		Strukturbaum:							Operatorbaum:  -
+			 	   Auto									(3+4)*5-2	  / \
+		  		 /   |     \										 *   2
+		Karosserie Fahrwerk	Antrieb									/ \	
+		/	\				/	|	\					  		   +   5
+Rohkarosse Interieur Getriebe Motor	Antriebsstrang	  	  		  / \		Innere Knoten=Operatoren
+																 3 	 4 		Blätter=Operanden
+														
 
 ----Binärbäume: type bintree_t= eptytree | mktree(left:bintree_t, node:t, right:bintree_t)
 Viele Operationen auf Bäumen, Operation muss meist alle Knotenelem. erreichen, 
@@ -149,6 +150,7 @@ Sortierter Baum(Suchbaum): ermöglicht schnelle Suche über großen Datenbestän
 		wenn Elem.enthalten: 3*H(b)-1 Vergleiche, sonst: 3*H(b)+1
 		(Bei zur Liste entartetem Baum gleicher Aufwand wie Liste!)
 
+
 =============================================Referenzen=============================================
 Dynamischer Datentyp: variierender Speicherbedarf über Programmlaufzeit
 Rekursiver Datentyp: Elem.beliebiger Größe, keine selektive Elementveränderung
@@ -173,7 +175,24 @@ Referenztyp: helfen Duplizierung von Daten zu vermeiden:Infos einmal gespeichert
 	a==b => deref(a)==deref(b), neu def.Referenzvar: var == nil
 Referenzen werden als Zeiger bezeichnet/dargestellt: a->derenf(a)<-b
 
-Einfach verkettete Listen:
+Einfach verkettete Listen(geflechte): type s_list = pair(elem:t, next ref s_list); (ersetzen: empty->nil)
+	Geflechte: rekursive Typvereinbarungen auf Basis von Referenzen
+	Elem.an Liste anhängen: Liste selektiv ändern(vorne:konst.Aufwand, hinten:Durchlaufen ganzer Liste)
+	-----------		-----------		-----------	
+	|1.Elem| o----->|2.Elem| o----->|3.Elem| o-nil->
+	-----------		-----------		-----------
+	
+Zweifach verkettete Listen: type d_list = tripel(prev:ref d_list, elem:t, next:ref d_list);
+	effiziente Algorithmen zum Bearbeiten von Listen von vorne und hinten
+	Aufwand zum Aufbau, Speicherbedarf sind höher als bei einfach verketteten
+	----------------	 ----------------	 ----------------
+	|1.Elem|	| o----->|2.Elem|	| o----->|3.Elem|	| o-nil->
+	^---------------	 ^--|------------	 ---|------------
+	|--------------------|--|			   		|
+						 |----------------------|
 
-
---381
+==========================================================================================================
+neue Datentypen einführen: type name = typausdruck;
+Typbezeichner: immer global deklarieren
+Statt Typbez./Typausdruck mögl.: type datum=array[3] of nat; var d:datum; <=====> var d:array[3] of nat;
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
