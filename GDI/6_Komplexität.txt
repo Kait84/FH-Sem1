@@ -1,4 +1,4 @@
-================================================KOMPLEXITÄT===============================================391-415
+================================================KOMPLEXITÄT===========================================391-415
 Komplexität eines Problems: mit welchem Minimum an Rechnerressourcen kann Aufgabe gelöst werden
 	Komplexität eines Problems: größte untere Schanke der Komplexitäten aller Algorithmen, die Problem lösen
 Ressourcen: Ausführungszeit/Speicherbedarf -> Komplexitätsarten: Zeitkomplexität/Speicherkomplexität

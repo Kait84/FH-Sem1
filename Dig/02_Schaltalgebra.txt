@@ -85,8 +85,8 @@ NORMALFORMEN:
 		(-A∨B∨C∨-D)
 
 	-Disjunkte Normalform/ODER-Normalform: aus einer/mehreren-ODER-verknüpften Vollkonjunktionen
-		(A∧B∧-C)∨(-A∧B∧C)∨(-A∧-B∧-C)
+		(A∧B∧-C)∨(¬A∧B∧C)∨(¬A∧¬B∧¬C)
 	-Konjunkte Normalform/UND-Normalform: aus einer/mehreren-UND-verknüpften Volldisjunktionen
-		(A∨B∨-C)∧(-A∨B∨C)∧(-A∨-B∨-C)
+		(A∨B∨¬C)∧(¬A∨B∨C)∧(¬A∨¬B∨¬C)
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

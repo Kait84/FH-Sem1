@@ -7,8 +7,8 @@ Beschreibung mittels Zuständen und Zustandsübergängen (Zustandsdiagramm)
 	Ausgangssignale hängen von Eingangssignalen, vorherigen Zuständen(vorgeschichte) ab
 
 =========================Flip-Flops:Binäre Speicher(können Binärvar. speichern)============================
-								 _
-	RS-Flipflop 		Q(m+1)=S∨RQm					S---|S  |--Q _		
+
+	RS-Flipflop 		Q(m+1)=S∨¬RQm					S---|S  |--Q _		
 														R---|R  |----Q
 
 mittles NOR:_____	__	 ___		mittles NAND:		  __
@@ -20,7 +20,7 @@ D-Flipflop: D=Delay: Eingangswert um einen Takt verzögert						D---|D  |---Q
 	 Übernahme d.Dateieingang anl.Werts D in Zustand Z 								|	|o--Q
 
 T-Flipflop: T=toggle: Umschalten zw.zwei mögl. Werten								|   |---Q
-	-Dateneingang: 									Q^(m+1)=[-TQ∨T-Q]^m 	Takt----|>C |	_
+	-Dateneingang: 									Q^(m+1)=[¬TQ∨T¬Q]^m 	Takt----|>C |	_
 	 1=Änderung Taktfl.zustand/0=keine Änd.											|	|o--Q
 
 ====================================Flipflop-Typen====================================
@@ -69,10 +69,8 @@ Abhängigkeitsnotation:
 kennzeichnet: Eingänge über UND-Gatter		----|C1 |	_
 mit Steuereingang verknüpft					----|1R |---Q
 
-=======================================Master-Slave-FF(JK-Flipflop)=====================================
-			_ _   
-[ Q^(m+1) = [JQ∨KQ]^m ]		
-						   _				 _ _ 		 _   
-JK-FF wird zu D-FF, wenn J=K=D : Q^(m+1) = [JQ∨KQ]^m = [DQ∨DQ]^m = [D]^m
+=======================================Master-Slave-FF(JK-Flipflop)=====================================  
+Q^(m+1) = [J¬Q∨¬KQ]^m	
+	JK-FF wird zu D-FF, wenn J=¬K=D : Q^(m+1) = [J¬Q∨¬KQ]^m = [¬DQ∨DQ]^m = [D]^m
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

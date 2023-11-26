@@ -1,10 +1,49 @@
 ===========================================BERECHENBARKEIT=============================================417-455
-Gibt es Aufgaben, die für einen rechner nicht durchführbar sind/für die keine Algorithmen bestehen -> JA
+Es gibt Aufgaben, die für einen rechner nicht durchführbar sind/für die keine Algorithmen bestehen
 	Aufgabenstellungen, für die es keinen Algorithmus gibt: nicht berechenbar/entscheidbar
 
-Church-Turing-These: Alle vernünftigen Def. von Alg., soweit bekannt, sind gleichwertig/-mächtig
-	gleichwertig/gleichmächtig: zu jedem Algorithmus in bestimmter Notation kann man Alg. 
-	in allen anderen Notationen angeben, der dieselbe Aufgabenstellung löst.(Alan Turing/Alonzo Church)
+--------------------------------Church-Turing-These (Alan Turing/Alonzo Church)------------------------------
+Alle vernünftigen Definitionen von Algotithmen, soweit bekannt, sind gleichwertig/-mächtig:
+	gleichwertig/gleichmächtig: zu jedem Algorithmus in bestimmter Notation kann man einen Algorithmus in 
+	allen anderen Notationen angeben der dieselbe Aufgabenstellung löst.
+
+Alle verwendeten Programmiersprachen/Rechner sind gleichmächtig, 
+Jede Programmiersprache/Rechner kann auf allen Rechnern/mit jeder Programmiersprache simuliert werden
+Zeigen,dass Problem nicht/berechenbar:Angabe eines Algorithmus in bel.Sprache/Zeigen, dass es keinen gibt
+In Komplexitäts-/Berechenbarkeitstheorie: Turingmaschinen/Turingprogramme als universeller Ansatz
+
+----------------------------------------Partielle Berechenbarkeit--------------------------------------------
+nicht entscheidbar, ob zwei Programme dieselbe Aufgabe lösen(selbe Eingabe->selbe Ausgabe) =Äquivalenzproblem
+unter entscheidbaren Problemen: manche weniger entscheidbar als andere
+	Prüfung durch Haltetester, problematisch:Endlosfall -> Fokus:mit Ja/Nein beantwortbare Probleme
+
+partiell berechenbares Problem(semi-entscheidbar): es gibt Algorithmus, der Problem im Ja/Nein-Fall löst
+	Halteproblem: semi-entscheidbar: möglich Alg.zu finden, der Ja liefert, wenn Programm terminiert
+		Algorithmus scheitert bei nicht-terminierendem Programmen
+	Äquivalenzproblem: unentscheidbar: kein Alg.der bei nicht-/äquivalenten Programmen terminiert
+
+---------------------------------------------Hartnäckige Probleme--------------------------------------------
+Viele Programme: theoretisch berechenbar, i.d.Praxis für hohe Eingabewerte nich lösbar(zu hohe Komplexität)
+	--z.B.Probleme mit exponentieller Komplexität
+Polynomiale Algorithmen: für "vernünftige" Anzahl v.Eingabedaten durchführbar (f.Info wichtige Algorithmen)
+Hartnäckige Probleme: zu Problem gibt es exponentielle Alg., aber polynomiale Alg. noch nicht gefunden
+	man konnte noch nicht bewiesen, dass es keine Polynomiale Alg. gibt
+		|---------------Alle Aufgabenstellungen-----------------|
+		|		|----berechenbare Aufgabenstellungen----|		|
+		|		|   durchführbare Aufgabenstellungen	|		|
+		|		|---------------------------------------|		|
+		|-------------------------------------------------------|
+Aufgabe ist schwieriger zu lössen als zu überprüfen, ob Lösung gilt
+
+Nichtdeterminismus: some id:t|p(id)	
+	some: deskriptiver Auswahloperator(geschicktes Erraten gewünschter Werte)
+	id=beliebiger Bezeichner, t=beliebiger Typ, p(id)=Prädikat(boolescher Ausdruck, abhängig von id)
+	Zustandsraum: um Bezeichner id erweitert
+	nach Anweisung hat id irgendeinen Wert, gibt es keinen Wert mit p(id): id=_|_
 
 
---420
+--429
+
+-----------------------------------------NP-vollständige Probleme--------------------------------------------
+-----------------------------------------Branch and Bound-Methode--------------------------------------------
+----------------------------------------------Greedy-Methode-------------------------------------------------
