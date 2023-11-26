@@ -1,13 +1,15 @@
-===========================================MODULARES PROGRAMMIEREN===================================228-
-----Praktische Aspekte: Programme viele tausend/millionen Programmzeilen
-Wenn Programm in einer einzigen Datei wäre: 
+===========================================MODULARES PROGRAMMIEREN===================================228-237
+
+---------------------------------------------Praktische Aspekte----------------------------------------------
+Programme viele tausend/millionen Programmzeilen, Wenn Programm in einer einzigen Datei wäre: 
 jede Änderung->Rekompillierung: millionen Zeilen / Navigation unpraktisch / Mehrere Entwickler nicht mögl.
 
 nützliche Abstraktion: Trennen: Implementierung/Schnittstelle - Abstr.Datentyp, Konkrete Implementierung
 +Austauschen verschiedener Implementierungen d.selben Funktionalität möglich
 +bei Verwendung selbem Interface(ADT): Änderungen sind minimal
 
-----Header Datei: sollte vor doppelter Inludierung geschützt werden: #ifndef _LIST_ #define _LIST_
+-----------------------------------------------Header Datei--------------------------------------------------
+sollte vor doppelter Inludierung geschützt werden: #ifndef _LIST_ #define _LIST_
 In Programm:list.h:Ablegen d.abstrakten Datenstrukturen[ADT](Funktionsdekl./Datentyp+Schnittstelle char.Funkt)
 			list.c:Implementierung (inkludieren d.Headerdatei #include "header.h")
 			main.c:Verwendung d.Funkt einer abstr.Datenstrukt(einbinden d.Header-Datei)
@@ -17,8 +19,12 @@ list.h<--#include-- list.c --compiler-->list.o----\
 	 \<--#include-- main.c --compiler-->main.o---linker-->main.exe
 	 									stdlib.o--/
 
-----globale Variablen: zwei Dateien, eine Funktion als EXTERN DEKL. zum benutzen in anderer Datei
-	extern int zahl; (Bekanntmachen d.globalen Var in dieser Datei)
-	Kapseln globaler Daten/Funktionen, dass nur in eigner Datei verwendbar(Schutz vor unerwünschter Verw.)
-	
---237
+--------------------------------------------globale Variablen------------------------------------------------
+[ extern int zahl; ] zwei Dateien, eine Funktion als EXTERN DEKL. zum benutzen in anderer Datei
+	(Bekanntmachen d.globalen Var in dieser Datei)
+Kapseln globaler Daten/Funktionen in Datei: nur in eigner Datei verwendbar(Schutz vor unerwünschter Verw.)
+Information Hiding: [static ...]: nur in eigenen Datei sichtbar, Kein Zugriff von anderer Datei
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
