@@ -1,17 +1,38 @@
 ==============================================Speicherklassen========================================238-243
 
 ---------------------------------------------lokale Variablen--------------------------------------------
-[ Speicherklasse typ VarBezeichner; ](bei dekl.vor Typ geschrieben)
-drei Speicherklassen: auto/register/static
-	Automatische Variablen: keine Speicherklassenangabe
+[ Speicherklasse typ VarBezeichner; ](bei dekl. optional vor Typ geschrieben)
+drei Speicherklassen: auto(default)/register/static
 
-
---239
+Automatische Variablen(auto/register): keine Speicherklassenangabe(auto), Speicherklassenangabe(register)
+	Automatisches ablegen/löschen der Var auf Stack beim Betreten/Verlassen des Blocks(innerhalb sichtbar)
+	-register: anlegen form.Param, lok.Var in Registern des Prozessors -> verkürzte Zugriffszeit auf var
+		optimierende Compiler erkennen solche Var, legen sie selbstständig in Registern ab
+Statische Variablen(static): 
+	Speichern des Werts: behalten Wert beim Betreten/Verlassen des Blocks, 
+	manuelle Init.nur bei 1.Aufruf, sonst mit 0 initialisiert
+	Ablage auf Datensegment(wie glob.var) -> sind permanent
+	andere Lebensdauer, gleiche Sichtbarkeit wie globale Variablen 
 
 --------------------------------------------globale Variablen--------------------------------------------
+Var, die außerhalb einer Funkt. definiert ist
+Lebensdauer: so lange wie Programm: bei Programmbeginn im Datenbereich angelegt
+Sichtbarkeit: in allen Funktionen, die in selber Quelldatei nach Var.def. definiert werden(Verschattung)
+Initialisierung: bei Programmbeginn automatisch mit 0 initialisiert
+
 ---------------------------------------------Zusammenfassung---------------------------------------------
+   Speicherklasse 	|	Gültigkeit 		|	Lebensdauer	|	autom.Init.	|		Segment 	|
+--------------------|-------------------|---------------|---------------|-------------------|
+register 			|Block 				|Block 			|nein			|Stack/Register 	|
+auto 				|Block 				|Block 			|nein			|Stack 				|
+static(lokale Var)	|Block 				|Programm 		|0				|Daten 				|
+static(externe Var)	|in Datei ab def. 	|Programm 		|0				|Daten 				|
+extern 				|in Programm ab Def/|Programm 		|0				|Daten 				|
+					|ab extern dekl.	|				|				| 					|
 
 
 ==============================================Typumwandlung==========================================243-249
 ----------------------------------------implizite Typumwandlung------------------------------------------
+
+--244
 ----------------------------------------explizite Typumwandlung------------------------------------------

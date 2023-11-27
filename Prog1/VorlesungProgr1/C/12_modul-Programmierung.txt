@@ -15,8 +15,8 @@ In Programm:list.h:Ablegen d.abstrakten Datenstrukturen[ADT](Funktionsdekl./Date
 			main.c:Verwendung d.Funkt einer abstr.Datenstrukt(einbinden d.Header-Datei)
 Hinzufügen d.Implementierung des ADTs durch Linker
 
-list.h<--#include-- list.c --compiler-->list.o----\
-	 \<--#include-- main.c --compiler-->main.o---linker-->main.exe
+list.h--#include--> list.c --compiler-->list.o----\
+	 \--#include--> main.c --compiler-->main.o---linker-->main.exe
 	 									stdlib.o--/
 
 --------------------------------------------globale Variablen------------------------------------------------
@@ -25,6 +25,6 @@ list.h<--#include-- list.c --compiler-->list.o----\
 Kapseln globaler Daten/Funktionen in Datei: nur in eigner Datei verwendbar(Schutz vor unerwünschter Verw.)
 Information Hiding: [static ...]: nur in eigenen Datei sichtbar, Kein Zugriff von anderer Datei
 
-
+mit #ifndef, #define, #endif
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
