@@ -41,8 +41,11 @@ Nichtdeterminismus: some id:t|p(id)
 	Zustandsraum: um Bezeichner id erweitert
 	nach Anweisung hat id irgendeinen Wert, gibt es keinen Wert mit p(id): id=_|_
 
+Erfüllbarkeitsproblem: testen aller mögl.Belegungen der Var mit true/false: 2^n mögl.Belegungen: O(2^n)
+	Ausschlaggebend für Komplexität O(2^n): Variablenanzahl
 
---429
+
+--434
 
 -----------------------------------------NP-vollständige Probleme--------------------------------------------
 -----------------------------------------Branch and Bound-Methode--------------------------------------------

@@ -55,7 +55,7 @@ Variantenbildung: oft mit Produkttypen -> abgekürzte Schreibweise:
 	type koord=mk_polar(I:real, phi:real)|mk_kart(x:real, y:real);
 
 
-=========================================Rekursive Datentypen===================================================
+=========================================Rekursive Datentypen==================================================
 Bisher: Anzahl d.enthaltenen Elem.beschränkt, statisch(zur Deklarationszeit bekannt, danach unveränderbar)
 =max.Speicherbedarf steht bei Programmierung fest  		
 Probleme: max.Anzahl zu schätzen:Ressourcenverschwendung/Umfasst nicht alle benötigten Daten
