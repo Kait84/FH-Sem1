@@ -1,1 +1,16 @@
-==============================================Ein-/Ausgabe========================================250-266
+=============================================EIN-/AUSGABE==============================================250-266
+drei Gruppen der Ein-/Ausgabe(E/A, I/O): 
+	1.Standartein-/ausgabe (stdin,stdout,stderr) | 2.String Ein/Ausgabe | 3.Datei(File) Ein/Ausgabe
+
+Ein-/Ausgabeprogrammierung: Funktionen:stdlib / Funkt.deklarationen: stdio.h
+	in C I/O: Stream-basiert: Folge von Zeichen/Daten-Bytes
+	Geräteunabhängig: Programm behandelt I/O als dauerhaften Strom von Bytes unabh. von Herkunfts-/Zielort
+
+Standard Streams(in ANSI C/Linux): autom. geöffnet bei Programmbeginn, geschlossen bei Programmende
+	stdin: Eingabestrom (mit Tastatur verbunden)	
+	stdout: Ausgabestrom (mit Bildschirm/Terminal verbunden)
+	stderr: Ausgabestrom für Fehlermeldungen (-||-)
+
+Funktionen:
+
+--253
