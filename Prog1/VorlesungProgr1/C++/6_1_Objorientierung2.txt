@@ -4,5 +4,14 @@ Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Obje
 	existieren pro Klasse exakt einmal, haben für alle Objekte d.selben Wert, 
 	werden vor erstem Objekt d.Klasse angelegt ->Konstruktor kann nicht zur Initialisierung verwendet werden
 	statische Attribute in Klasse durch vorangestelltes static gekennzeichnet [static int anzahl;]
+	Deklaration (private)legt keine Instanz d.statischen Attributs an -> def in Quellcodedatei wie glob.Var
+	Zugriff mit Scope Resolution Operator(int Rad::anzahl=0), sollten bei Definition initialisiert werden
+	Zugriff immer über Klassennamen (statt Objektnamen)
+	Öffentliche Getter-Methoden: Deklaration als statische Methoden(=Schnittstelle zu stat.Klassenattributen)
+	können auch ohne Objekt aufgerufen werden -> Zugriff nur auf statisch Attr.
+	-->Statische Elem.gehören zur Klasse, nichtstatische gehören zu bestimmten Objekten
 
---326
+Konstante Methoden:
+
+
+--330
