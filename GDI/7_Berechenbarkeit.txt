@@ -43,10 +43,39 @@ Nichtdeterminismus: some id:t|p(id)
 
 Erfüllbarkeitsproblem: testen aller mögl.Belegungen der Var mit true/false: 2^n mögl.Belegungen: O(2^n)
 	Ausschlaggebend für Komplexität O(2^n): Variablenanzahl
+	
+	Problemklassen: Probleme d.Klasse, 
+	-polynomial zeitbeschränkt: in polynomialer Zeit mit nicht deterministischem Alg. lösbar
+		P : Menge der pol. zeitbeschränkten Probleme
+	-nichtdeterministisch polynomial zeitbeschränkt: polynomialer Zeit/nichtdeterministischem Alg. lösbar
+		NP: Menge der nichtdetermin. pol. zeitbeschränkten Probleme
 
-
---434
+	P ⊂ NP, Erfüllbarkeit Boolescher Ausdr. ist in NP (kein Alg. für Erfüllbarkeit in P gefunden)
 
 -----------------------------------------NP-vollständige Probleme--------------------------------------------
+NP-vollständige Probleme(NP-hart): wenn NP-Problem mindestens so schwierig wie jedes andere Problem in NP
+für zahlreiche Probleme nachgewiesen: NP-vollständig,
+	wenn für einen polynom.determ.Alg gefunden: P = NP bewiesen, wenn bewiesen dass es keinen gibt: P!=NP
+Für alle NP-Probleme gibt es exponentielle Algorithmen, können deterministisch in polynom.Zeit gelöst werden
+
+Beispiele für NP-vollst. Probleme:
+	Packproblem(Rucksackproblem) / Erfüllbarkeitsproblem / Problem des Handlungsriesenden / 
+	Verschnittproblem / Verdrahtungsproblem
+
+NP-vollständige Probleme: erfordern hohen Rechenaufwand: effiziente Algorithmen!!
+können stets als Suchprobleme dargestellt werden: Lösungssuche in Baum mit beschränktem Verzweigungsgrad
+für effiziente Suche: Reihe Stategien zum effizienten Durchlaufen des Suchbaums
+
 -----------------------------------------Branch and Bound-Methode--------------------------------------------
+Durchlaufen eines Suchbaums: sukzessives Durchlaufen der Pfade(tracks), wenn nicht zielführend:
+	Rücksprung zu weiter oben liegendem Knoten, durchlaufen eines neuen Pfades(backtracking)
+
+Branch and Bound Verfahren: effizientes Backtracking:
+	Bewetungsfunktion ordnet jedem Knoten Schätzwert zu: Wahrscheinlichkeit einer erfolgreichen Suche
+	Weiterverfolgung des Zweigs/branchs mit höchster Erfolgswahrscheinlichkeit
+	Bound Schritt versucht Zweige ohne Lösung abzuschneiden(Begrenzung d.Rechenaufwands)
+
+Bewertungsfunktion b: Für jeden Knoten k: 
+--449
+
 ----------------------------------------------Greedy-Methode-------------------------------------------------
