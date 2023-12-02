@@ -37,13 +37,16 @@ int: Ganzzahlen (Integer): endlichen Zahlenbereich abhängig von Architektur: IN
 	-(2^n-1) bis (2^n-1)-1	Standard: 32bit: 4Bytes , 64bit: 8Byte, 16bit: 2Byte
 
 ================================================================================================================
-C: getypte Sprache:
-	Typen: Ordnungsprinzip für daten: welche Werte, Operationen möglich
-Varibalen: bezeichner für Speicherzellen = Identifier, read/write perm., Standardwert undefiniert
-	Definition vor Verwendung, zuornung des Typs:	int x;
-	Initialisierung durch Zuweisung: x = 10;
-Zuweisung: gibt Variable einen Wert: "=", von rechts nach links: rechts Term/Ausdruck, links variable
-	Erste Zuweisung einer Variable : Initialisierung
+	C: getypte Sprache: 
+Typen: Ordnungsprinzip für daten: welche Werte/Operationen möglich
+Varibalen: bezeichner für Speicherzellen = Identifier, read/write permissions, Standardwert undefiniert
+	Alle Variablen müssen bestimmten Typ zugeordnet sein: nur Aufnahme Daten des Typs
+		Definition vor Verwendung, zuornung des Typs: [ int x; ] (Var hat keinen Wert)
+		Initialisierung durch Zuweisung: [ x = 10; ]
+Zuweisung: gibt Variable einen Wert: "=", von rechts nach links: 
+	rechts Term/Ausdruck, links Variable
+	Erste Zuweisung einer Variable : Initialisierung 
+	"schreibender Zugriff auf var"
 
 ================================================================================================================
 Kompillieren: (Präprozessor) -> Compiler -> Linker -> Loader
