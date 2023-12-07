@@ -1,7 +1,7 @@
-================================================14.10.2023==========================================067-083
+=================================================14.10.2023============================================067-083
 
-Sequenz/Block: { Anweisungs1 Anweisung2 ...}  :  Anweisungen in Block zusammengefasst: Bilden Anweisung
-	";" kein begrenzer zw Anweisungen, begrenzt andere Sprachen
+Sequenz/Block: { Anweisungs1 Anweisung2 ...}  : Anweisungen in Block zusammengefasst: Bilden eine Anweisung
+	";" begrenzt eine Anweisung (kein Begrenzer zwischen Anweisungen)
 
 Selektion:
 -Bed.Anweisung: if(Ausdruck){Anweisung}else{Anweisung}  (else-Zweig ist optional)

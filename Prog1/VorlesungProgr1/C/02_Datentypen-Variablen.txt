@@ -1,6 +1,7 @@
 ================================================13.10.2023=============================================029-043
 
-Datentyp: legt erlaubte Operationen, mögl. Werte fest / Compiler: legt (Hardwareabh.) Repräsentation,Größe fest
+Datentyp: legt erlaubte Operationen, mögl. Werte fest
+Compiler: legt (Hardwareabh.) Repräsentation,Größe fest
 Repräsentation: legt Speicherbedarf, Wertebereich d. Variablen fest
 
 ================================================================================================================

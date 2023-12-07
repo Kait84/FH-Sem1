@@ -6,7 +6,7 @@ C:Mutter vieler Programmiersprachen diese Vorlesung: ANSI C (effektive / kleine 
 C: Imperative Programmiersprache: aneinanderreihung einzelner Befehle / maschinennah: effizient abzuarbeiten
 C++: Objektorientierte Programmiersprache
 
-gesucht: Super-Assembler: Laufzeit wie assembler, unterstützung d. strukturierten Programmierung, hardware nahe Programmierung -> B -> C: umsonst statt 500 euro pascal compiler : durchsetzung C
+gesucht: Super-Assembler: Laufzeit wie assembler, Unterstützung strukturierter/hardwarenaher Progr
 1989 C durch Amrican National Standards Institure (ANSI) Standartisiert -> Ansi C 
 1990: ISO: C 89/90 = Ansi C von jedem Compiler übersetzbar u. ausführbar
 
@@ -47,16 +47,22 @@ Zuweisung: gibt Variable einen Wert: "=", von rechts nach links:
 	rechts Term/Ausdruck, links Variable
 	Erste Zuweisung einer Variable : Initialisierung 
 	"schreibender Zugriff auf var"
+Ausdruck: mathematischer Term, Berechnung ergibt Wert: Verknüpfung durch Operatoren: Zahlen/Variablen
+
+Typ Variable Zuweisung Ausdruck
+int 	x 		=		3+5+x
 
 ================================================================================================================
 Kompillieren: (Präprozessor) -> Compiler -> Linker -> Loader
 	Quelltext mit Editor geschrieben, auf Festplatte mit .c gespeichert : aus einer oder mehreren Quelldateien
+
 	(0. Präprozessor: definiert/ersetzt Makros, Einschleuesen von Dateiinhalten, entfernen d. Kommentare....)
-	1. Compiler(Übersetzer): umwandeln Text(Quellcode) in Maschinencode(Objektcode)
+	1. Compiler(Übersetzer): umwandeln Text(Quellcode) in Maschinencode(Objektcode) : prozessorspez.Progr.sprache
 	2. Linker: zusammenfügen Maschinencode zu ablauffähigem Programm(Objektdatien+Bibliotheksfunkt.+Laufzeitsys)
 	3. Loader(Lader): laden d. Programms in RAM, wenn gestartet
 -> mit integrierter Entwicklungsumgebung(IDE): Compiler+Linker+Loader+Debugger+Editor
 
-Quellcode.c --Präprozessor-> Quellcode.c --Compiler-> Objektcode.o --Linker-> ausführbaresProgramm.exe --Loader-> Ausführung
+Quellcode.c --Präprozessor-> Quellcode.c --Compiler-> Objektcode.o --Linker-> ausführbaresProgramm.exe
+--Loader-> Ausführung
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
