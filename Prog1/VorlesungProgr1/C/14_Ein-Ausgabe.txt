@@ -1,0 +1,58 @@
+=============================================EIN-/AUSGABE==============================================250-266
+drei GRUPPEN der Ein-/Ausgabe(E/A, I/O): 
+	1.Standartein-/ausgabe (stdin,stdout,stderr) | 2.String Ein/Ausgabe | 3.Datei(File) Ein/Ausgabe
+
+EIN-/AUSGABEPROGRAMMIERUNG: Funktionen:stdlib / Funkt.deklarationen: stdio.h
+	in C I/O ist Stream-basiert: Folge von Zeichen/Daten-Bytes
+	Geräteunabhängig: Programm behandelt I/O als dauerhaften Strom von Bytes unabh. von Herkunfts-/Zielort
+
+STANDARD-STREAMS(in ANSI C/Linux): autom. geöffnet bei Programmbeginn, geschlossen bei Programmende
+	stdin: Eingabestrom (mit Tastatur verbunden)	
+	stdout: Ausgabestrom (mit Bildschirm/Terminal verbunden)
+	stderr: Ausgabestrom für Fehlermeldungen (-||-)
+
+FUNKTIONEN: In C Standardbibl.: zwei Funkt.ausprägungen: 
+	immer Standard-Streams(printf()) / Stream Angabe durch Programmierer(fprintf())
+
+FORMATIERTE AUSGABE mit printf: int printf(char format[], arg1, ..., argn);
+	akzeptiert veränderliche Anzahl von Argumenten, liefert Zahl, d.erfolgreich ausgegebenen Arg. zurück
+	format String: feste Strings/Formatierungsanweisungen: %[flags][width][.precision][length]<specifier>
+--specifier:
+	d/i = signed int 	x = unsigned hex	e = scientific notation		g = shortest %e/$f
+	u = unsigned int 	a = hex fp 			c = char
+	f = floating point	p = pointer addr.	s = string of char
+--length:
+	hh = char		h = short 		l = long		ll = long long 			
+	t = ptrdiff_t	j = intmax_t	z = size_t		L = long double
+--flags:
+	- = left-justify	+ = preceed result with sign -/+	0 = left-pads number with zeroes
+	# = with o/x/X: preceeds Value with o, ox, Ox
+--width:
+	(number) = min.numbers to be printed 	* = width specified as add.integer preceding arg.
+--.precision:
+	.number = min digits are written, padding with leading 0s	.* = precision spec.as add.int prec.arg.
+
+FORMATIERTE EINGABE mit scanf: int scanf(char format[], arg1, ..., argn);
+	akzeptiert veränderliche Anzahl von Elem., liefert Zahl, d.erfolgreich ausgegebenen Arg.(oder EOF)
+	Formatierungsanweisungen: identisch zu printf
+	einlesen mehrerer Werte: trennung durch Leerzeichen/Tabs(space/tab werden ignoriert(lesbarkeit))
+	Argumente: müssen Adressen von Variablen sein
+	stimmt Eingabe nicht mit Formatzeichen überein, wird Eingabe abgebrochen
+
+DATEIEN LESEN/SCHREIBEN: direktes Schreiben/lesen mit FILE *fopen(const char *Pfac, const char *Modus);
+	Ablauf: 1.Datei öffnen, 2.Datei lesen/beschreiben, 3.Datei schließen
+	fopen dient dazu einen Datenstrom(Stream) zu öffnen, Datenströme^=Verallgemeinerungen von Dateien
+	Ergebnis: Zeiger auf Datentyp FILE(^=Ein-/Ausgabestrom)
+	Schließen der geöffneten Datenströme: int fclose(FILE *datei); ,wenn erfolreich,return: 0, sonst EOF
+		speichern aller nicht geschriebenen Daten des Stroms *datei, Datenstrom wird geschlossen
+		leeren aller ungelesenen Eingabepuffer, autom.zugewiesener Puffer wird befreit
+	--Modus:
+	r(READ) - w(WRITE, löscht Inhalt, wenn Datei existiert) - a(APPEND, nötigenfalls Anlegen d.Datei)
+	r+(r+w, datei muss existieren) - w+(r+w, notigenfalls Anlegen), a+(r+w, nötigenf. Anlegen d.Datei)
+
+KOMMANDOZEILE: viele Standardprogramme akzeptieren Flags: programmsteuerung durch Flags: lesen in main: 
+	int main(int argc, char *argv[])
+	--argc: Anzahl d.Kommandozeilenargumente (einschließlich Programmname)
+	--argv: einzelne Argumente (inklusive Programmname)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

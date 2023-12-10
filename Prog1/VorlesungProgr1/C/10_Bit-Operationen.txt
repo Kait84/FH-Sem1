@@ -1,0 +1,32 @@
+--------------------------------------------BIT-OPERATOREN-------------------------------------------202-213
+
+-----Logische Bit-Operatoren: Bitweises... "&"=AND, "|"=OR, "^"=XOR(Circumflex), "~"=NOT(Tilde)
+dürfen nur für ganzzahlige Datentypen benutzt werden(vorzeichenbehaftet:implementierungsabh.Aspekte)
+Anwendung auf allen Bits d.Operanden / Verknüpfung der Bits der jeweiligen Position
+infix: &,|,^ / präfix: ~
+
+Flags: binäre Zahl, Verwendung zur Kennzeichnung best.Zustände (setzen, löschen, lesen)[unsigned x]
+Verwendung logischer Bit-Operatoren mit Masken zum Zugriff auf einzelne Flags: [a operator= veränd.Stelle]
+	setzen: mit bitw.ODER-Operator (Bits, in Bitmaske=1: setzen auf "1" / in Maske=0: unverändert)
+		a |= 8(setzt 4.Bit) [0000 0000 -> 0000 1000]
+	löschen: mit bitw.UND-Operator (Bits, in Bitmaske=0: löschen / in Maske=1: unverändert)
+		a &= 247(löscht 4.Bit) [1111 1111 -> 1111 0111]
+	lesen: mit bitw.UND-Operator (Bitmaske: an zu prüfenden Stellen=1, sonst:0(maskierung/ausblendung))
+		if(a&8)...(maskiert alle Bits außer 4.) [1111 1111 -> 0000 1000]
+	invertieren/toggeln: mit bitw.XOR-Operator (Bits, in Bitmaske=1: invertieren / sonst: unverändert)
+		a^=9 (invertiert Bits außer 1,4) [1111 1111 -> 0000 1001]
+
+-----Shift-Operatoren: wirken wie mul/div mit Pozenzen von 2
+Verschiebung von Bits um positive ganzzahlige Position nach links"<<" | rechts">>"
+
+Rechtsshift-Operator: A >> B: Verschiebung der Bits von A um B Bitstellen nach rechts
+	B niederwertige Bits von A gehen verloren
+	-A unsigned: höherwertigen Bits werden mit Nullen aufgefüllt ^= Division durch 2^B
+	-A signed mit negativem Wert: Ergebnis ist Compiler abhängig [Visual C++ Vorzeichenbit bleibt]
+
+Linksshift-Operator: A << B: Verschiebung der Bits von A um B Bitstellen nach rechts 
+	B höherwertigen Bits von A gehen verloren -> niederwertige mit Nullen aufgefüllt
+	Entspr.Multiplikation mit 2^B :falls unsigned, kein Überlauf
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

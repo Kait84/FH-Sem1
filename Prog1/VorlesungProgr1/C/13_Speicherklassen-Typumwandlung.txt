@@ -1,0 +1,68 @@
+==============================================Speicherklassen=========================================238-243
+
+---------------------------------------------lokale Variablen--------------------------------------------
+[ Speicherklasse typ VarBezeichner; ](bei dekl. optional vor Typ geschrieben)
+drei Speicherklassen: auto(default)/register/static
+
+Automatische Variablen(auto/register): keine Speicherklassenangabe(auto), Speicherklassenangabe(register)
+	Automatisches ablegen/löschen der Var auf Stack beim Betreten/Verlassen des Blocks(innerhalb sichtbar)
+	-register: anlegen form.Param, lok.Var in Registern des Prozessors -> verkürzte Zugriffszeit auf var
+		optimierende Compiler erkennen solche Var, legen sie selbstständig in Registern ab
+Statische Variablen(static): 
+	Speichern des Werts: behalten Wert beim Betreten/Verlassen des Blocks, 
+	manuelle Init.nur bei 1.Aufruf, sonst mit 0 initialisiert
+	Ablage auf Datensegment(wie glob.var) -> sind permanent
+	andere Lebensdauer, gleiche Sichtbarkeit wie globale Variablen 
+
+--------------------------------------------globale Variablen--------------------------------------------
+Var, die außerhalb einer Funkt. definiert ist
+Lebensdauer: so lange wie Programm: bei Programmbeginn im Datenbereich angelegt
+Sichtbarkeit: in allen Funktionen, die in selber Quelldatei nach Var.def. definiert werden(Verschattung)
+Initialisierung: bei Programmbeginn automatisch mit 0 initialisiert
+
+---------------------------------------------Zusammenfassung---------------------------------------------
+   Speicherklasse 	|	Gültigkeit 		|	Lebensdauer	|	autom.Init.	|		Segment 	|
+--------------------|-------------------|---------------|---------------|-------------------|
+register 			|Block 				|Block 			|nein			|Stack/Register 	|
+auto 				|Block 				|Block 			|nein			|Stack 				|
+static(lokale Var)	|Block 				|Programm 		|0				|Daten 				|
+static(externe Var)	|in Datei ab def. 	|Programm 		|0				|Daten 				|
+extern 				|in Programm ab Def/|Programm 		|0				|Daten 				|
+					|ab extern dekl.	|				|				| 					|
+
+
+==============================================Typumwandlung==========================================243-249
+----------------------------------------implizite Typumwandlung------------------------------------------
+In C: Operanden eines Ausdrucks/Typen bei Zuweisung müssen nicht vom selben Typ sein,
+	übergebene/rückzugebende Ausdrück können bei Wertübergabe von form.Param/Rückgabetyp verschieden sein#
+--> Compiler führt selbsttätig implizite(autom.)Typumwandlungen durch(Ablauf:von Sprache abh.Regelwerk)
+
+Arithmetische Konversionen: bei bin.Operatoren: Umwandlung arithmetishe Operanden in gemeinsamen Typ
+	[ Ausdruck1 Operator Ausdruck2 ]:gleicher A1,A2,Erg haben selben Typen
+
+Umwandlung in höheren Typ der Hierachie: (Überspringen von Ebenen mögl.)
+	int -> unsigned int -> long int -> unsigned long -> float -> double -> long double
+
+Integer-Erweiterung: in C wird immer mit Integer-Werten gerechnet, die mind.Datentyp "int" haben
+un/signed char,un/signed short:keine Verknüpfung zu Ausdrücken: Konvertiertung vor Verknüpfung: 
+	un/signed char/short -> int
+	unsigned short -> unsigned int(falls Datentypen äquivalent)
+	unsigned short -> int (falls Datentypen nicht äquivalent)
+
+Implizite Typumwandlung: Zuweisung/Funktionsaufrufe: bei keiner Übereinstimmung der Typen von:
+	"Zuweisungstyp = Ausdrucktyp" -> implizite Konvertierung, wenn Typen verträglich, sonst Fehlermeldung
+	Verträgliche Typen: arithmetische Typen/Zeiger auf void
+	Bei Zuweisung: Umwandlung d.rechten Operanden in Typ d.linken Operanden(Resultattyp=Typ d.linken)
+		Umwandlung zw.beliebigen verträgl.Typen auch "größerer"->"kleinerer" Typ
+		Aktuelle Parm: Wandlung in Typ d.form.Param, return-Wert->Zuweisungsrückgabetyp
+
+----------------------------------------explizite Typumwandlung------------------------------------------
+Implizite Typumwandlung: gefährlich, da oft nicht richtig eingeschätzt -> Übername von Programmierer
+mit cast-Operator(Typkonvertierungs-Operator):
+	[ (Typname) Ausdruck ] : Wandlung d.Ausdruckwerts in Typ in Klammern
+Mögliche Wandlungen: zwischen skalaren Typen, von skalaren Typ in void
+	zwischen Integer-Typen/Gleitpunkt-Typen/Integer- und Gleitpunkt-Typen/
+	Pointern auf Var/Pointer und Integer-Var/Pointer auf Funkt./pointer, void*/ 
+	Ausdruck in void (nicht umgekehrt!)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

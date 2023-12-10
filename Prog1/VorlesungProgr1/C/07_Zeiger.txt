@@ -1,0 +1,92 @@
+=================================================ZEIGER===============================================102-155
+
+Arbeitsspeicher: in durchnummerierte Speicherzellen eingeteilt: Nummer=Adresse (adressierte Speicherzellen)
+	wenn Speicher byteweise ansprechbar: byteweise adressierbar
+Zeiger(Pointer): Variable, die die Speicheradresse einer Variablen/Funktionen annehmen kann
+	verweist mit Variablenwert auf Speicheradresse
+
+[Typname *Zeigername;]	:"Zeigername ist Zeiger auf Typname" 		Datentyp:"Zeiger auf Typname"
+Wertebereich: NULL-Pointer + Menge aus Zeigern, die auf Speicherobjekte des Typnames zeigen können
+NULL = vordef.Pointer, zeigt auf Adresse 0 (darf nicht dereferenziert werden)
+
+mit Adressoperator[&]:Referenzierung: Erhalten d. Adresse eines Objekts
+mit Inhaltsoperator[*]:Dereferenzierung: Zugriff auf Objekt, auf das Zeiger zeigt
+	man erhält aus Referenz eines Objekts, Objekt selbst
+
+|Referenzierung|		<--|Objekt|-------------		|Dereferenzierung|
+|mit &		   |		 --|Adresse d.Objekts|-->		|mit *			 |
+
+pointer=&x	---pointer:Adresse von x--> *pointer=5
+*pointer=5 	---int-Variable x--------->	pointer=&x
+
+=========================================Eindimensionale Felder================================================
+Feld(Array): Zusammenfassung mehrerer Variablen d. gleichen Typs: gemeinsamer Name
+Typname Feldname[Anzahl];			:var im Speicher hintereinander angelegt(dicht gepackt)
+Arrayerkennung an: "[]", anzahl d.Elem: Konstante, konstanter Ausdruck: nich dynamisch
+Feldindex(Index: 0->(n-1)) wird nicht überwacht		lint: erweiterte Quellcodeprüfung:erkennt Fehler
+leicht mit Schleifen bearbeitbar
+
+Initialisierung: 
+	mauell:typ name[zahl]={..,..}, 
+	implizierte Längenbestimmung:typ name[]={..,..}
+		(Compiler bestimmt größe durch Abzählen d.Elementanzahl: i.d. Initialisierungsliste festgelegt)
+
+Zeichenkette/String: Folge von Zeichen: in Einführungszeichen: stellt Ausdruck dar
+	Vom Compiler als Array gespeichert,ein Speicherplatz mehr: letztes Zeichen: automatisch: "\0"(Nullzeichen)
+	Rückgabewert: Pointer auf erstes Zeichen d. Zeichenkette
+	Direkte Zuweisung an Vektor nur bei Initialisierung: Zuweisung mit Zuweisungsoperator später nicht mögl
+
+----------------------------------Parameterübergabe: Beim Aufruf der Funktion wird...-------------------------
+-Wertparameter: Wert des Ausdrucks an Funktion übergeben (call by value)
+-Referenzparameter: Referenz auf Variable übergeben (call by reference): aktuelle Param. nur Variablen
+	Verwendet um: Ergebnisse an Aufrufer zurückzugeben(+weitere Berechnungserg.)
+	Verwendet um: Parameterübergabe zu beschleunigen
+	Übergabe von Feldern/Strings immer über Refernzparameter
+	schreibschutz durch const	[const int *pointer: Speicher, auf den Zeiger verweist, ist Konstante]
+In C: Call by reference als Sprachmittel nicht vorgesehen
+
+----------------------------------------------Zeigerarithmetik------------------------------------------------
+Zuweisung: Zeiger dürfen Zeigervariablen zugewiesen werden. Datentypen müssen übereinstimmen
+	void * :dürfen Zeigern eines beliebigen Datentyps zugewiesen werden, umgekehrt
+	NULL-Pointer darf jedem anderen Zeiger zugewiesen werden
+Add/Subtr: Zeiger, unter best. Voraussetzungen: untereinander add/substr
+	Zu Zeiger kann ganze Zahl add/subst werden: Pointer wird um ein Speicherobjekt verschoben
+Vergleiche: Überprüfung auf Gleichheit/Ungleichheit mögl, wenn -selber typ oder -ein Pointer=NULL
+	Wenn 2 Pointer auf dasselbe Speicherobjekt zeigen oder beide pointer NULL: Gleich (== : wahr)
+
+Array-Pointer-Notation: name d. Arrays als konst. Zeiger auf 1. Elem: alpha[0] / *alpha
+	wenn alpha: Vektor(alpha[i]=*(alpha+i)): Arraynotation äquivalent zu Pointernotation
+	*(pointer+i) == pointer[i]		|Compiler: rechnet Index in konst. Pointer um.(arbeitet mit pointern)
+	(Pointeroperation besteht aus: Dereferenzierungsoperator, Pointer, Abstand)
+
+Übergabe Felder/Zeichenketten:bei Übergabe Feldes an Funkt: aktueller Param:Feldname(Pointer auf 1.Elem.)
+-Felder/Zeichenreihen werden immer per Referenz übergeben: const (nur lesender Zugriff)
+	Feld wird immer als Referenzparam. übergeben/Feld wird nicht kopiert
+	Form. Parameter kann: offenes Array/Pointer auf Komponententyp d. Arrays sein 	char[]==char *
+
+Vergleich von Arrays(arr1==arr2: verglichen, ob arr1/arr2 auf selbe Adresse zeigen):
+	-Schleife: Überprüfung d.einzelnen Vektorelemente
+	-standartisierte Funktion aus C-Library:  <string.h>
+		strlen(string),strcpy(dest, src),strcat(dest, src),strcmp(s1, s2),strncmp(s1, s2)
+
+=====================Mehrdimensionale Felder:Aneinadnerhängen eckiger Klammern=========================
+Initialisieren:	bei Definition:	int alpha[3][4]={{1,3,5,7},{2,4,6,8},{5,7,9,11}};
+				durch Zuweisung: alpha[1][3] = 6;
+theoretisch: beliebig viele Felder ineinander verschachtelt: n-dimensionale Strukturen:
+	geschachtelte for-Schleifen mit Laufvar für jede Dimension
+
+
+===============================Mehrdimensionale Felder vs.Vektoren von Zeigern================================
+Verwendung bei Strings unterschiedlicher Länge/wenn Länge nicht bekannt ist
+
+char *pointer[8] = char pointer[8][20]
+
+Vektoren von Zeigern: 	char *pointer[3];
+	Anzahl d.Zeiger	fest vorgegeben: folgende Dimensionen können unterschiedl. groß sein
+mehrdim. Array:			int vektor[3][10];
+	Anzahl d. Elemente fest vorgegeben:  folgende Dimensionen/Elemente haben größe d. größten Elements
+
+-->Bildung eines Vektors unterschiedlich langer Strings(weniger Speicherverbrauch)
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

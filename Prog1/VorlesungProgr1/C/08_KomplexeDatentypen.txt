@@ -1,0 +1,80 @@
+==========================================KOMPLEXE DATENTYPEN=============================================156-188
+
+-----------------------------------------------Aufzählungstyp-----------------------------------------------
+Aufzählungen endl.Datenmengen durch Aufzählen d. Elem. definiert		/engl.enumeration types
+	enum type {const1,...,constn}; 			(erste Aufzählungskonstante: Wert 0, folgende 1,2,3...)
+	enum type {const1=wert,...constn=wertn} (Explizite Wertezuweisung jeder/mancher Variablen)
+Definition von Konstanten: alternative zu #define/ keine Typprüfung
+
+------------------------------------------Stukturtyp/Produkttyp(Record)-------------------------------------
+Zusammenfassung logisch zusammengehöriger Daten zu Datentyp"am Stück":	| struct name{
+Verwendung einer Var zur Speicherung eines selbst definierten,			|	 komponententyp_1 komponente_1;
+zusammengesetzten Datentyps(aus verschiedenen Typen), der aus			|	 komponententyp_n komponente_n;	
+einer festen benannter Komponentenanzahl besteht						| };
+
+Initialisierung | Bei Definition mithilfe Initialisierungsliste
+Selektion durch Punktoperator | name.komponente_i
+Konstruktion(über Selektoren) | name.komponente_i = ausdruck;	(string: mit strcpy())
+Zuweisung | bei selbem Typ möglich (a = b)
+Größenberechnung | sizeof(), da Compiler die Komponenten auf best. Wortgrenzen legen(Alignment)
+Vergleich: Komponentenweise | def.eigener Gleichheitsfunktion für jeden Strukturtyp (== funktionert nicht)
+Übergabe an Funktionen | als zusammengesetzte Varibalen komplett übergeben(Call by Value)
+	Einführung eines formalen Paramters vom Strukturtyp,
+	Übergabe einer Strukturvar des Typs des Strukturtyps (als aktueller Parameter)
+Pointer | pointer = &punkt1 -> Zugriff: pointer -> x (= punkt1.x = (*pointer).x)
+
+Anwendung: Weitergabe logisch zusammengehöriger Daten"am Stück", in Form von Strukturen/Pointern auf Strukt.
+(Systemzeit eines Computers: Sekunden seit 00:00 1.1.1970)
+
+-------------------------------------------Vereinigungstyp/Union-----------------------------------------------
+Aus einer Reihe Komponenten mit unterschiedlichen Datentypen,			| union name{
+Alle Alternativen beginnen bei derselben Speicheradresse				|	 komponententyp1	komponente1;
+Speicherplatz: vom Compiler so groß angelegt, dass er auch für 			|	 komponententypn	komponenten;
+die größte Alternative ausreicht										| };
+
+Initialisierung | nur bei erster Variante möglich: durch {konst.Ausdruck}
+Variantentest | C: impliziter Variantentest fehlt: 
+	explizite Modellierung durch Einbetten der Union in speziellem Strukturtyp
+	Bei Initialisierung: Zuweisung muss explizit richige Variante gesetzt werden.
+	Bei Selektion: vorliegende Variante kann abgeprüft werden
+[C: Wird Union definiert, steht nicht automatisch ein Variantentest zur Verfügung]
+((Rest wie bei Strukturtyp))
+
+--------------------------------------------------Bitfelder-----------------------------------------------------
+Kompakte Speicherung einer kleinen Anzahl von Daten 		 			| type var:zahl;
+Explizite Angabe: Datentyp(int:signed/unsigned) , Länge in Bits			|Anwendung: bool (1 Bit statt 4 Byte)
+Verwendung nur in Strukturen, mit Punktoperator angesprochen (Type in C++ auch car,short,long: signed/unsigned)
+[Bitfeld ohne Name: Belegung der Bits, ohne ansprechmöglichkeit, Anwendung: Abbildung von Hardware-Register]
+keine Regel im ISO-Standard: Compiler-Hersteller entscheidet, wie der Speicher belegt wird(pointer nicht nutzbar)
+
+
+-------Aliasnamen: typedef existierender_typ neuer_typ
+Typdefinition, zweiter Gültiger Name(bei zusammengesetzten Datentypen nützlich)
+typedef struct point{
+	int x; 
+	int y
+} punkt;
+punkt.x;
+
+
+===============================================Datentypen in C=================================================
++Elementarer(einfacher) Typ
+	+Integertypen
+		+Aufzählungstypen
+		+Ganzzahlige Typen
+			-char
+			-short
+			-int
+			-long
+	+Gleitpunkttypen
+		-float
+		-double
+		-long double
++Abgeleiteter Typ
+	+Array-Typen
+	+Pointer-Typen
+	+Struktur-Typen
+	+Union-Typen
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

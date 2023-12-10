@@ -1,0 +1,68 @@
+==============================06.10.23=========================================================skript 000-029
+
+Turingvollständigkeit: Mächtigkeit aller Programmiersprachen gleich: Turingvollständig
+
+C:Mutter vieler Programmiersprachen diese Vorlesung: ANSI C (effektive / kleine Programme)
+C: Imperative Programmiersprache: aneinanderreihung einzelner Befehle / maschinennah: effizient abzuarbeiten
+C++: Objektorientierte Programmiersprache
+
+gesucht: Super-Assembler: Laufzeit wie assembler, Unterstützung strukturierter/hardwarenaher Progr
+1989 C durch Amrican National Standards Institure (ANSI) Standartisiert -> Ansi C 
+1990: ISO: C 89/90 = Ansi C von jedem Compiler übersetzbar u. ausführbar
+
+Eigenschaften:
+	über adressen direkter Zugriff auf Speicher, mit adressen rechnen(Zeigerarithmetik)
+	getrennte Kompillierbarkeit von Prgrammeinheiten
+	Operationen auf Bitebene
+	Strukturiert, nicht sehr strenges Typkonzept
+	Übersetzungsvorgang mehrstufig: Präprozessor, Compiler, ...
+
+================================================================================================================
+Fehlermeldungen: Warning-> Compillierung, Fehler -> keine Compillierung
+Textuelle Programmierung in C
+header-datei: .h
+
+Kommentar: /* ... */ : von Präprozessor entfernt
+main {} : Rumpf/Körper/Body: aus sequenz von Anweisungen, die durch Semikolon beendet werden
+"" : String
+int: Standarddatenwert von C
+code, der nach return ...; kommt wird nicht ausgeführt: dead code
+
+"Ergebnistyp" main("Parameter"){
+	return "Rückgabewert";
+}
+
+printf = print formatted
+int: Ganzzahlen (Integer): endlichen Zahlenbereich abhängig von Architektur: INT_MIN <= x <= INT_MAX
+	-(2^n-1) bis (2^n-1)-1	Standard: 32bit: 4Bytes , 64bit: 8Byte, 16bit: 2Byte
+
+================================================================================================================
+	C: getypte Sprache: 
+Typen: Ordnungsprinzip für daten: welche Werte/Operationen möglich
+Varibalen: bezeichner für Speicherzellen = Identifier, read/write permissions, Standardwert undefiniert
+	Alle Variablen müssen bestimmten Typ zugeordnet sein: nur Aufnahme Daten des Typs
+		Definition vor Verwendung, zuornung des Typs: [ int x; ] (Var hat keinen Wert)
+		Initialisierung durch Zuweisung: [ x = 10; ]
+Zuweisung: gibt Variable einen Wert: "=", von rechts nach links: 
+	rechts Term/Ausdruck, links Variable
+	Erste Zuweisung einer Variable : Initialisierung 
+	"schreibender Zugriff auf var"
+Ausdruck: mathematischer Term, Berechnung ergibt Wert: Verknüpfung durch Operatoren: Zahlen/Variablen
+
+Typ Variable Zuweisung Ausdruck
+int 	x 		=		3+5+x
+
+================================================================================================================
+Kompillieren: (Präprozessor) -> Compiler -> Linker -> Loader
+	Quelltext mit Editor geschrieben, auf Festplatte mit .c gespeichert : aus einer oder mehreren Quelldateien
+
+	(0. Präprozessor: definiert/ersetzt Makros, Einschleuesen von Dateiinhalten, entfernen d. Kommentare....)
+	1. Compiler(Übersetzer): umwandeln Text(Quellcode) in Maschinencode(Objektcode) : prozessorspez.Progr.sprache
+	2. Linker: zusammenfügen Maschinencode zu ablauffähigem Programm(Objektdatien+Bibliotheksfunkt.+Laufzeitsys)
+	3. Loader(Lader): laden d. Programms in RAM, wenn gestartet
+-> mit integrierter Entwicklungsumgebung(IDE): Compiler+Linker+Loader+Debugger+Editor
+
+Quellcode.c --Präprozessor-> Quellcode.c --Compiler-> Objektcode.o --Linker-> ausführbaresProgramm.exe
+--Loader-> Ausführung
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,82 @@
+==========================================DYNAMISCHE SPEICHERZUWEISUNG===============================214-227
+
+----Statische und dynamische Variablen:
+statische Variable: 
+	in Programm vereinbart durch Angabe von Name, Typ d. Variablen (int x;)
+	erhält bei Vereinbarung: Bezeichner und Variablennamen -> Zugriff über Name mögl.
+	-Gültigkeitsbereich und Lebensdauer durch statische Programmstruktur festgelegt
+dynamische Variable: anonyme Var. 
+	erscheinen nicht explizit in Variablenvereinbarung, haben keinen Namen
+	Anlegen bei Bedarf zur Laufzeit d.Programms -> kein Zugriff über Bezeichner
+	werden im Heap abgelegt: Gült./Lebensd. nicht durch Blockgrenzen(stat. Programmstruktur) bestimmt
+
+----Adressraum(ablauffähigesProgramm.exe im RAM): 4 Segmente(Bereiche): 
+| Code | Daten | Stack | Heap |
+	Codesegment: Programm in Maschinencode (Konstanten)
+	Datensegment: globale(statische) Variablen - während gesamter Laufzeit vorhanden(keine Veränderung)
+	Stack: lokale(statische) Variablen, Rücksprungadresse, Funktionsparameter 'pulsierend'
+		-erreichen einer "{": Variablen werden auf Stack gelegt: Stack wächst
+		-erreichen einer "}": alle bisherigen Variablen vom Stack gelöscht: Stack schrumpft
+		:wächst in kleinere Datenbereiche: Datensegment
+		je weiter in innenliegende Blöcke: desto größer, je weiter raus ins main-Proramm, desto kleiner
+	Heap: dynamische Variablen
+		"daraufschmeißen" der Variablen (ungeordnet)
+
+
+==========================================Speichermanagement===========================================
+
+---Speicherreservierung: zusammenhängender Speicher im Heap: (in <stdlib.h>) void *funktion(parameter)
+malloc(size_t size)	[=memory allocate] : size=Byte-Anzahl(sizeof();)
+	Rückgabe: bei erfolg: Pointer auf reservierten Speicherbereich / sonst: NULL
+	nach Verwendung: Zuweisung d.NULL-Pointers
+calloc(size_t num, size_t size); [num=Anzahl d.benötigten Var, size=Größe einer Var in Byte: mit sizeof()]
+	Rückgabe ^= Rückgabe von malloc()
+realloc(void *memblock, size_t size): nachträgliche Größenänderung d.Speicherbereichs
+	[memblock=Pointer auf existierenden dyn.Speicherbereich, size=Größe d.neuen Speicherbereichs]
+	wenn kein ausreichend großer zush.Sp.ber. frei: Verschieben d.vorh. SB an Stelle mit genug Speicher
+
+---Speicherfreigabe: Speicherbereich wird von Heapverwaltung erneut vergeben
+	void *free(void *pointer): Übergabe eines Speicherreservierten Pointers auf beliebigen Datentyp
+	NACH FREE SOFORT: p=NULL(verhindert dangling pointers)
+memory leak: wenn vergessen, nicht benötigten Speicher mit free freizugeben
+	Programm braucht mehr speicher, je länger es läuft -> langsamer/absturz
+dangling pointers: wenn Zeiger auf bereits freigegebenen Speicher, Folgen:
+	Unerwartete Werteänderungen aus dem Nichts/Programmabsturz(segmentation fault)/Fehler oft viel später
+
+
+=======================Dynamischer Datentypen Liste / Sequenz / lineare Liste=============================
+Linear geordnete Sammlung von Elementen: lineare Ordnung bezieht sich auf Position i.d.Liste
+Jedes Listenelement: hat Vorgänger u. Nachfolger, hat denselben Typ
+Listengröße: nicht statisch festgelegt/Bedarfsweise dynamisch änderbar
+
+Vorgeben(informell): Liste ist entweder leer oder besteht aus erstem Elem. und restlicher Liste
+Def. d.Datentyps: durch rekursive Definition unter Verwendung eines Zeigers
+	typedef struct list{ int x; struct list *next; }list; (leere Liste:NULL-Zeiger)
+
+Datentyp list bildet mit char.Funktionen d.Datenstruktur d.Listen, zur verf. gestellte Funktionen:
+Erstellen von Listen:
+-list* make(int x){} (einelementig),
+
+Anhängen v.Elem: append(vorne) / stock(hinten)
+	list *append (list *l, int x) {
+		list *nl;
+		if ((nl = (list*) malloc(sizeof(list))) != NULL) {
+			nl->x = x;
+			nl->next = l;
+		} return nl;
+	}
+	
+Liefern v.Elem:	first / rest / last:
+	int first(list *l){ return l -> x; }
+	list* rest(list *l){ return l -> next; }
+
+Liefern d.Länge: length
+	unsigned length(list *l){
+		if(l==NULL) return 0;
+		else return 1+length(rest(1));
+	}
+
+Prüfen, ob Elem. in Liste: bool is_in(int x, list *l){}
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

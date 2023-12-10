@@ -1,0 +1,37 @@
+================================================FUNKTIONEN==============================================084-095
+
+	Prozedur: Funkt hat keinen Rückgabewert, Rückgabetyp void (default wert: int) 
+	Rückgabewert anders als void: Wert MUSS mit return zurückgeben werden, danach dead code
+	Standardrückgabewert: int
+	{...}: Funktion/Wiederholung: Rumpf  |  Verzweigung: Zweig
+
+
+---Funktionsdefinition: Syntax: [rückgabetyp name(typ formaler_param);]
+	Funktionskopf: legt Aufrufschnittstelle d. Funkt. fest
+	Funktionsrumpf: enthält lok. Vereinbarungen, Anweisung
+		formale Parameter: behandlung innerhalb Funkt. wie Variablen: in Parameterliste
+
+
+---Funktionsdeklaration: jede Funkt. muss vor Verwendung deklariert(bekanntgemacht) werden durch:
+	Funktionsdefinition oder Deklarationsanweisung:
+	bekanntgabe d. Signatur: Funktionsname, Typ/Anzahl d.Param., Rückgabetyp
+
+	hat Funkt. formale Parameter MUSS bei Aufruf für jeden solchen ein aktueller Parameter übergeben werden
+		Aktueller Parameter: beliebig koplexer Ausdruck(Übergabe an Funkt.: Wert[call-by-value])
+		1.Auswertung d.Ausdrucks	2.Übergabe d.Werts an Funkt 	3.Ausführung d.Funkt
+	!Auswertungsreihenfolge d.Param: in C nicht festgelegt : Ausdrücke: Seiteneffekte(Veränd.Var.werte)
+
+
+---Funktionsaufruf: Werteübergabe [call-by-value](1.Ausdruckauswertung 2.Wertübergabe 3.Funktionsausführung)
+	hat Funkt. formale Parameter: bei Aufruf wird an jeden form.Parameter aktueller Parameter übergeben
+	Anzahl/Typ d.aktuellen Parameter muss mit anzahl/typ d.formalen Parameter übereinstimmen
+		Aktueller Parameter: beliebig koplexer Ausdruck
+	!Auswertungsreihenfolge in C nicht festgelegt : Seiteneffekte d.Ausdrücke(Werteberechnung+Veränd.d.Varwerte) 
+
+
+Rekursive Funktion(direkt/indirekt): Funkt. ruft sich im Rumpf selbst auf
+	verglichen mit iterativen Funkt: wesentlich langsamer
+	direkt: in eigener Funkt / indirekt: in fremder Funkt.
+	indirekt: "Schleife von Funktionen"- viele Funktionen rufen sich auf, bis wieder bei Funktion1 endet
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

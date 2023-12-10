@@ -1,0 +1,26 @@
+===================================================BLÖCKE===============================================096-101
+Block: (Funktionsrumpf ist immer ein Block)
+{
+	Vereinbarungen: Def.von Funktionen/Variablen (müssen immer VOR Anweisungen stehen [ANSI-C])
+	Anweisungen
+}
+
+Blöcke:Strukturierungselement für Anweisungen {Vereinbarungen Anweisungen}
+	können geschachtelt werden(innerer,äußerer): {{}}
+	in jedem Block: Vereinbarungen durchführbar
+
+globale Variablen: def.außerhalb d.äußersten Block - lokale Variablen: def.innehalb d.Blockes
+!!C erlaubt keine lok.Funkt: immer außerhalb definieren
+
+-------------------------------------------Lebensdauer-Gültigkeit-----------------------------------------------
+Lebensdauer: Zeit, i.d Laufzeitsystem(Compiler) Variablen Platz im Speicher zur Verfügung stellt 
+	glob.var: leben so lang,wie Programm
+	lok.var: beim betreten d.Blocks angelegt,beim verlassen ungültig(leben auch im inneren Block)
+
+Gültigkeit/Sichtbarkeit: Lebensdauer - eingeschlossenen Blöcke, in denen Bezeichner erneut definiert ist
+	Zugriff über Namen möglich, wenn Variable sichtbar
+	Verschattung durch Namensgleichheit d.Variablen
+		Formale Param. verschatten globale Var
+		Lok. Bezeichner verschatten Funktionsbezeichner
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
