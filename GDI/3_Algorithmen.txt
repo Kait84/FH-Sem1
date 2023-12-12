@@ -1,13 +1,13 @@
 ========================================================================================================096-161
 
-Algorithmus: Verfahren/Vorschrift zur Lösung eines Porblems
+Algorithmus: Verfahren/Vorschrift zur Lösung eines Problems
 	durch def einer präzisen/endl. Beschreibung
+		-Präzise: Beschreibungssprache genau definiert
+		-Endlich: Beschreibung muss / Verfahren kann endlich sein
 	effektive/elmentar Verarbeitungsschritte
-	-Präzise: Beschreibungssprache genau definiert
-	-Endlich: Beschreibung muss / Verfahren kann endlich sein
-	-Effektiv: mech. Ausführbar(vage)
-	-Elementar: Einzelschritte: einfach/überschaubar/klar verständlich
-Aufgabenstellung: Was tun (von vielen Alg. lösbar)/ Algorithmus: Wie tun(stark abh. von verfügb.elem. Schritten)
+		-Effektiv: mech. Ausführbar(vage)
+		-Elementar: Einzelschritte: einfach/überschaubar/klar verständlich
+Aufgabenstellung: Was tun (von vielen Alg.lösbar)/ Algorithmus: Wie tun(stark abh.von verfügb.elem. Schritte)
 
 Spezifikation d. Aufgabe: was ist zu tun
 Algorithmus/Datenstrukt.: Lösung entwerfen
@@ -39,8 +39,10 @@ einfache formale Alg.beschreibung: Ersetzen d. Teilworts durch Zeichenkette
 	+endlich, präzise, elementar, effektiv, einfache Grundidee, elementare Maschine reicht
 	-Regelwerke schnell umfangreich: schwer zu lesen/verifizieren
 	==> Verwndung nur in theor. Informatik
-	Textersetungssystem: Endliche Menge von Regeln R über Zeichenvorrat V
-	Ersetung/Regel: (v,w) element von V*xV*		v -> W
+
+Textersetungssystem: Endliche Menge von Regeln R über Zeichenvorrat V
+Ersetung/Regel: (v,w) ∈ V* x V*		
+	Notation: v -> W
 	Ersetzung s->t heißt Anwendung einer Regel, wenn 
 		A,w,v,z element Von V*: s= a O v O z und t=a O w O z 		(O = Konkatenation)
 	Ablauf nicht eindeutik, falls mehrere Regeln anwendbar
@@ -51,44 +53,45 @@ einfache formale Alg.beschreibung: Ersetzen d. Teilworts durch Zeichenkette
 		Textersetzung beenden
 
 Markov Algorithmen: Deterministische Anwendung v. Textersetzungssystemen: falls: 
-mehrere Regeln anwendbar: zuerst notierte verwenden
-Regel an mehreren Stellen anwendbar: möglichst weit links im Wort anwenden
+	mehrere Regeln anwendbar: zuerst notierte verwenden
+	Regel an mehreren Stellen anwendbar: möglichst weit links im Wort anwenden
 
 =============================================Turingmaschine==============================================
 Alan Turing: alles mechanisch berechenbare: auf Maschine mit 6 primitiven Operationen reduzierbar
-1. Beidseitig unendlich langes Speicherband: Felder, 2. Lese/Schreibkopf, 
-3. Steuerwerk: Zustand/Primitiv. Operationen, 4. Turingtabelle(Programm)
+1.Beidseitig unendlich langes Speicherband+Felder, 	2.Lese/Schreibkopf, 
+3.Steuerwerk: Zustand/Primitiv.Operationen, 		4.Turingtabelle(Programm)
 
 Prim. Operationen: (SaFuK = Symbol auf Feld unter Kopf)
-	Rechts/Links: Kopf eine Position bewegen, Drucken. SaFuK drucken, Lesen: SaFuK lesen
-	Löschen: SaFuK Löschen, Nichts/Halt: Tue nichts
+	RECHTS, LINKS (Kopf eine Position bewegen), NICHTS/HALT (Tue nichts)
+	LESEN, DRUCKEN, LÖSCHEN (SaFuK)
 
 Inhalt des Bandes: Symbole aus Zeichensatz, mind. ein "leeres Feld", mind ein anderes Symbol
-Zustände: 1.endlich viele vordefinierte, 1 Anfangszustand, 1 Register/Speicherzelle:aktueller Zust.
+endlich viele vordefinierte Zustände: 1 Anfangszustand, 1 Register/Speicherzelle mit aktuellem Zust.
 Veränderungen bei Berechnung: 1. Zustand, 2. Inhalt d.Bandes, 3. Position d.Kopfes
 	Turingtabelle(Programm) definiert gültige Zustandsübergänge
 
-=========================Algorithmus Eigenschaften-Algorithmus heißt:=====================================
+=============================Algorithmus Eigenschaften-Algorithmus heißt:=================================
 	terminierend: endet stets nach endlichen Schritten
 	deterministisch: keine Auswahl zwischen Verarbeitungsschritten in Ausführung
 	determiniert: Resultat eindeutig bestimmt
 	sequenziell: Verarbeitungsschritte hintereinander ausgeführt
 	parallel: manche Schritte gleichzeitig ausgeführt
 Elemente: Ausführung eines elementaren Schrittes, Seqenz(Abfolge von Schritten), Wiederholung
-		  Fallunterscheidung über Bedingung, Rekursion, Modularisierung(Strukt.vonAlgorithmen)
+		  Fallunterscheidung über Bedingung, Rekursion, Modularisierung(Strukt.von Algorithmen)
 
-===========================Grafische Notation: Darstellung: intuitiv verständl=============================
-1. Flussdiagramm/Programmablaufplan-strukturplan/Flowchart
+==================Grafische Notation: intuitiv verständl/komplex:schnell unübersichtlich=================
+1. Flussdiagramm/Programmablaufplan-strukturplan/Flowchart (DIN 66001)
 	Kontrollelemente: Start/Stop, Verbindung, Bedingung 
 	Aktionsknoten: Operation, Unterprogramm, Ein/Ausgabe
-2. Struktogramm/Nassi-Shneidermann-Diagramm
-	Algorithmus beschr. Abfolge von Einzelschritten: repräsentiert durch Block
+---------------------------------------------------------------------------------------------------------
+2. Struktogramm/Nassi-Shneidermann-Diagramm (DIN 66261)
+	Algorithmus beschr. Abfolge von Einzelschritten: Einzelschritt repräsentiert durch Block
 	Eleme. Block: textuell Beschrieben, Komplexer: kapselt Blockkombinationen
 	
 	Sequenz: bestehend aus Sequenz von n Einzelblöcken B1...Bn
 		Sequenzielles Ausführen, von oben nach unten(Reihenfolge), kein Block ausgelassen
-	Fallunterscheidung: Schlüsselwörter:fett (true, false) 
-	Auswahl: alternativ durch geschachtelte Fallunterscheidungen (Wert1..Wertn/ sonst)
+	Fallunterscheidung: Schlüsselwörter:fett (true, false), Ablaufpfad kann von Bedingung abhängen 
+	Auswahl: alternativ durch geschachtelte Fallunterscheidungen (Wert1..Wertn/sonst)
 	Wiederholung: solange Eintrittsbedeingung erfüllt: Iteration (solange/while - bis/until)
 
 Struktogramm für komplexen/umfangreichen Algorithmus: schnell unübersichtlich
