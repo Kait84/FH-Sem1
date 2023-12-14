@@ -18,8 +18,8 @@ Objekt hat Verhalten(durch Menge seiner Operationen/Methoden/Funktionen beschrie
 
 
 --------Klasse: wenn Objekte dieselben Attribute u. Eigenschaften haben: gruppierung zu Klassen
+Klasse spezifiziert gemeinsame Attribute u. Methoden (^=Bauplan/Schablone):mehrfachinstanziierung
 Objekt ist Instanz einer Klasse (Exemplar)
-Mehrode spezifiziert gemeinsame Attribute u. Methoden (^=Bauplan/Schablone)
 
 Möglichkeiten einer Klasse: Klasse ist Datentyp(Erweiterung von "struct")
 	-unterbringen von Funktionen (Methoden, member functions)
@@ -27,12 +27,14 @@ Möglichkeiten einer Klasse: Klasse ist Datentyp(Erweiterung von "struct")
 	-Vergeben von Zugriffsrechten (-private: kein Zugriff von außen, -public:Zugriff von außen mögl.)
 
 Definition: 
-class Rad{
-	float umdrehungszahl;	}
-	float durchmesser;		}Attribute
-	...						}
-	float berechne_geschwindigkeit(){return durchmesser * 3.14 * umdrehungszahl; }	}Methode
-};	<---Semikolon notwendig!!
+	class Rad{
+		float umdrehungszahl;	#
+		float durchmesser;		#Attribute
+		...						#
+		float berechne_geschwindigkeit(){return durchmesser * 3.14f * umdrehungszahl; }	#Methode
+	};	#Semikolon notwendig!!
+
+	Rad_vorne_links:Rad
 
 
 --------Zugriffsrechte: standard(ohne Zuweisung), alle Elemente: private	(struct: public)
@@ -47,16 +49,22 @@ class Rad{
 
 --------Erzeugung von Objekten:
 Klasse: wie Datentyp verwendbar(erzeugung v."Variablen": Objekte der Klasse, Zugriff mit Punkt-Operator)
-Erzeugen des Objekts: Rad rvl;
-Zugriff auf Objekt: rvl.berechne_geschwindigkeit()
+Erzeugen, Zugriff auf Objekt: [ Klasse Objekt; Objekt.Attribut/Methode; ]
+Rad rvl; rvl.berechne_geschwindigkeit();
 
 
 -------Kapselung d.Attribute: DIREKTER ZUGRIFF auf Attribute sollte NICHT MÖGLICH sein
--->Zugriff über Setter-/Getter-Methoden
-void set_umdrehung(float u){umdrehung = u;}
-float get_umdrehung(void){return umdrehung;}
+-->Zugriff nur über Setter-/Getter-Methoden
+class Name{
+	private:
+		...Variablen...
+	public:
+		...Setter/Getter-Methoden...
+		void set_umdrehung(float u){umdrehung = u;}
+		float get_umdrehung(void){return umdrehung;}
+}
 
-------Dynamische Objekte: entsprechen dynamischen Variablen in C:
+------Dynamische Objekte: new <--> delete 		(statt malloc <--> free bei Variablen in C)
 Anlegen bei Bedarf mit new-Operator zur Laufzeit auf d.Heap (gibt Zeiger auf Objekt zurück)
 Gültigkeit/Lebensdauer NICHT durch statische Programmstruktur bestimmt, Objekte: nicht automatisch gelöscht
 Löschen mit delete-Operator(von Heap entfernt) -> manuell:Zeigervariable=NULL, sonst wird Speicher erschöpft
@@ -68,11 +76,12 @@ Gründe für die Aufteilung auf mehrere Dateien:
 	-bessere Übersicht/Auffinden von Klassen/Methoden, 
 	-schnelleres Kompillieren: nur übersetzt, wenn selbst oder durch inkl.Header-Dateien geändert
 	-bei Team: vermeidbar, dass Zwei Programmierer an selber Datei arbeiten
+
 Methoden: außerhalb d.Klassendeklaration (in seperaten Quellcode-Datei) definieren
 Trennen von Klassen-Definition u.-Deklaration(Implementierung)
-Klassen-Deklaration immer in Header-Datei(in jeder Datei, i.d.Klasse verwendet inkludieren)
-Bezug zu Klasse mit Scope-Resolution-Operator "::"
-Eigentliche Definiton d.Klasse getrennt übersetzt, mit Linker dazu gebunden
+	Klassen-Deklaration immer in Header-Datei(in jeder Datei, i.d.Klasse verwendet inkludieren)
+	Bezug zu Klasse mit Scope-Resolution-Operator "::" [Klassenname::Mehthode(){...}]
+	Eigentliche Definiton d.Klasse getrennt übersetzt, mit Linker dazu gebunden
 
 ----Konstruktor: Versetzen eines Objekts in Anfangszustand: 
 Bereitstellung d.Speicherplatzes für Attribute, Initialisierung von Attributen mit sinnvollen Anfangswerten
