@@ -9,8 +9,8 @@ Zeiger(Pointer): Variable, die die Speicheradresse einer Variablen/Funktionen an
 Wertebereich: NULL-Pointer + Menge aus Zeigern, die auf Speicherobjekte des Typnames zeigen können
 NULL = vordef.Pointer, zeigt auf Adresse 0 (darf nicht dereferenziert werden)
 
-mit Adressoperator[&]:Referenzierung: Erhalten d. Adresse eines Objekts
-mit Inhaltsoperator[*]:Dereferenzierung: Zugriff auf Objekt, auf das Zeiger zeigt
+mit Adressoperator[&]:Referenzierung: Erhalten d. Adresse eines Objekts / "Zeiger auf Typ"
+mit Inhaltsoperator[*]:Dereferenzierung: Zugriff auf Objekt,auf das Zeiger zeigt / aus Referenz "Objekt"
 	man erhält aus Referenz eines Objekts, Objekt selbst
 
 |Referenzierung|		<--|Objekt|-------------		|Dereferenzierung|
