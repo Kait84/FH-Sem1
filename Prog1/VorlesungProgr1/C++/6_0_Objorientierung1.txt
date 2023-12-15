@@ -40,10 +40,9 @@ Definition:
 --------Zugriffsrechte: standard(ohne Zuweisung), alle Elemente: private	(struct: public)
 class Rad{
 	private: 
-		float solldruck;
 		...
 	public: 
-		float durchmesser
+		...
 }
 
 
@@ -85,29 +84,29 @@ Trennen von Klassen-Definition u.-Deklaration(Implementierung)
 
 ----Konstruktor: Versetzen eines Objekts in Anfangszustand: 
 Bereitstellung d.Speicherplatzes für Attribute, Initialisierung von Attributen mit sinnvollen Anfangswerten
-	-Aufrufe: automatisch in Programm eingefügt(wenn Objekt erzeugt, Klasse verfügt über Konstruktor)
+	-Aufrufe: automatisch in Programm eingefügt(wenn Objekt erzeugt, verfügt Klasse über Konstruktor)
 	-tragen denselben Namen wie Klasse, haben keine Rückgabewerte
 
--Standardkonstruktor/Defaultkonstruktor: 
-	Verwendung bei jeder Erzeugung eines Objekts d.Klasse wenn kein Konstruktor explizit definiert ist
-	hat keine Parameter, reserviert Speicher, macht KEINE Initialisierung
-	i.d.R durch selbst geschriebenen Konstruktor ersetzt
--Allgemeiner Konstruktor(vom Programmierer geschr.): 
-	für eine Klasse mehrere Konstruktoren mit verschiedenen Argumentlisten(untersch. Parameteranzahl/Typ)
-	->überladen ist möglich, beliebige Argumente: dann kein Standardkonstruktor
-	Parametr können beim Anlegen d.Objekts nach Objektnamen angegeben werden
-	Initialisierungsliste: zur Initialisierung d.Klassenattribute direkt bei Erzeugung
-		Komma-separierte Liste von Initialisierern, zwischen Kopf(durch ":"" abgesetzt) und Rumpf
-		[ attributname(initialwert) ]
--Kopierkonstruktor(copy const.): 
-	Initialisierung eines Objekts d.Klasse mit anderen derselben Klasse
--Typumwandlungskonstruktor: 
-	nur ein Argument: Umwandlung anderer Datentyp in Klasse(als Typ gesehen)
+	-Standardkonstruktor/Defaultkonstruktor: gleicher Name wie Klasse
+		-SPEICHERRESERVIERUNG, hat keine Parameter, macht keine Initialisierung
+		Verwendung bei jeder Erzeugung eines Objekts d.Klasse wenn kein Konstruktor explizit definiert ist
+		i.d.R durch selbst geschriebenen Konstruktor ersetzt
+	-Allgemeiner Konstruktor(vom Programmierer geschr.): 
+		für eine Klasse mehrere Konstruktoren mit verschiedenen Argumentlisten(untersch. Parameteranzahl/Typ)
+		->überladen ist möglich, beliebige Argumente: dann kein Standardkonstruktor
+		PARAMETERANGABE beim Anlegen d.Objekts nach Objektnamen
+		INITIALISIERUNGSLISTE: zur Initialisierung d.Klassenattribute direkt bei Erzeugung
+			Komma-separierte Liste von Initialisierern, zwischen Kopf(durch ":"" abgesetzt) und Rumpf
+			[ attributname(initialwert) ]
+	-Kopierkonstruktor(copy const.): 
+		Initialisierung eines Objekts d.Klasse mit anderen derselben Klasse
+	-Typumwandlungskonstruktor: 
+		nur ein Argument: Umwandlung anderer Datentyp in Klasse(als Typ gesehen)
 
-----Destruktor: 
+----Destruktor: [ ~meineKlasse(){delete höhe; delete breite;} ]
 automatisch beim Löschen eines Objekts aufgerufen(Ende d.Gültigkeitsbereichs/delete-Operator)
 keine Argumente/Rückgabewert, ermöglicht "Aufräumoperationen" bevor Objekt gelöscht wird
-Identischer Name mit Klassennamen, vorangestellte Tilde"~" [~meineKlasse(){delete höhe, delete breite}]
+Identischer Name mit Klassennamen, vorangestellte Tilde"~" 
 
 ----Kopierkonstruktor: erzeugt Kopie eines bereits existierenden Objektes
 Umkopieren der Attributwerte: kein expliziter Kopierkonstruktor def.:

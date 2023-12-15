@@ -31,8 +31,7 @@ Vererbung: Fälle: Klasse ist Spezialisierung/Erweiterung/vereint Eigenschaften 
 	Abgeleitete Klassen: alle Methoden/Daten d.Basisklassen + weitere + können sie überschreiben(verschatten)
 	Objekt einer Unterklasse kann verwendet werden wo Objekt der Oberklasse erwartet wird(nicht umgekehrt!)
 
-	abgeleitete/Sub/Unter/Kindklasse "ist ein" Basis/Ober/Super/Elternfunktion 
-
+	abgeleitete Klasse|Sub-/Unter-/Kindklasse "ist ein" Basisklasse|Ober-/Super-/Elternklasse
 
 
 
