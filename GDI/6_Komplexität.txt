@@ -59,4 +59,4 @@ Produktregel: T(n) = T1(n)*T2(n) = Laufzeit der ineinander geschachtelten Progra
 	Wenn Programmteile innerhalb des anderen immer wieder ablaufen müssen Komplexitäten multipliziert werden
 
 !!! Bsp:--406					
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

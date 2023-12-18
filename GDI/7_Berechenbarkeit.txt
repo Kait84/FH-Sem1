@@ -75,7 +75,22 @@ Branch and Bound Verfahren: effizientes Backtracking:
 	Weiterverfolgung des Zweigs/branchs mit höchster Erfolgswahrscheinlichkeit
 	Bound Schritt versucht Zweige ohne Lösung abzuschneiden(Begrenzung d.Rechenaufwands)
 
-Bewertungsfunktion b: Für jeden Knoten k: 
---449
+Bewertungsfunktion b: Für jeden Knoten k: für alle Knoten I d.Teilbaums mit Wurzel k gilt: b(k) <= b(I)
+worst-case Komplexität: O(2^n)
 
-----------------------------------------------Greedy-Methode-------------------------------------------------
+---------------------------Greedy-Methode(schnellstmögliches Erreichen d.Ziels)------------------------------
+Komplexität wird bei Verwendung einer annähernd optimalen Lösung deutlich reduziert 
+	--> Backtracking(Zurücksetzen) vermeiden
+
+Lösen einer globalen Optimierungsaufgabe durch logkales Optimierungskriterium
+Grundmenge A( Lösungsbausteine ), Lösungsmenge initial leere Menge( {} )
+Schrittweises hinzufügen des geeignetsten(lokal optimalsten) Elem.aus A zur Lösungsmenge, entfernen aus A
+	bis Gesamtlösung erreicht
+
+liefert bei lösbaren Problemen IMMER Lösung (allg.suboptimal)
+Auswahl d.lokalen Optimums führt oft nicht zu globalen Optimum(Auswahl kann unterschiedlich erfolgen)
+NP-vollständige Probleme erfordern genaue Analyse bez.tatsächlichen Eingabedaten/Anforderungen(anpassung)
+
+Komplexität: O(n) (brute force Methode: O(2^n))
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

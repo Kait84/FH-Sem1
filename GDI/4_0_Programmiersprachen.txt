@@ -33,12 +33,13 @@ Grafisch:										-Struktogramm,Programmablaufplan, endlicher Automat(Statechar
 heutige Sprachen: Mischung:natürliche Sprache/mathematische Formeln
 Formale Definition: Definition d.Aufschreibung(Syntax), Definition d.Bedeutung d.Sprachkonstrukte(Semantik)
 
-Definition d.Syntax: grammtikalische Regeln / BNF-Notation(Backus-Naur-Form) -extended(EBNF)
+Definition d.Syntax: 
+	grammtikalische Regeln / BNF-Notation(Backus-Naur-Form) -extended(EBNF)
 Definition d.Semantik: 
-Arten: 
-	Funktional: weist jedem Ausdruck einen Wert zu, (über mathematische Ausdrücke)
-	Operationell: Definiert für jeden Ausdruck einen Algorithmus zur Auswertung
-Notation: Textuell(wenig präzise), über mathematisch Formel(funkt.Semantik)
+	Arten: 
+		Funktional: weist jedem Ausdruck einen Wert zu, (über mathematische Ausdrücke)
+		Operationell: Definiert für jeden Ausdruck einen Algorithmus zur Auswertung
+	Notation: Textuell(wenig präzise), über mathematisch Formel(funkt.Semantik)
 
 =======================================Backus-Naur-Form(BNF-Notation)======================================
 Bedeutung: Metasprache zur Definition formaler Sprache mit kontextfreier Grammatik
@@ -80,7 +81,7 @@ Beispiele: Anweisung/Anweisungsblock/Zuweisung
 
 ==============================================Datentyp=====================================================
 Programm arbeitet auf bestimmeter Art von Daten: Parameter müssen mit richtiger Art von Daten belegt werden
-Definition: Datentyp(Sorte, Art): 
+Definition: [ Datentyp(Sorte, Art) ]: 
 	nichtleere Menge von Datenelementen, kapselt Repräsentationen gleichartiger Datenelem.
 	(gleichartig: Gleicher Speicherplatzbedarf, meist gleiche Semantik)
 Bedeutung:
@@ -94,7 +95,7 @@ Bedeutung:
 	Datentypen: Elementare Datenstrukturen / Datenstruktur: Benutzerdefinierte Datenstrukturen
 
 --------Funktionalität: F=Funktionssymbole, T=Datentypen
-	Funktionalität: f: t1 x ... x tn -> te mit f Elem.von F, t1, ..., tn, te Elem.von T
+	Funktionalität: f: t1x...xtn -> te 	mit f∈F, t1,...,tn, te∈T
 	Funktion: n-stellig, braucht n Parameter, falls n=0: Funktion ist eine Konstante
 Signatur: Paar(F, T) mit Funktionalitäten
 
@@ -111,19 +112,17 @@ Gesetze: Involutionsgesetz: notnotx = x,
 		 Konstante: false=x and (not x)		true=x or (not x)
 
 --------Natürliche Zahlen: Operationen:
-	+, -, *, /, mod: nat x nat -> nat
-	succ			: nat -> nat
-	0 				: -> nat
+	## +, -, *, /, mod: nat x nat -> nat
+	## succ			: nat -> nat
+	## 0 				: -> nat
 ExtNat:	Mehrsortige Datenstruktur T={boolean, nat}: Operationen:
 wie bisher bei boolean, nat, Zusätzlich:
-	isZero: nat -> boolean			isZero(0)=true, isZero(succ(x))=false
-	equals: nat x nat -> boolean	equals(x,x)=true, equals(s, succ(x))=false
+	## isZero: nat -> boolean			isZero(0)=true, isZero(succ(x))=false
+	## equals: nat x nat -> boolean	equals(x,x)=true, equals(s, succ(x))=false
 
 ==================================Kernbestandteile eines Programms========================================
 Für funktionale, prozedurale, objektorientierte Programme ähnlich, Aufbau log.Progr. grundlegend verschieden
 
 Kopf (head): Name, benötigte Parameter
 Rumpf(body)/Block: ggf Variablendeklarationen, Anweisungen(die Algorithmus realisieren)
-
-
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
