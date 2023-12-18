@@ -33,12 +33,17 @@ Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Obje
 			[ class unterklasse:public oberklasse{...} ]
 		-Generalisieren Klassen (vereinen Eigenschaften vorhandener Klassen)
 			Generalisierung: aus existierenden Klassen wird Oberklasse erzeugt
-			[  ]
+			[ class oberklasse:unterklasse1, unterklasse2{...} ]
 	Objekt einer Unterklasse kann immer verwendet werden, wenn Oberklasse erwartet wird (nicht umgekehrt)
 
+	Öffentliche/public Klassen: zur Basisklasse zuweisungskompatibel(enthalten Schnittstelle d.Basisklasse)
+		umgekehrt nicht möglich
+	Zuweisung von Oberklasse zu Unterklasse möglich, dann Information d.Unterklase verloren
+	Zuweisung eines Zeigers auf Basisklasse an abgeleitete Klasse: keine Informationen gehen verloren
 
 
---341
+
+--342
 
 -----Überschreiben von Methoden:
 -----Mehrfachvererbung:
