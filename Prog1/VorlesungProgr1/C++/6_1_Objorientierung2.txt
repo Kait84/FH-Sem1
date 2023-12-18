@@ -1,4 +1,4 @@
-=============================================Objektorientierung2=======================================325-356
+=============================================Objektorientierung2=======================================325-355
 -----Statische Attribute und Methoden:
 Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Objekt)
 	existieren pro Klasse exakt einmal, haben für alle Objekte d.selben Wert, 
@@ -11,28 +11,35 @@ Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Obje
 	können auch ohne Objekt aufgerufen werden -> Zugriff nur auf statisch Attr.
 	-->Statische Elem.gehören zur Klasse, nichtstatische gehören zu bestimmten Objekten
 
-Konstante Methoden: Funktionsparam. als konstant deklariert
+-----Konstante Methoden: Funktionsparam. als konstant deklariert
 	Ist Parameter Zeiger auf konstantes Objekt: kein verändernder Zugriff auf Objekt
 	deutlichmachen für Compiler, dass Methode Datenelement nicht ändert: als konstant deklarieren:
 		[ parameterklasse() const{...} ] 		:Zugriff auf konstante Obj.möglich
 		:immer, wenn Methode nur lesend auf Elemente zugreift
 
-Friend Funktionen: in Klasse: Funktionsdeklaration als friend
+-----Friend Funktionen: in Klasse: Funktionsdeklaration als friend
 	Deklaration außerhalb der Klasse/kein Member d.Klasse
 	Zugriff auf private Members gewährt -> Funktion kann dir. auf private Attribute zugreifen
 	deklaration einer friend klasse innerhalb anderer Klasse -> 
 		alle Methoden der Klasse: Zugriff auf alle Attribute d.Klasse
 
-Vererbung: Fälle: Klasse ist Spezialisierung/Erweiterung/vereint Eigenschaften mehrerer Funkt.
-		aus mehreren parallel entwickelten Klassen: gemeinsamer Kern: Funktion/Benutzung
-	Attribute werden an Unterfunktion vererbt + spezielle Eigenschaften(dann abgeleitete Klasse)
-		Ableitung: Erzeugen einer Unterklasse aus existierenden Klasse (+neue Elem:Spezialisierung)
-		Generalisierung: Erzeugen einer Oberklasse aus existierenden Klasse
-	Abgeleitete Klassen: alle Methoden/Daten d.Basisklassen + weitere + können sie überschreiben(verschatten)
-	Objekt einer Unterklasse kann verwendet werden wo Objekt der Oberklasse erwartet wird(nicht umgekehrt!)
+-----Vererbung: Ableitung von Klassen aus andern Klassen
+	abgeleitete Klasse/Sub-/Unter-/Kindklasse "ist-eine" Basisklasse/Ober-/Super-/Elternklasse
+	Abgeleitete Klassen: enthalten/überschreiben(verschatten) Methoden/Daten der Basisklassen + weitere
 
-	abgeleitete Klasse|Sub-/Unter-/Kindklasse "ist ein" Basisklasse|Ober-/Super-/Elternklasse
+	Klassen: (gemeinsamer Kern mehrerer Klassen bez. Funktion/Benutzung)
+		-Spezialisieren/Erweitern vorhandene Klassen(Oberklassen vererben Attribute/Methoden an Unterklasse)
+			Ableitung: Erzeugung einer abgeleiteten Klasse aus Basisklasse
+			[ class unterklasse:public oberklasse{...} ]
+		-Generalisieren Klassen (vereinen Eigenschaften vorhandener Klassen)
+			Generalisierung: aus existierenden Klassen wird Oberklasse erzeugt
+			[  ]
+	Objekt einer Unterklasse kann immer verwendet werden, wenn Oberklasse erwartet wird (nicht umgekehrt)
 
 
 
 --341
+
+-----Überschreiben von Methoden:
+-----Mehrfachvererbung:
+	--Diamond Problem:

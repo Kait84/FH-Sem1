@@ -1,1 +1,24 @@
-==================================================C-Funktionen==========================================357-363
+===================================C-Funktionen(Funktionen mit nicht-def.Erg)===========================356-363
+
+partielle Funktion: nicht auf allen Eingabeelementen definiert ( undef.Ergebnis: _|_(bottom) )
+strikte Funktion: liefert undef.Ergebnis, wenn Argument undefiniert ist ( alle selbst def.Funktionen)
+nicht strikte Funktion: kann trotz undef.Argument ein definiertes Ergebnis liefern
+	--striktheit garantiert, dass jeder Fehler durchschlägt, nichtstrikte Funktionen können Fehler abfangen
+
+Aufrufstrategien: 
+	Call-by-value/eager evaluation: ALLE Argumente werden bei Funktionsaufruf ausgewertet (Semantik:strikt)
+		meiste gängige Programmiersprachen (C/C++/Java...)
+	Call-by-need/lazy evaluation: nur benötigte Argumente werden ausgewertet (Semantik: i.A. nicht strikt)
+		LazyML, Haskell...
+
+Funktionen, die nur im ersten Argument strikt sind (C):
+	bedingter Ausdruck " x?y:z"
+	Boolsche Funktionen "||, &&"
+	--Verhalten von Compiler abhängig
+
+Kurzschlussauswertung/bedingte Auswertung/short-circuit evaluation:
+	Auswertungsstrategie Boolescher Ausdrücke
+	Ohne: Ergebnis eines Booleschen Ausdrucks steht erst nach Auswertung aller Teilausdrücke fest
+	Mit: Vorzeitiges Auswertungs-Abbrechen eines Bool.Ausdr, sobald Erg. durch Teilausdruck eindeutig bestimmt
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
