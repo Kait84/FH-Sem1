@@ -1,7 +1,7 @@
 ==========================PRÄPROZESSOR/preprocessor(=Textersetzungsmaschine)=============================189-201
 Aufgaben: bedingte Kompilierung, Ersetzen von Text, Einfügen von Dateien	|
 Syntax einer Präprozessor-Direktive/Präprozessor-Befehl: 					| #Direktive Text
-Präprozessor-Befehle enden mit Zeilenende Zeichen/Zeilenumbruch
+Präprozessor-Direktiven enden mit Zeilenende Zeichen/Zeilenumbruch
 [Quellcode(.c) --Präprozessor-> Quellcode(.c) --Compiler-> Objektcode(.o) --Linker-> Programm(.exe)...]
 
 
