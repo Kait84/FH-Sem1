@@ -33,7 +33,7 @@ Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Obje
 			[ class unterklasse:public oberklasse{...} ]
 		-Generalisieren Klassen (vereinen Eigenschaften vorhandener Klassen)
 			Generalisierung: aus existierenden Klassen wird Oberklasse erzeugt
-			[ class oberklasse:unterklasse1, unterklasse2{...} ]
+			[ class oberklasse:public unterklasse1, public unterklasse2{...} ]
 	Objekt einer Unterklasse kann immer verwendet werden, wenn Oberklasse erwartet wird (nicht umgekehrt)
 
 	Öffentliche/public Klassen: zur Basisklasse zuweisungskompatibel(enthalten Schnittstelle d.Basisklasse)
@@ -41,9 +41,28 @@ Statische Attribute in Klassen: Attribute, die zu Klasse gehören (statt zu Obje
 	Zuweisung von Oberklasse zu Unterklasse möglich, dann Information d.Unterklase verloren
 	Zuweisung eines Zeigers auf Basisklasse an abgeleitete Klasse: keine Informationen gehen verloren
 
+	durch public-Ableitung gelten in Basisklasse definierten Zugriffsrechte auch für abgeleitete Klasse
+		abgeleitete Klasse kann nur auf public-Elemente der Basisklasse zugreifen
+		--> protected: private für Zugriff von "außen", public für Zugriff von "innen"
+	durch private-Ableitung: öffentliche Elem.d.Basisklasse werden in abgeleiteter Klasse privat
+		[default Ableitungsart], kaum nützlich
+		Objekte der abgeleiteten Klasse können nicht Basisklasse zugewiesen werden(Schutzrechte)
+
+	|--Zugriff--|-von-außen-|-von-innen-|
+	------------------------------------
+	| private	| unmöglich	| unmöglich	|
+	| protected	| unmöglich	| möglich 	|
+	| public 	| möglich 	| möglich 	|
+
+	Definition eines Objektes:immer Konstruktoraufruf
+		hat es Basisklassen: Objekt d.Basisklase erzeugt, Aufruf der Konstruktoren aller Basisklassen
+		Konstruktor: 1. Start d.Standardkonst.d.Basisklasse, 2.Ausführung Konstr.d.abgeleiteten Klasse
+		Dekonstruktor: 1.Dekonstruktoren d.abgeleiteten Klassen, 2.Standarddekonstr. d.Basisklasse
 
 
---342
+--346
+
+
 
 -----Überschreiben von Methoden:
 -----Mehrfachvererbung:
