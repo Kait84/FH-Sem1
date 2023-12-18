@@ -26,6 +26,7 @@ nicht in Frage kommender Source-Code(Programmteile in false-interpretiertem Zwei
 Direktiven: 	#if konst_Ausdr 	#elif konst_Ausdr 	#else	}#endif	
 				#ifdef Symbol 		#ifndef Symbol				}	(ifdef(Makro_definiert))
 
+
 ------Einfügen von Dateien (in temp. Kompilerdatei)	| #incluce "filename", #include <filename>
 Zeile der Präprozessordirektive wird entfernt,		| <>: Systemdatei in Include-Verzeichnissen (/usr/include)
 Quelltext wird in Datei eingefügt, 					| "": Suche zuerst in aktuellem Arbeitsverzeichnis

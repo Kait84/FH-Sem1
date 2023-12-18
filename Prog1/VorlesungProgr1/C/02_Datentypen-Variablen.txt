@@ -26,6 +26,7 @@ Namenskonvention: Buchstaben+Ziffern(_=Buchstabe), beginnt mit Buchstabe
 	mind. 31 Zeichen f. interne Namen, 6 f. externe Namen relevant
 
 ================================================================================================================
+
 Literale Konst.: haben Keinen Namen, durch Wert dargestellt
 Symbolische Konst.: haben Namen, der Wert repräsentiert:
 	#define | const (höhere Typsicherheit)   <=>  (Konsistente Mehrfachverwendung/Austauschbarkeit)

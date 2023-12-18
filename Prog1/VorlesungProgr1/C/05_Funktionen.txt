@@ -28,7 +28,6 @@
 		Aktueller Parameter: beliebig koplexer Ausdruck
 	!Auswertungsreihenfolge in C nicht festgelegt : Seiteneffekte d.Ausdrücke(Werteberechnung+Veränd.d.Varwerte) 
 
-
 Rekursive Funktion(direkt/indirekt): Funkt. ruft sich im Rumpf selbst auf
 	verglichen mit iterativen Funkt: wesentlich langsamer
 	direkt: in eigener Funkt / indirekt: in fremder Funkt.

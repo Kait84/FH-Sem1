@@ -58,6 +58,7 @@ punkt.x;
 
 
 ===============================================Datentypen in C=================================================
+
 +Elementarer(einfacher) Typ
 	+Integertypen
 		+Aufzählungstypen
@@ -75,6 +76,5 @@ punkt.x;
 	+Pointer-Typen
 	+Struktur-Typen
 	+Union-Typen
-
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
